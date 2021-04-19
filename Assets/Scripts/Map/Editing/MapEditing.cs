@@ -23,7 +23,7 @@ public class MapEditing : MonoBehaviour
     int graphicsReference = 0;
 
     public Vector3 chosenMapSize;
-    public Vector3 brushSize = Vector3.one;
+    public Vector3 brushSize = Vector3.zero;
     TMP_InputField mapNameField;
     public string mapName;
     public GameObject finalizeButton;
@@ -246,28 +246,44 @@ public class MapEditing : MonoBehaviour
 
     public void Paint(Sect originSect)
     {
-        Debug.Log(originSect.simpleLocation);
-        for (int i = 0; i <= brushSize.x; i++)
+        List<Sect> sectsToPaint = GetNeighbours(originSect);
+        Debug.Log(sectsToPaint.Count);
+        for (int i = 0; i < sectsToPaint.Count; i++)
         {
-            for (int j = 0; j <= brushSize.y; j++)
+            Sect sect = sectsToPaint[i];
+            Debug.Log(sect);
+            sect.ChangeColor(eUI.modelColor);
+        }
+    }
+
+    public List<Sect> GetNeighbours(Sect node)
+    {
+        List<Sect> neighbours = new List<Sect>();
+        Debug.Log(brushSize);
+        neighbours.Add(node);
+        for (int x = (int)-brushSize.x; x <= (int)brushSize.x; x++)
+        {
+            for (int y = (int)-brushSize.y; y <= (int)brushSize.y; y++)
             {
-                for (int k = 0; k <= brushSize.z; k++)
+                for (int z = (int)-brushSize.z; z <= (int)brushSize.z; z++)
                 {
-                    if ((int)originSect.simpleLocation.x + i > chosenMapSize.x-1 || (int)originSect.simpleLocation.y + j > chosenMapSize.y-1 || (int)originSect.simpleLocation.z + k > chosenMapSize.z-1)
+            //        if (x == 0 && y == 0 && z == 0 || y != 0 && x == 0 && z == 0 || x != 0 && z != 0)
+            //            continue;
+
+                    int checkX = (int)node.simpleLocation.x + x;
+                    int checkY = (int)node.simpleLocation.y + y;
+                    int checkZ = (int)node.simpleLocation.z + z;
+
+                    if (checkX >= 0 && checkX < chosenMapSize.x && checkY >= 0 && checkY < chosenMapSize.y && checkZ >= 0 && checkZ < chosenMapSize.z)
                     {
-                        continue;
-                    }
-                    else if (basicSectArray[(int)originSect.simpleLocation.x + i, (int)originSect.simpleLocation.y + j, (int)originSect.simpleLocation.z + k] != null)
-                    {
-                        Sect sect = sectArray[(int)originSect.simpleLocation.x + i, (int)originSect.simpleLocation.y + j, (int)originSect.simpleLocation.z + k];
-                        sect.ChangeColor(eUI.modelColor);
+                        if(sectArray[checkX,checkY,checkZ] != null)
+                            neighbours.Add(sectArray[checkX, checkY, checkZ]);
                     }
                 }
             }
         }
-
+        return neighbours;
     }
-
 
     public void ExportMap()
     {

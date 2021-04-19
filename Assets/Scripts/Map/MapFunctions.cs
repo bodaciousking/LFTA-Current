@@ -14,31 +14,6 @@ public class MapFunctions : MonoBehaviour
     }
 
 
-    public List<Coord> GetNeighbours(Coord sourceTile, int range, Vector2 mapSize, Coord[,] coordMap)
-    {
-        List<Coord> neighbours;
-        Coord tile = sourceTile;
-        neighbours = new List<Coord>();
-
-        float halfRange = range * 0.5f;
-
-        for (int x = -range; x <= range; x++)
-        {
-            for (int y = -range; y <= range; y++)
-            {
-                int neighbourX = tile.x + x;
-                int neighbourY = tile.y + y;
-                if (x == 0 || y == 0 || x <= halfRange && y <= halfRange && y >= -halfRange && x >= -halfRange)
-                {
-                    if (neighbourX >= 0 && neighbourX < (int)mapSize.x && neighbourY >= 0 && neighbourY < (int)mapSize.y)
-                    {
-                        neighbours.Add(coordMap[neighbourX, neighbourY]);
-                    }
-                }
-            }
-        }
-        return neighbours;
-    }
     public Vector3 CoordToPosition(int x, int y, int z, Vector3 mapSize)
     {
         return new Vector3(-mapSize.x / 2 + 0.5f + x, -mapSize.y /2 + 0.5f + y, -mapSize.z / 2 + 0.5f + z);
@@ -66,7 +41,6 @@ public class MapFunctions : MonoBehaviour
     {
         return new Vector3(coord.x, coord.y, coord.z);
     }
-
 
 }
 

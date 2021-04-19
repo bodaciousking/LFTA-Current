@@ -15,7 +15,7 @@ public class CameraControll : MonoBehaviour
     public float ySpeed = 200.0f;
     public int yMinLimit = -80;
     public int yMaxLimit = 80;
-    public int zoomRate = 100;
+    public int zoomRate = 400;
     public float panSpeed = 0.3f;
     public float moveSpeed = 0.2f;
     public float minYLocation = 0.0f;
@@ -143,10 +143,13 @@ public class CameraControll : MonoBehaviour
             // Middle mouse Pan
             if (Input.GetMouseButton(2))
             {
+                float pos = target.transform.position.y;
                 //grab the rotation of the camera so we can move in a psuedo local XY space
                 target.rotation = transform.rotation;
                 target.Translate(Vector3.right * -Input.GetAxis("Mouse X") * panSpeed);
                 target.Translate(transform.forward * -Input.GetAxis("Mouse Y") * panSpeed, Space.World);
+
+                target.position = new Vector3(target.position.x, pos, target.position.z);
             }
 
             ////////Move with WASD
@@ -185,10 +188,10 @@ public class CameraControll : MonoBehaviour
         }
         
        
-        if (target.position.y <= maxYLocation)
-            target.transform.position = new Vector3(target.transform.position.x, maxYLocation, target.transform.position.z);
+        //if (target.position.y <= maxYLocation)
+        //    target.transform.position = new Vector3(target.transform.position.x, maxYLocation, target.transform.position.z);
 
-        target.position = new Vector3(target.position.x, 0.7f, target.position.z);
+        //target.position = new Vector3(target.position.x, 0.7f, target.position.z);
         
     }
     private static float ClampAngle(float angle, float min, float max)
