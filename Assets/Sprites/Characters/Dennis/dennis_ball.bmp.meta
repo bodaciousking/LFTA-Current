@@ -1,0 +1,512 @@
+fileFormatVersion: 2
+guid: 14d0c5f7c3a901a41943b70d92e0ea5a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7868758326024199146
+    second: dennis_ball_0
+  - first:
+      213: -6537671466206938132
+    second: dennis_ball_1
+  - first:
+      213: 8871183528389717881
+    second: dennis_ball_2
+  - first:
+      213: 6074604061529369660
+    second: dennis_ball_3
+  - first:
+      213: -7494576636162799362
+    second: dennis_ball_4
+  - first:
+      213: 6309002233318871991
+    second: dennis_ball_5
+  - first:
+      213: -880078478436001964
+    second: dennis_ball_6
+  - first:
+      213: 1657092589553789366
+    second: dennis_ball_7
+  - first:
+      213: -9210568923608001293
+    second: dennis_ball_0
+  - first:
+      213: 4532239505123681225
+    second: dennis_ball_1
+  - first:
+      213: -1535074023610728318
+    second: dennis_ball_2
+  - first:
+      213: -8783059729578114078
+    second: dennis_ball_3
+  - first:
+      213: 6679622764325762633
+    second: dennis_ball_4
+  - first:
+      213: -5579722334247680437
+    second: dennis_ball_5
+  - first:
+      213: -7419747144353087001
+    second: dennis_ball_6
+  - first:
+      213: -7922095577196458044
+    second: dennis_ball_7
+  - first:
+      213: 615944458035428788
+    second: dennis_ball_8
+  - first:
+      213: -1675280834513769889
+    second: dennis_ball_9
+  - first:
+      213: -9065967104767009420
+    second: dennis_ball_10
+  - first:
+      213: -5852572984829583773
+    second: dennis_ball_11
+  - first:
+      213: -7564554252704835078
+    second: dennis_ball_12
+  - first:
+      213: -4844026185787039870
+    second: dennis_ball_13
+  - first:
+      213: 8172011172584990154
+    second: dennis_ball_14
+  - first:
+      213: 8801575332622567406
+    second: dennis_ball_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dennis_ball_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 141.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4d7191d5c7d2080800000000000000
+      internalID: -9210568923608001293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 141.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3a3eb21dfb5ee30800000000000000
+      internalID: 4532239505123681225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_2
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 141.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 280c0c60f4252bae0800000000000000
+      internalID: -1535074023610728318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_3
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 141.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e34579e5bd4c1680800000000000000
+      internalID: -8783059729578114078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 94.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 946ff359389c2bc50800000000000000
+      internalID: 6679622764325762633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_5
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 94.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b468ad18918d092b0800000000000000
+      internalID: -5579722334247680437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_6
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 94.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e18d91a843c70990800000000000000
+      internalID: -7419747144353087001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_7
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 94.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf038cab001f0290800000000000000
+      internalID: -7922095577196458044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 47.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd729e98364c8800800000000000000
+      internalID: 615944458035428788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_9
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 47.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5a69cff4f430c8e0800000000000000
+      internalID: -1675280834513769889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_10
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 47.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d5cf6a3f63f2280800000000000000
+      internalID: -9065967104767009420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_11
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 47.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e5f29e0eb77cea0800000000000000
+      internalID: -5852572984829583773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af99b536cfd450790800000000000000
+      internalID: -7564554252704835078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_13
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 0.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f197949df86ccb0800000000000000
+      internalID: -4844026185787039870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_14
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 0.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac5a3724dd0d86170800000000000000
+      internalID: 8172011172584990154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dennis_ball_15
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 0.75
+        width: 82
+        height: 47.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee70fccd12a752a70800000000000000
+      internalID: 8801575332622567406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: cf8ce27ec78089a42b2859f26839c5b1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

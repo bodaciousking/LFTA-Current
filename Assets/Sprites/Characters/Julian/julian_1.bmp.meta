@@ -1,0 +1,458 @@
+fileFormatVersion: 2
+guid: e2c041b4ed861f64788d9d7f212b9dcf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9209469174413978710
+    second: julian_1_0
+  - first:
+      213: 5546462919140764365
+    second: julian_1_1
+  - first:
+      213: 6320728839457010375
+    second: julian_1_2
+  - first:
+      213: -9160665790023331128
+    second: julian_1_3
+  - first:
+      213: 8341095787317873560
+    second: julian_1_4
+  - first:
+      213: 5595945882513075396
+    second: julian_1_5
+  - first:
+      213: -8052739428200908161
+    second: julian_1_6
+  - first:
+      213: 6294731669889399854
+    second: julian_1_7
+  - first:
+      213: 2321892137392655400
+    second: julian_1_8
+  - first:
+      213: -214525968247721083
+    second: julian_1_9
+  - first:
+      213: 5540384927562683129
+    second: julian_1_10
+  - first:
+      213: 79558251971545266
+    second: julian_1_11
+  - first:
+      213: 3122115152423585312
+    second: julian_1_12
+  - first:
+      213: -5335608247183617732
+    second: julian_1_13
+  - first:
+      213: 2518752724262731714
+    second: julian_1_7
+  - first:
+      213: 6349840276990089396
+    second: julian_1_8
+  - first:
+      213: -2558076567445182002
+    second: julian_1_9
+  - first:
+      213: 8242854389308582068
+    second: julian_1_10
+  - first:
+      213: 8972316146556744855
+    second: julian_1_11
+  - first:
+      213: -3694869383640972881
+    second: julian_1_12
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: julian_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa315296494613080800000000000000
+      internalID: -9209469174413978710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 100
+        width: 109.14286
+        height: 100
+      alignment: 9
+      pivot: {x: 0.71650326, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcae24773aef8fc40800000000000000
+      internalID: 5546462919140764365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_2
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 100
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c2f66d046db7b750800000000000000
+      internalID: 6320728839457010375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_3
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 100
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2169fcff6ced080800000000000000
+      internalID: -9160665790023331128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_4
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 100
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89bc690fc6681c370800000000000000
+      internalID: 8341095787317873560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_5
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 100
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc608da12bc8ad40800000000000000
+      internalID: 5595945882513075396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_6
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 100
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a7d41c72cee3090800000000000000
+      internalID: -8052739428200908161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_13
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 0
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c31d9f5819c14f5b0800000000000000
+      internalID: -5335608247183617732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf3abef14864f220800000000000000
+      internalID: 2518752724262731714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_8
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 0
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8567ac61a2f1850800000000000000
+      internalID: 6349840276990089396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_9
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 0
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec9ed294ae2ef7cd0800000000000000
+      internalID: -2558076567445182002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_10
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 0
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8e1020560846270800000000000000
+      internalID: 8242854389308582068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_11
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 0
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79434087ff1148c70800000000000000
+      internalID: 8972316146556744855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_1_12
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 0
+        width: 109.14286
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa10d903fdf29bcc0800000000000000
+      internalID: -3694869383640972881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b6b5123f5abbdb5408825b0fbdf4ca15
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

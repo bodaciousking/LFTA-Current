@@ -1,0 +1,227 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Grid : MonoBehaviour
+{
+    public static Grid instance;
+    public Vector3 gridWorldSize;
+    public float nodeRadius;
+    public LayerMask unwalkableMask;
+    public Node[,,] grid;
+
+    float nodeDiameter;
+    public int gridSizeX, gridSizeY, gridSizeZ;
+
+    MapInfo mapInfo;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.Log("More than one instance of Grid found!");
+            return;
+        }
+        instance = this;
+
+
+        nodeDiameter = nodeRadius * 2;
+    }
+
+    private void Start()
+    {
+        mapInfo = MapInfo.instance;
+    }
+
+    public int MaxSize
+    {
+        get {
+            return gridSizeX * gridSizeY * gridSizeZ;
+        }
+    }
+    public void CreateGrid()
+    {
+        mapInfo = MapInfo.instance;
+        gridWorldSize = mapInfo.mapSize;
+        gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
+        gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
+        gridSizeZ = Mathf.RoundToInt(gridWorldSize.z / nodeDiameter);
+        grid = new Node[gridSizeX, gridSizeY, gridSizeZ];
+        Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.z / 2 - Vector3.up * gridWorldSize.y / 2;
+        unwalkableMask = 1 << 9;
+
+        for (int x = 0; x < gridSizeX; x++) {
+            for (int y = 0; y < gridSizeY; y++) {
+                for (int z = 0; z < gridSizeZ; z++)
+                {
+                    Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (z * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
+                    bool walkable = !(Physics.Raycast(worldPoint + Vector3.down * 0.1f, Vector3.up, 3.5f, unwalkableMask)) ;
+                    grid[x, y, z] = new Node(walkable, worldPoint, x, y, z);
+
+                    if (TileFromNode(grid[x, y, z]))
+                    {
+                        Tile tileScript = TileFromNode(grid[x, y, z]);
+                        tileScript.blocked = !walkable;
+                        tileScript.nodeWorldPoint = worldPoint;
+                    }
+                }
+            }
+        }
+    }
+
+    public List<Node> GetNeighbours(Node node, int range)
+    {
+        List<Node> neighbours = new List<Node>();
+        for (int x = -range; x <= range; x++)
+        {
+            for (int y = -range; y <= range; y++)
+            {
+                for (int z = -range; z <= range; z++)
+                {
+                    if (x == 0 && y == 0 && z == 0 || y != 0 && x == 0 && z == 0 || x != 0 && z != 0)
+                        continue;
+
+                    int checkX = node.gridX + x;
+                    int checkY = node.gridY + y;
+                    int checkZ = node.gridZ + z;
+
+                    if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY && checkZ >= 0 && checkZ < gridSizeZ)
+                    {
+                        neighbours.Add(grid[checkX, checkY, checkZ]);
+                    }
+                }
+            }
+        }
+        return neighbours;
+    }
+    public List<Node> Get8Neighbours(Node node, int range)
+    {
+        List<Node> neighbours = new List<Node>();
+        for (int x = -range; x <= range; x++)
+        {
+            for (int y = -range; y <= range; y++)
+            {
+                for (int z = -range; z <= range; z++)
+                {
+                    if (x == 0 && y == 0 && z == 0)
+                        continue;
+
+                    int checkX = node.gridX + x;
+                    int checkY = node.gridY + y;
+                    int checkZ = node.gridZ + z;
+
+                    if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY && checkZ >= 0 && checkZ < gridSizeZ)
+                    {
+                        neighbours.Add(grid[checkX, checkY, checkZ]);
+                    }
+                }
+
+            }
+        }
+        return neighbours;
+    } 
+
+    public List<Vector3> GetSurroundingEnemyLocations(Vector3 currentLocation, int team)
+    {
+        List<Vector3> locations = new List<Vector3>();
+
+        Node currentNode = NodeFromWorldPoint(currentLocation);
+        List<Node> surroundingNodes = GetNeighbours(currentNode, 1);
+        for (int i = 0; i < surroundingNodes.Count; i++)
+        {
+            if (TileFromNode(surroundingNodes[i]))
+            {
+                Tile nodeTile = TileFromNode(surroundingNodes[i]);
+                if (nodeTile.occupyingUnit)
+                {
+                    if (nodeTile.occupyingUnit.alive)
+                        if (nodeTile.occupyingUnit.team != team)
+                        {
+                            locations.Add(nodeTile.occupyingUnit.transform.position);
+                        }
+                }
+            }
+        }
+
+        return locations;
+    }
+
+    public Tile TileFromNode(Node node)
+    {
+        int x = node.gridX;
+        int y = node.gridY;
+        int z = node.gridZ;
+
+        return mapInfo.tileGrid[x, y, z];
+        
+    }
+
+    public Tile TileFromVector2(Vector2 vector) // BIG DEAL COMING THROUGH
+    {
+        return mapInfo.tileGrid[(int)vector.x, (int)vector.y, 0];
+    }
+
+    public void ResetGrid()
+    {
+        //Debug.Log ( "Called resetgrid.");
+        foreach (Node item in grid)
+        {
+            item.gCost = 0;
+            item.parent = null;
+            item.hCost = 0;
+            item.aCost = 0;
+        }
+    }
+
+    public void ResetTileGrid()
+    {
+        //Debug.Log("Called reset tile grid.");
+        foreach (Tile item in mapInfo.tileGrid)
+        {
+            if (item)
+            {
+                item.inRange = false;
+                item.inAttackRange = false;
+                item.attackable = false;
+                item.validAbilityTarget = false;
+            }
+        }
+    }
+
+    public Node NodeFromWorldPoint(Vector3 worldPosition)
+    {
+        float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;
+        float percentY = (worldPosition.y + gridWorldSize.y / 2) / gridWorldSize.y;
+        float percentZ = (worldPosition.z + gridWorldSize.z / 2) / gridWorldSize.z;
+        percentX = Mathf.Clamp01(percentX);
+        percentY = Mathf.Clamp01(percentY);
+        percentZ = Mathf.Clamp01(percentZ);
+
+        int x = Mathf.RoundToInt((gridSizeX - 1) * percentX); 
+        int y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
+        int z = Mathf.RoundToInt((gridSizeZ - 1) * percentZ);
+        return grid[x, y, z];
+    }
+
+
+    public Tile TileFromWorldPoint(Vector3 worldPosition)
+    {
+        float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;
+        float percentY = (worldPosition.y + gridWorldSize.y / 2) / gridWorldSize.y;
+        float percentZ = (worldPosition.z + gridWorldSize.z / 2) / gridWorldSize.z;
+        percentX = Mathf.Clamp01(percentX);
+        percentY = Mathf.Clamp01(percentY);
+        percentZ = Mathf.Clamp01(percentZ);
+
+        int x = Mathf.RoundToInt((gridSizeX - 1) * percentX);
+        int y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
+        int z = Mathf.RoundToInt((gridSizeZ - 1) * percentZ);
+
+        //Debug.Log("X:" + x + " Y:" + y + " Z:" + z);
+        return mapInfo.tileGrid[x, y, z];
+    }
+
+    private void Update()
+    {
+    }
+}

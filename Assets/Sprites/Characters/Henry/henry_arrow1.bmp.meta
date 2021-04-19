@@ -1,0 +1,752 @@
+fileFormatVersion: 2
+guid: 9beb17983259bec4db3625e92e1f41ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 197866469440782336
+    second: henry_arrow1_0
+  - first:
+      213: -2952945389591295589
+    second: henry_arrow1_1
+  - first:
+      213: -1747174011737782366
+    second: henry_arrow1_2
+  - first:
+      213: -4707060141952869931
+    second: henry_arrow1_3
+  - first:
+      213: 6856098374072570003
+    second: henry_arrow1_4
+  - first:
+      213: -5819158162080636121
+    second: henry_arrow1_5
+  - first:
+      213: -4526212937990365155
+    second: henry_arrow1_6
+  - first:
+      213: -7515145167063103109
+    second: henry_arrow1_7
+  - first:
+      213: 7725032175734152472
+    second: henry_arrow1_8
+  - first:
+      213: 3331325250243893677
+    second: henry_arrow1_9
+  - first:
+      213: 350214565861380624
+    second: henry_arrow1_10
+  - first:
+      213: 5482285990263563415
+    second: henry_arrow1_11
+  - first:
+      213: 8940203472256839798
+    second: henry_arrow1_12
+  - first:
+      213: 7687300044847847704
+    second: henry_arrow1_13
+  - first:
+      213: 1818775121930358018
+    second: henry_arrow1_14
+  - first:
+      213: 6626645685669767225
+    second: henry_arrow1_15
+  - first:
+      213: -6667746904083435208
+    second: henry_arrow1_16
+  - first:
+      213: 2512732023167280828
+    second: henry_arrow1_17
+  - first:
+      213: -6463909363348192677
+    second: henry_arrow1_18
+  - first:
+      213: -4835349795051825243
+    second: henry_arrow1_19
+  - first:
+      213: 9104821748540480470
+    second: henry_arrow1_20
+  - first:
+      213: -751843667136833961
+    second: henry_arrow1_21
+  - first:
+      213: 6458162528365274511
+    second: henry_arrow1_22
+  - first:
+      213: -4573659411803577398
+    second: henry_arrow1_23
+  - first:
+      213: -5382915476803649832
+    second: henry_arrow1_24
+  - first:
+      213: -2117693445705947792
+    second: henry_arrow1_25
+  - first:
+      213: 4911923132865069108
+    second: henry_arrow1_26
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: henry_arrow1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 97.33333
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0008aff6186feb200800000000000000
+      internalID: 197866469440782336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 97.33333
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b99884440d70507d0800000000000000
+      internalID: -2952945389591295589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 97.33333
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a743954e7ac0c7e0800000000000000
+      internalID: -1747174011737782366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_3
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 97.33333
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d9df7e6db92daeb0800000000000000
+      internalID: -4707060141952869931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_4
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 97.33333
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3909ab36521c52f50800000000000000
+      internalID: 6856098374072570003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_5
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 97.33333
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7236e599b723e3fa0800000000000000
+      internalID: -5819158162080636121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_6
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 97.33333
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10ae455059af21c0800000000000000
+      internalID: -4526212937990365155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 49.333332
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79c5b99947d4b790800000000000000
+      internalID: -7515145167063103109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_8
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 49.333332
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81dd819b5d3d43b60800000000000000
+      internalID: 7725032175734152472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_9
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 49.333332
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9931c3aae3b3e20800000000000000
+      internalID: 3331325250243893677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_10
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 49.333332
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 012d559ca463cd400800000000000000
+      internalID: 350214565861380624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_11
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 49.333332
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 794a2cecf0ef41c40800000000000000
+      internalID: 5482285990263563415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_12
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 49.333332
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6703597d0bbf11c70800000000000000
+      internalID: 8940203472256839798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_13
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 49.333332
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 819100769a6ceaa60800000000000000
+      internalID: 7687300044847847704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_14
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 49.333332
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20d0afc46569d3910800000000000000
+      internalID: 1818775121930358018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_15
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 49.333332
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 938a8b2442396fb50800000000000000
+      internalID: 6626645685669767225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_16
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 49.333332
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83175e994876773a0800000000000000
+      internalID: -6667746904083435208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.3333321
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb662a846740fd220800000000000000
+      internalID: 2512732023167280828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_18
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1.3333321
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b524f496ea49b46a0800000000000000
+      internalID: -6463909363348192677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_19
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1.3333321
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a79d2deaf265ecb0800000000000000
+      internalID: -4835349795051825243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_20
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 1.3333321
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db91011423da5e70800000000000000
+      internalID: 9104821748540480470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_21
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1.3333321
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7569ead0b2ae095f0800000000000000
+      internalID: -751843667136833961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_22
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1.3333321
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8563fc4a9000a950800000000000000
+      internalID: 6458162528365274511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_23
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1.3333321
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac363db4ff81780c0800000000000000
+      internalID: -4573659411803577398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_24
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1.3333321
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de7a2dc4ea0c45b0800000000000000
+      internalID: -5382915476803649832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_25
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1.3333321
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0752689f7017c92e0800000000000000
+      internalID: -2117693445705947792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: henry_arrow1_26
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1.3333321
+        width: 49
+        height: 48.666668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 430427a9018aa2440800000000000000
+      internalID: 4911923132865069108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0124840fb413cad42811017ccf352fa7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

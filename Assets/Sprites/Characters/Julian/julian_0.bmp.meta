@@ -1,0 +1,1484 @@
+fileFormatVersion: 2
+guid: a1d90e090079e7149b482c7eea57daf1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -634513217840667914
+    second: julian_0_0
+  - first:
+      213: -8778620949287807138
+    second: julian_0_1
+  - first:
+      213: -6415802546745435478
+    second: julian_0_2
+  - first:
+      213: -9063204110149252639
+    second: julian_0_3
+  - first:
+      213: -3573976241652795435
+    second: julian_0_4
+  - first:
+      213: 1913776770945631410
+    second: julian_0_5
+  - first:
+      213: 4656057196794249755
+    second: julian_0_6
+  - first:
+      213: 7454529369155277583
+    second: julian_0_7
+  - first:
+      213: 6133964839865037622
+    second: julian_0_8
+  - first:
+      213: -4117625622814409945
+    second: julian_0_9
+  - first:
+      213: -2213814326985473512
+    second: julian_0_10
+  - first:
+      213: -8619748886948485085
+    second: julian_0_11
+  - first:
+      213: 4277022466317143390
+    second: julian_0_12
+  - first:
+      213: -7662744116408593511
+    second: julian_0_13
+  - first:
+      213: 6909263695213096536
+    second: julian_0_14
+  - first:
+      213: 4601600949691707626
+    second: julian_0_15
+  - first:
+      213: -2969538776792876960
+    second: julian_0_16
+  - first:
+      213: -1760536926113364230
+    second: julian_0_17
+  - first:
+      213: -635614416021670763
+    second: julian_0_18
+  - first:
+      213: -6221206195399017284
+    second: julian_0_19
+  - first:
+      213: 4169377200144806203
+    second: julian_0_20
+  - first:
+      213: -7735666609162630503
+    second: julian_0_21
+  - first:
+      213: -7348426771814694908
+    second: julian_0_22
+  - first:
+      213: 2890753672530703502
+    second: julian_0_23
+  - first:
+      213: 7695340344565479344
+    second: julian_0_24
+  - first:
+      213: 4347970488166024257
+    second: julian_0_25
+  - first:
+      213: -741296679505783600
+    second: julian_0_26
+  - first:
+      213: 642688278739758668
+    second: julian_0_27
+  - first:
+      213: -8753499047198166992
+    second: julian_0_28
+  - first:
+      213: 6418489573911190261
+    second: julian_0_29
+  - first:
+      213: 777126670496740192
+    second: julian_0_30
+  - first:
+      213: 3791806892061495017
+    second: julian_0_31
+  - first:
+      213: 6315624029318036519
+    second: julian_0_32
+  - first:
+      213: -6916794271754671696
+    second: julian_0_33
+  - first:
+      213: 4998718584381736278
+    second: julian_0_34
+  - first:
+      213: -4171658026745776681
+    second: julian_0_35
+  - first:
+      213: -2725005792996617651
+    second: julian_0_36
+  - first:
+      213: 690611216892333148
+    second: julian_0_37
+  - first:
+      213: -7054568835060684782
+    second: julian_0_38
+  - first:
+      213: 8265552007547911077
+    second: julian_0_39
+  - first:
+      213: 5967649276565193016
+    second: julian_0_40
+  - first:
+      213: -6072747372700039664
+    second: julian_0_41
+  - first:
+      213: 7427125598937883915
+    second: julian_0_42
+  - first:
+      213: 1816237851824385754
+    second: julian_0_43
+  - first:
+      213: 278519926023561951
+    second: julian_0_44
+  - first:
+      213: 4926080994197249581
+    second: julian_0_45
+  - first:
+      213: -6937264567017623556
+    second: julian_0_46
+  - first:
+      213: -4674272173277812820
+    second: julian_0_47
+  - first:
+      213: -3085904891847916610
+    second: julian_0_48
+  - first:
+      213: 8546071616919035382
+    second: julian_0_49
+  - first:
+      213: -8962409476549864899
+    second: julian_0_50
+  - first:
+      213: -9123698913062358122
+    second: julian_0_51
+  - first:
+      213: -8917102840774605793
+    second: julian_0_52
+  - first:
+      213: 4726546351810640447
+    second: julian_0_53
+  - first:
+      213: -8309269900714863063
+    second: julian_0_54
+  - first:
+      213: 1187103076575481539
+    second: julian_0_55
+  - first:
+      213: 1181272492491522525
+    second: julian_0_56
+  - first:
+      213: 8525418207639104884
+    second: julian_0_57
+  - first:
+      213: -8353807206040939432
+    second: julian_0_58
+  - first:
+      213: -7319613884671567342
+    second: julian_0_59
+  - first:
+      213: 5282353327388757951
+    second: julian_0_60
+  - first:
+      213: 3702746455366561549
+    second: julian_0_61
+  - first:
+      213: -3301662069389129213
+    second: julian_0_62
+  - first:
+      213: 1835345464650279588
+    second: julian_0_63
+  - first:
+      213: -2558471191548824714
+    second: julian_0_64
+  - first:
+      213: 1399160882921097047
+    second: julian_0_65
+  - first:
+      213: -8446617819770126470
+    second: julian_0_66
+  - first:
+      213: 5336056294897134989
+    second: julian_0_67
+  - first:
+      213: -8407701876842763854
+    second: julian_0_10
+  - first:
+      213: 6851657873542926961
+    second: julian_0_11
+  - first:
+      213: -6137632880867374427
+    second: julian_0_12
+  - first:
+      213: -5327079122339013442
+    second: julian_0_13
+  - first:
+      213: 7768560888231147360
+    second: julian_0_14
+  - first:
+      213: 3859134629074713551
+    second: julian_0_15
+  - first:
+      213: -3526452458863037260
+    second: julian_0_16
+  - first:
+      213: 7596785530151646063
+    second: julian_0_17
+  - first:
+      213: -1191848674579594735
+    second: julian_0_18
+  - first:
+      213: -5202968445898174774
+    second: julian_0_19
+  - first:
+      213: -7334543694857996543
+    second: julian_0_20
+  - first:
+      213: -6985495639872109247
+    second: julian_0_21
+  - first:
+      213: 995189785613467892
+    second: julian_0_22
+  - first:
+      213: -3614696179509034936
+    second: julian_0_23
+  - first:
+      213: 2846098010856627348
+    second: julian_0_24
+  - first:
+      213: 8912550139326806376
+    second: julian_0_25
+  - first:
+      213: 8275180664171789709
+    second: julian_0_26
+  - first:
+      213: -7452321259293736774
+    second: julian_0_27
+  - first:
+      213: 6989494582733129061
+    second: julian_0_28
+  - first:
+      213: 3261815562402286923
+    second: julian_0_29
+  - first:
+      213: -3964028223355277358
+    second: julian_0_30
+  - first:
+      213: 3971773273220571893
+    second: julian_0_31
+  - first:
+      213: 3363999856591514484
+    second: julian_0_32
+  - first:
+      213: 6419269163401571500
+    second: julian_0_33
+  - first:
+      213: -2751854912629635119
+    second: julian_0_34
+  - first:
+      213: 6842035267712972765
+    second: julian_0_35
+  - first:
+      213: 1185775330082293677
+    second: julian_0_36
+  - first:
+      213: -6832188722578961416
+    second: julian_0_37
+  - first:
+      213: -2181399533510846668
+    second: julian_0_38
+  - first:
+      213: 1904980336006153342
+    second: julian_0_39
+  - first:
+      213: 7458349891917915483
+    second: julian_0_40
+  - first:
+      213: -7782262007560912486
+    second: julian_0_41
+  - first:
+      213: -3487212060778987195
+    second: julian_0_42
+  - first:
+      213: 6942065182214025344
+    second: julian_0_43
+  - first:
+      213: -4100469098572147313
+    second: julian_0_44
+  - first:
+      213: -3409090219969688409
+    second: julian_0_45
+  - first:
+      213: -7183985335140324818
+    second: julian_0_46
+  - first:
+      213: -5840544052208706385
+    second: julian_0_47
+  - first:
+      213: -1187612079240404157
+    second: julian_0_48
+  - first:
+      213: -1892293974340213957
+    second: julian_0_49
+  - first:
+      213: 2782205066437246455
+    second: julian_0_50
+  - first:
+      213: 4753564260581497232
+    second: julian_0_51
+  - first:
+      213: -3025506981291281637
+    second: julian_0_52
+  - first:
+      213: -6543293259281673502
+    second: julian_0_53
+  - first:
+      213: -646176088168880215
+    second: julian_0_54
+  - first:
+      213: -8064061372436955513
+    second: julian_0_55
+  - first:
+      213: -833177998829710985
+    second: julian_0_56
+  - first:
+      213: -6857073110654001212
+    second: julian_0_57
+  - first:
+      213: -2729381573309051379
+    second: julian_0_58
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: julian_0_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f221551791c137f0800000000000000
+      internalID: -634513217840667914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 400
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e57d5ebf1c21c2680800000000000000
+      internalID: -8778620949287807138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 400
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa113c739d76f6a0800000000000000
+      internalID: -6415802546745435478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 400
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e981b771e7093280800000000000000
+      internalID: -9063204110149252639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 400
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d779904b8fa66ec0800000000000000
+      internalID: -3573976241652795435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4cb9365d91f8a10800000000000000
+      internalID: 1913776770945631410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 400
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1282d40a53ad9040800000000000000
+      internalID: 4656057196794249755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_7
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 400
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f03973827fec37760800000000000000
+      internalID: 7454529369155277583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 400
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63334e0d588302550800000000000000
+      internalID: 6133964839865037622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_9
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 400
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72bb91aef414bd6c0800000000000000
+      internalID: -4117625622814409945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b9e66d50b7d15b80800000000000000
+      internalID: -8407701876842763854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_11
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 300
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 172d80bc88af51f50800000000000000
+      internalID: 6851657873542926961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 300
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa8426d96fb2daa0800000000000000
+      internalID: -6137632880867374427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_13
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 300
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc559623c96216b0800000000000000
+      internalID: -5327079122339013442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_14
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 300
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067b20fd7f87fcb60800000000000000
+      internalID: 7768560888231147360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_15
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 300
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcb3862af766e8530800000000000000
+      internalID: 3859134629074713551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_16
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 300
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b47a203c268f0fc0800000000000000
+      internalID: -3526452458863037260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_17
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 300
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63348fa0343d6960800000000000000
+      internalID: 7596785530151646063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_18
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 300
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 112c9a5f1f3b57fe0800000000000000
+      internalID: -1191848674579594735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_19
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 300
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace4ca4d3c75bc7b0800000000000000
+      internalID: -5202968445898174774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 107786e9e57763a90800000000000000
+      internalID: -7334543694857996543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_21
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 200
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145026de9b88e0f90800000000000000
+      internalID: -6985495639872109247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_22
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 200
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f0869756df9fcd00800000000000000
+      internalID: 995189785613467892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_23
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 200
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8400769e9f406ddc0800000000000000
+      internalID: -3614696179509034936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_24
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 200
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49c1e05cf0f5f7720800000000000000
+      internalID: 2846098010856627348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_25
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 200
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 869be69812dbfab70800000000000000
+      internalID: 8912550139326806376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_26
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 200
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8df32468f857d270800000000000000
+      internalID: 8275180664171789709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_27
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 200
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab084bb7c49049890800000000000000
+      internalID: -7452321259293736774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_28
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 200
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56543538a4caff060800000000000000
+      internalID: 6989494582733129061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_29
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 200
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4d44dfd8fb444d20800000000000000
+      internalID: 3261815562402286923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df294b4551fcf8c0800000000000000
+      internalID: -3964028223355277358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_31
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 100
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f2e3b6afb29e1730800000000000000
+      internalID: 3971773273220571893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_32
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 100
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b2a9cdb045fae20800000000000000
+      internalID: 3363999856591514484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_33
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 100
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cac6b2a1b43d51950800000000000000
+      internalID: 6419269163401571500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_34
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 100
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d70c4379827fc9d0800000000000000
+      internalID: -2751854912629635119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_35
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 100
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd7f9b843dac3fe50800000000000000
+      internalID: 6842035267712972765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_36
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 100
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da70af45168b47010800000000000000
+      internalID: 1185775330082293677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_37
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 100
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb40482e803f21a0800000000000000
+      internalID: -6832188722578961416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_38
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 100
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43712eb8eac1ab1e0800000000000000
+      internalID: -2181399533510846668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_39
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 100
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7440c7c589df6a10800000000000000
+      internalID: 1904980336006153342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b55275ee5b1618760800000000000000
+      internalID: 7458349891917915483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_41
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a914052bfe9dff390800000000000000
+      internalID: -7782262007560912486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_42
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5418fc45b1fea9fc0800000000000000
+      internalID: -3487212060778987195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_43
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0807979a08b275060800000000000000
+      internalID: 6942065182214025344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_44
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f85142f74153817c0800000000000000
+      internalID: -4100469098572147313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_45
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7acc27fc18a70b0d0800000000000000
+      internalID: -3409090219969688409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_46
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a685b666b5d4c90800000000000000
+      internalID: -7183985335140324818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_47
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac5419012832fea0800000000000000
+      internalID: -5840544052208706385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: julian_0_48
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 80
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 343a9ed2b11c48fe0800000000000000
+      internalID: -1187612079240404157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 96f0bc57c88a39c48a6c3d733775b718
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
