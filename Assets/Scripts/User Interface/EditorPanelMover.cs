@@ -10,31 +10,51 @@ public class EditorPanelMover : MonoBehaviour
 
     public void GoToPos()
     {
-        StopCoroutine(SwitchPos());
-        StartCoroutine(SwitchPos());
+        StopCoroutine(Hide()); 
+        StopCoroutine(Show());
+
+        if (!inScreen)
+            StartCoroutine(Show());
+        else
+            StartCoroutine(Hide());
     }
 
-    IEnumerator SwitchPos()
+    public void StartHide()
+    {
+        StopCoroutine(Show()); 
+        StopCoroutine(Hide()); 
+        if(inScreen)
+            StartCoroutine(Hide());
+    }
+
+    IEnumerator Hide()
     {
         letMove = false;
         int frameCount = 20;
 
         for (int i = 0; i < frameCount; i++)
         {
-            if (!inScreen)
-            {
-                transform.position = Vector3.Lerp(pos1.position, pos2.position, (float)i / (float)frameCount);
-                //transform.rotation = Quaternion.Lerp(closePos.rotation, defaultPos.rotation, (float)i / (float)frameCount);
-            }
-            else if (inScreen)
-            {
-                transform.position = Vector3.Lerp(pos2.position, pos1.position, (float)i / (float)frameCount);
-                //transform.rotation = Quaternion.Lerp(defaultPos.rotation, closePos.rotation, (float)i / (float)frameCount);
-            }
+            transform.position = Vector3.Lerp(pos2.position, pos1.position, (float)i / (float)frameCount);
             yield return null;
         }
 
-        inScreen = !inScreen;
+        inScreen = false;
         letMove = true;
     }
+
+    IEnumerator Show()
+    {
+        letMove = false;
+        int frameCount = 20;
+
+        for (int i = 0; i < frameCount; i++)
+        {
+            transform.position = Vector3.Lerp(pos1.position, pos2.position, (float)i / (float)frameCount);
+            yield return null;
+        }
+        letMove = true;
+        inScreen = true;
+    }
+
+
 }

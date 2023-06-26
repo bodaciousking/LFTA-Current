@@ -12,7 +12,8 @@ public class MapLoading : MonoBehaviour
     TeamDisplay tD;
     HowToSaveLoadAnArrayWithCompression hts;
 
-    public Transform tilePrefab, obstaclePrefab;
+    bool firstCheck;
+    int mapBottom;
 
     public List<GameObject> graphicsList = new List<GameObject>();
 
@@ -112,11 +113,19 @@ public class MapLoading : MonoBehaviour
                         //Instantiate(graphicsList[bS.gR], mF.CoordToPosition(x, y, z, mapSize), Quaternion.identity);
 
                         Vector3 tilePosition = mF.CoordToPosition(x, y, z, mapSize);
-                        Transform newTile = Instantiate(tilePrefab, tilePosition, Quaternion.Euler(Vector3.right * 90)) as Transform;
-                        newTile.parent = mapHolder;
-                        Tile tileScript = newTile.GetComponent<Tile>();
+                        GameObject newTile = Instantiate(graphicsList[bS.gR], tilePosition, Quaternion.identity);
+                        newTile.transform.parent = mapHolder;
+                        newTile.isStatic = true;
+                        Tile tileScript;
+                        if(newTile.GetComponent<Tile>())
+                            tileScript = newTile.GetComponent<Tile>();
+                        else
+                            tileScript = newTile.GetComponentInChildren<Tile>();
                         Color sectColor = JsonUtility.FromJson<Color>(bS.colorString);
-                        newTile.GetComponent<Renderer>().material.color = sectColor;
+                        if(newTile.GetComponent<Renderer>())
+                            newTile.GetComponent<Renderer>().material.color = sectColor;
+                        else
+                            newTile.GetComponentInChildren<Renderer>().material.color = sectColor;
                         foreach (Transform item in newTile.transform)
                         {
                             if (item.GetComponent<Renderer>())
@@ -130,6 +139,15 @@ public class MapLoading : MonoBehaviour
 
                         openTiles.Add(openTileCoord);
                         coordMap[openTileCoord.x, openTileCoord.y, openTileCoord.z] = openTileCoord;
+
+                        if (!firstCheck)
+                        {
+                            firstCheck = true;
+                            mapBottom = (int)mF.CoordToPosition(openTileCoord.x, openTileCoord.y, openTileCoord.z, mapSize).y;
+                            CameraControll cC = Camera.main.GetComponent<CameraControll>();
+                            cC.minYLocation = mapBottom;
+                            cC.target.position = new Vector3(cC.target.position.x, (int)mapBottom, cC.target.position.z);
+                        }
                     }
                 }
             }
@@ -144,7 +162,7 @@ public class MapLoading : MonoBehaviour
 
         tD.OrganizeTeams();
 
-        Camera.main.GetComponent<CameraControll>().target.position = mF.CoordToPosition(mapCenter.x, mapCenter.y, mapCenter.z, mapSize);
+        Camera.main.GetComponent<CameraControll>().target.position = new Vector3(0f, mapBottom, 0f);
     }
 
     void InitializeComponents()

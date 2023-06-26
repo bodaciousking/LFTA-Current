@@ -33,7 +33,7 @@ public class MapFunctions : MonoBehaviour
 
     public GameObject CreateSectGraphic(Sect sect)
     {
-        GameObject obj = Instantiate(sectModel, sect.actualLocation, Quaternion.Euler(Vector3.right * 90));
+        GameObject obj = Instantiate(sectModel, sect.actualLocation, Quaternion.identity);
         return obj;
     }
 
@@ -65,7 +65,10 @@ public class Sect
 
     public void ChangeColor(Color newColor)
     {
+        if(graphics.GetComponent<Renderer>())
         graphics.GetComponent<Renderer>().material.color = newColor;
+        else
+            graphics.GetComponentInChildren<Renderer>().material.color = newColor;
         string colorString = JsonUtility.ToJson(newColor);
         basicSect.colorString = colorString;
     }

@@ -6,14 +6,13 @@ using TMPro;
 
 public class CommandsTooltip : MonoBehaviour
 {
-
     private UnitSelection unitSelect;
     public static CommandsTooltip instance;
     MapInfo mI;
     Pathfinding pf;
     Grid grid;
     UnitSelection uS;
-    public GameObject commands, movebutton, cancelButton;
+    public GameObject commands;
     public Button abilityButtonPrefab;
     public Ability usedAbility;
     UIMover uiM;
@@ -51,21 +50,10 @@ public class CommandsTooltip : MonoBehaviour
         {
             unitSelect.targetting = false;
             unitSelect.moving = false;
-            unitSelect.attacking = false;
-            unitSelect.hoverObj.SetActive(false);
         }
 
         if (uS.selectedUnit)
         {
-            if (uS.selectedUnit.moved)
-            {
-                movebutton.SetActive(false);
-                cancelButton.SetActive(true);
-            }
-            else
-            {
-                cancelButton.SetActive(false);
-            }
             if(uS.selectedUnit.canAct == false)
             {
                 HideCommands();
@@ -85,28 +73,38 @@ public class CommandsTooltip : MonoBehaviour
             TextMeshProUGUI tmp = abilityButton.GetComponentInChildren<TextMeshProUGUI>();
             Ability currentAbility = unitSelect.selectedUnit.abilityList[i];
             tmp.text = currentAbility.name;
+
             abilityButton.onClick.RemoveAllListeners();
+
             if (currentAbility.targetMethod == Ability.TargetMode.SingleLineTarget)
-                abilityButton.onClick.AddListener(() => ProjectileTarget(currentAbility));
+            {
+                UnityEngine.Events.UnityAction action1 = () => { SingleTargetLine(currentAbility); };
+                abilityButton.onClick.AddListener(action1); 
+            }
             if (currentAbility.targetMethod == Ability.TargetMode.SingleAoETarget)
-                abilityButton.onClick.AddListener(() => SingleAoETarget(currentAbility));
+            {
+                UnityEngine.Events.UnityAction action1 = () => { SingleAoETarget(currentAbility); };
+                abilityButton.onClick.AddListener(action1);
+            }
             if (currentAbility.targetMethod == Ability.TargetMode.MultiLineTarget)
-                abilityButton.onClick.AddListener(() => MultiLineTarget(currentAbility));
+            {
+                UnityEngine.Events.UnityAction action1 = () => { MultiTargetLine(currentAbility); };
+                abilityButton.onClick.AddListener(action1);
+            }
 
         }
     }
 
-    public void ProjectileTarget(Ability ability)
+    public void SingleTargetLine(Ability ability)
     {
         HideCommands();
         unitSelect.targetting = true;
         combat.attacker = uS.selectedUnit;
         combat.castedAbility = ability;
-        pf.StartFindProjectileRange(ability, unitSelect.selectedUnit);
-        
+        pf.StartFindLineRange(ability, unitSelect.selectedUnit);
     }
 
-    public void MultiLineTarget(Ability ability)
+    public void MultiTargetLine(Ability ability)
     {
         HideCommands();
         unitSelect.targetting = true;
@@ -138,7 +136,6 @@ public class CommandsTooltip : MonoBehaviour
 
     public void DisplayCommands()
     {
-        movebutton.SetActive(true);
         commands.transform.position = Camera.main.WorldToScreenPoint(uS.selectedUnit.transform.Find("UI Orient").transform.position);
         commands.SetActive(true);
         RemoveAbilityButtons();
@@ -170,13 +167,10 @@ public class CommandsTooltip : MonoBehaviour
 
         unitSelect.targetting = true;
         unitSelect.moving = true;
-        unitSelect.hoverObj.SetActive(true);
-        unitSelect.hoverObj.transform.position = unitSelect.selectedUnit.transform.position;
 
-        unitSelect.attackHoverObj.SetActive(false);
-
-        pf.StartFindRange(unitSelect.selectedUnit.transform.position, (int)unitSelect.selectedUnit.movePoints, unitSelect.selectedUnit.attackRange, unitSelect.selectedUnit.team);
+        pf.StartFindMoveRange(unitSelect.selectedUnit.transform.position, unitSelect.selectedUnit);
         HideCommands();
+
     }
 
     public void CloseMovement()
@@ -185,13 +179,10 @@ public class CommandsTooltip : MonoBehaviour
         Destroy(GameObject.Find("AttackDisplaySquares"));
         Destroy(GameObject.Find("AbilityDisplaySquares"));
         Destroy(GameObject.Find("BlastZoneSquares"));
-        RemoveAbilityButtons();
+        //RemoveAbilityButtons();
         chooseAttack = false;
         chooseMove = false;
-        unitSelect.hoverObj.SetActive(false);
-        unitSelect.attackHoverObj.SetActive(false);
         unitSelect.moving = false;
-        unitSelect.attacking = false;
     }
 
     public void Defend()
@@ -207,16 +198,9 @@ public class CommandsTooltip : MonoBehaviour
         chooseMove = false;
         unitSelect.targetting = true;
         unitSelect.moving = false;
-        unitSelect.attacking = true;
-        unitSelect.hoverObj.SetActive(false);
-        unitSelect.attackHoverObj.SetActive(true);
-        unitSelect.hoverObj.transform.position = unitSelect.selectedUnit.transform.position;
-        unitSelect.attackHoverObj.transform.position = unitSelect.selectedUnit.transform.position;
-
         grid.ResetGrid();
         grid.ResetTileGrid();
 
-        pf.StartFindAttackRange(unitSelect.selectedUnit.transform.position, unitSelect.selectedUnit.attackRange, unitSelect.selectedUnit.team);
-        HideCommands();
+        pf.StartFindAttackRange(unitSelect.selectedUnit.transform.position, unitSelect.selectedUnit);
     }
 }

@@ -26,9 +26,10 @@ public class Unit : LivingEntity
     public string unitDescription;
     public Vector2 health;
     public Vector2 mana;
-    public float movePoints;
-    public int attackDamage;
+    public int moveRange;
     public int attackRange = 1;
+    public int jumpRange = 1;
+    public int attackDamage;
     public Sprite profile;
     public GameObject projectileObject;
     public List<Ability> abilityList = new List<Ability>();
@@ -46,7 +47,7 @@ public class Unit : LivingEntity
     [HideInInspector]
     public Unit enemyUnit;
     [HideInInspector]
-    public bool moving, facingRight = true, moved = false,  alive = true;
+    public bool moving, facingRight = true, pendingMove = false,  alive = true;
     public bool canAct = true;
     public int frozenTurns;
     [HideInInspector]
@@ -97,26 +98,6 @@ public class Unit : LivingEntity
         Destroy(myCollider);
     }
 
-    private void OnMouseEnter()
-    {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            uS.hoverUnit = this;
-            if (currentTile.inAttackRange && currentTile.attackable && alive)
-                uS.hoverTargetTile = currentTile.transform;
-        
-        }
-    }
-
-    private void OnMouseExit()
-    {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            uS.hoverUnit = null;
-            uS.hoverTargetTile = null;
-        }
-    }
-
     public virtual void CastAbility1()
     {
 
@@ -133,58 +114,6 @@ public class Unit : LivingEntity
     { 
     }
 
-    private void OnMouseDown()
-    {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (alive)
-            {
-                if (uS.selectedUnit)
-                {
-                    if (tuM.teamTurn != team)
-                    {
-                        if (currentTile.inAttackRange)
-                        {
-                            uS.confirmedMoveTarget = grid.TileFromWorldPoint(transform.position);
-                            uS.confirmedTarget = this;
-                        }
-                        else if (currentTile.validAbilityTarget)
-                        {
-                            combatScript.basicTarget = this;
-                            combatScript.targetList.Add(this);
-                            combatScript.tileTarget = currentTile;
-                            combatScript.ExecuteAbility();
-                        }
-                        else
-                        {
-                            uS.DeselectUnit();
-                            uS.SelectUnit(this);
-                        }
-                    }
-                    else
-                    {
-                        if (currentTile.validAbilityTarget)
-                        {
-                            combatScript.ExecuteAbility();
-                            uS.DeselectUnit();
-                            return;
-                        }
-                        else if (uS.selectedUnit.midMove)
-                        {
-                            uS.selectedUnit.CancelMove();
-                        }
-                        uS.DeselectUnit();
-                        uS.SelectUnit(this);
-                        cT.DisplayCommands();
-                    }
-                
-                }
-                else
-                    uS.SelectUnit(this);
-
-            }
-        }
-    }
 
     void ComponentSetup()
     {
@@ -206,9 +135,10 @@ public class Unit : LivingEntity
 
     public void FinishedMoving()
     {
-        moved = true;
+        pendingMove = true;
         moving = false;
         cT.DisplayCommands();
+        cT.OpenAttack();
         grid.ResetTileGrid();
         grid.ResetGrid();
     }
@@ -216,7 +146,7 @@ public class Unit : LivingEntity
     public void ActionsDone()
     {
         moving = false;
-        moved = true;
+        pendingMove = false;
         canAct = false;
         midMove = false;
         uS.DeselectUnit();
@@ -242,7 +172,7 @@ public class Unit : LivingEntity
             {
                 defending = false;
                 canAct = true;
-                moved = false;
+                pendingMove = false;
                 anim.SetBool("Defending", false);
                 anim.Play("Base Layer.Idle");
             }
@@ -271,7 +201,7 @@ public class Unit : LivingEntity
         currentTile.occupied = true;
         currentTile.occupyingUnit = this;
         beginningTile = null;
-        moved = false;
+        pendingMove = false;
         midMove = false;
         cT.DisplayCommands();
     }
@@ -328,27 +258,29 @@ public class Unit : LivingEntity
     public void StartAttacking()
     {
         combatScript.attacker = this;
-        combatScript.basicTarget = enemyUnit;
+        combatScript.unitTarget = enemyUnit;
         anim.Play("Base Layer.Attack");
-        uS.DeselectUnit();
         midMove = false;
     }
     public void StartRangedAttack()
     {
         combatScript.attacker = this;
-        combatScript.basicTarget = enemyUnit;
+        combatScript.unitTarget = enemyUnit;
         anim.Play("Base Layer.RangedAttack");
         uS.DeselectUnit();
         midMove = false;
     }
 
-    
-
     IEnumerator FollowPath()
     {
+        for (int i = 0; i < path.Length; i++)
+        {
+            Tile wayPointTile = grid.TileFromWorldPoint(path[i]);
+            path[i] += new Vector3 (0f, wayPointTile.graphicsYOffset, 0f);
+        }
+
         targetIndex = 0;
         Vector3 currentWaypoint = path[0];
-
         bool attackMove = false;
         Tile endTile = grid.TileFromWorldPoint(path[path.Length-1]);
         if (endTile.occupyingUnit)

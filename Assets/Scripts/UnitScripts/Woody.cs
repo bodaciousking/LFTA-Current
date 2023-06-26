@@ -16,7 +16,7 @@ public class Woody : Unit
         woodyBall.cooldown = 3;
         woodyBall.damage = 12;
         abilityList.Add(woodyBall);
-        FlyingKnee knee = new FlyingKnee();
+        GapClose knee = new GapClose();
         abilityList.Add(knee);
     }
     public override void CastAbility1() // Fireball
@@ -31,11 +31,10 @@ public class Woody : Unit
         base.CastAbility2();
 
         Combat combat = Combat.instance;
+        Pathfinding pF = Pathfinding.instance;
         combat.attacker = this;
-        combat.GetKneeTargets();
-        combat.StartMoveUnit();
-        combat.MultiImpact();
-        Debug.Log("A");
+
+        pF.StartFindGCPath(combat.attacker.transform.position, combat.tileTarget.transform.position);
     }
 
 }

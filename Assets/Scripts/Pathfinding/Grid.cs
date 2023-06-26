@@ -48,14 +48,19 @@ public class Grid : MonoBehaviour
         gridSizeZ = Mathf.RoundToInt(gridWorldSize.z / nodeDiameter);
         grid = new Node[gridSizeX, gridSizeY, gridSizeZ];
         Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.z / 2 - Vector3.up * gridWorldSize.y / 2;
-        unwalkableMask = 1 << 9;
+        unwalkableMask = 1 << 11;
 
         for (int x = 0; x < gridSizeX; x++) {
             for (int y = 0; y < gridSizeY; y++) {
                 for (int z = 0; z < gridSizeZ; z++)
                 {
                     Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (z * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
-                    bool walkable = !(Physics.Raycast(worldPoint + Vector3.down * 0.1f, Vector3.up, 3.5f, unwalkableMask)) ;
+                    bool walkable = true;
+                    RaycastHit hit;
+                    if (Physics.Raycast(worldPoint + Vector3.down * 0.1f, Vector3.up, out hit, 3.5f))
+                    {
+                        walkable = false;
+                    }
                     grid[x, y, z] = new Node(walkable, worldPoint, x, y, z);
 
                     if (TileFromNode(grid[x, y, z]))
@@ -69,12 +74,12 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public List<Node> GetNeighbours(Node node, int range)
+    public List<Node> GetNeighbours(Node node, int range, int vRange)
     {
         List<Node> neighbours = new List<Node>();
         for (int x = -range; x <= range; x++)
         {
-            for (int y = -range; y <= range; y++)
+            for (int y = -vRange; y <= vRange; y++)
             {
                 for (int z = -range; z <= range; z++)
                 {
@@ -126,7 +131,7 @@ public class Grid : MonoBehaviour
         List<Vector3> locations = new List<Vector3>();
 
         Node currentNode = NodeFromWorldPoint(currentLocation);
-        List<Node> surroundingNodes = GetNeighbours(currentNode, 1);
+        List<Node> surroundingNodes = GetNeighbours(currentNode, 1, 1);
         for (int i = 0; i < surroundingNodes.Count; i++)
         {
             if (TileFromNode(surroundingNodes[i]))
@@ -156,11 +161,6 @@ public class Grid : MonoBehaviour
         
     }
 
-    public Tile TileFromVector2(Vector2 vector) // BIG DEAL COMING THROUGH
-    {
-        return mapInfo.tileGrid[(int)vector.x, (int)vector.y, 0];
-    }
-
     public void ResetGrid()
     {
         //Debug.Log ( "Called resetgrid.");
@@ -180,7 +180,7 @@ public class Grid : MonoBehaviour
         {
             if (item)
             {
-                item.inRange = false;
+                item.inMoveRange = false;
                 item.inAttackRange = false;
                 item.attackable = false;
                 item.validAbilityTarget = false;

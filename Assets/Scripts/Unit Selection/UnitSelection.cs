@@ -8,10 +8,9 @@ public class UnitSelection : MonoBehaviour
     public static UnitSelection instance;
     public Unit selectedUnit;
     public Unit hoverUnit;
-    public Transform hoverTargetTile;
     public Tile confirmedMoveTarget;
-    public bool targetting, AoEtargetting, moving, confirmedTarget, attacking;
-    public GameObject hoverObj, attackHoverObj, panelHolder;
+    public bool targetting, AoEtargetting, moving, confirmedTarget;
+    public GameObject panelHolder;
     public Unit confirmedAbilityTarget;
     Camera viewCamera;
     CommandsTooltip cT;
@@ -19,6 +18,7 @@ public class UnitSelection : MonoBehaviour
     Grid grid;
     CameraControll cC;
     TurnManagement turnManagement;
+    Tile hoverTile;
     
 
     private void Awake()
@@ -44,6 +44,8 @@ public class UnitSelection : MonoBehaviour
     public void DeselectUnit()
     {
         cT.CloseMovement();
+        if (selectedUnit.pendingMove)
+            selectedUnit.CancelMove();
         selectedUnit = null;
         cT.HideCommands();
     }
@@ -51,11 +53,11 @@ public class UnitSelection : MonoBehaviour
     public void SelectUnit(Unit unitToSelect)
     {
         selectedUnit = unitToSelect;
-        if (unitToSelect.team == turnManagement.teamTurn)
+        if (unitToSelect.team == turnManagement.teamTurn && unitToSelect.canAct)
         {
+            cT.OpenMovement();
             cT.DisplayCommands();
         }
-        cC.GoToPos(unitToSelect.transform.position);
     }
 
     // Update is called once per frame
@@ -73,40 +75,8 @@ public class UnitSelection : MonoBehaviour
         else
             panelHolder.SetActive(false);
 
-        if (moving)
-        {
-            Tile hoverTile = null;
-            if (hoverTargetTile)
-            {
-                hoverTile = grid.TileFromWorldPoint(hoverTargetTile.position);
-                if (hoverTile.attackable)
-                {
-                    hoverObj.SetActive(false);
-                    attackHoverObj.SetActive(true);
-                    attackHoverObj.transform.position = hoverTargetTile.position;
-                }
-                else
-                {
-                    hoverObj.SetActive(true);
-                    attackHoverObj.SetActive(false);
-                    hoverObj.transform.position = hoverTargetTile.position;
-                }
-            }
-            else
-            {
-                hoverObj.transform.position = selectedUnit.transform.position;
-            }
-        }
-        if (attacking)
-        {
-            hoverObj.SetActive(false);
-            attackHoverObj.SetActive(true);
-            if (hoverTargetTile)
-                attackHoverObj.transform.position = hoverTargetTile.position;
-            else
-                attackHoverObj.transform.position = selectedUnit.transform.position;
-        }
-        
+        hoverTile = null;
+       
     }
 
     private void MoveNow()
@@ -116,6 +86,7 @@ public class UnitSelection : MonoBehaviour
         targetting = false;
         moving = false;
         cT.CloseMovement();
+        cT.HideCommands();
     }
 
 }

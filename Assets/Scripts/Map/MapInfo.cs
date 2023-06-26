@@ -16,7 +16,7 @@ public class MapInfo : MonoBehaviour
     {
         if(instance != null)
         {
-            Debug.Log("Too many instances of MapInfo!");
+            Debug.Log("Too many instances of MapInfo! " + instance.gameObject.name);
             Destroy(instance.gameObject);
             instance = this;
             return;

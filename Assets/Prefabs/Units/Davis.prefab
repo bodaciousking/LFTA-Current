@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 920918554631019097}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UI Orient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4091066031484774768}
   - component: {fileID: 4233905061788235592}
   - component: {fileID: 1898864838244276823}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics/Sounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7770209340365811291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.87, z: 0}
+  m_LocalPosition: {x: 0, y: 0.777, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 7770209340588647746}
@@ -76,10 +76,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -293,7 +295,7 @@ GameObject:
   - component: {fileID: 920918553808580148}
   - component: {fileID: 7218830468805774781}
   - component: {fileID: 6027065736665006554}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Davis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingRight: 1
+  canFlip: 1
   currentTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &920918553808580148
 MonoBehaviour:
@@ -377,27 +380,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  movePoints: 5
-  attackDamage: 12
-  attackRange: 1
   unitName: Davis
   unitDescription: Ever heard of Ryu? Davis is comin for that spot, baby. He's a
     hard-hitting all-rounder, with solid defensive and offensive capability. Simple
     to grasp, difficult to master.
   health: {x: 35, y: 35}
   mana: {x: 20, y: 20}
+  moveRange: 6
+  attackRange: 1
+  jumpRange: 1
+  attackDamage: 12
   profile: {fileID: 7285345895836674082, guid: 69d6963766b3ffc4b99da4f5cb2cfe78, type: 3}
   projectileObject: {fileID: 4018606210118993494, guid: a944ea7d7b59b9d43b536c6c3cedf094,
     type: 3}
   goldCost: 0
   unitID: 0
   team: 0
-  location: {x: 0, y: 0}
+  location: {x: 0, y: 0, z: 0}
   currentTile: {fileID: 0}
   enemyUnit: {fileID: 0}
   moving: 0
   facingRight: 1
-  moved: 0
+  pendingMove: 0
   alive: 1
   canAct: 1
   frozenTurns: 0

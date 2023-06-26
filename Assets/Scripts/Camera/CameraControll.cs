@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[AddComponentMenu("Camera-Control/3dsMax Camera Style")]
 public class CameraControll : MonoBehaviour
 {
     public Transform target;
@@ -60,6 +58,15 @@ public class CameraControll : MonoBehaviour
         yDeg = yMaxLimit;
         Rotate();
         yDeg = Vector3.Angle(Vector3.up, transform.up);
+
+        //if (GameObject.Find("EditorManager"))
+        //{
+        //    minYLocation = GameObject.Find("EditorManager").transform.position.y;
+        //}
+        //else if (GameObject.Find("LoadManager"))
+        //{
+        //    minYLocation = GameObject.Find("LoadManager").transform.position.y;
+        //}
     }
 
     /*
@@ -178,7 +185,7 @@ public class CameraControll : MonoBehaviour
                 if (target.position.y <= minYLocation + 10)
                     target.transform.position += Vector3.up * moveSpeed / 5;
             }
-            if (Input.GetKey(KeyCode.LeftAlt))
+            if (Input.GetKey(KeyCode.LeftAlt)) // Decrease altitude
             {
                 if (target.position.y >= minYLocation)
                     target.transform.position += Vector3.up * -moveSpeed / 5;

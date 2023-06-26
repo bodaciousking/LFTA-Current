@@ -6,7 +6,7 @@ public class Combat : MonoBehaviour
 {
     public static Combat instance;
     public Unit attacker;
-    public Unit basicTarget;
+    public Unit unitTarget;
     public List<Unit> targetList;
     public List<Tile> tileTargetList;
     public GameObject obstructedObject;
@@ -20,6 +20,7 @@ public class Combat : MonoBehaviour
     SoundPlayer soundPlayer;
     MapInfo mI;
     MapFunctions mF;
+    Pathfinding pF;
 
 
     private void Awake()
@@ -37,6 +38,7 @@ public class Combat : MonoBehaviour
         grid = Grid.instance;
         mI = MapInfo.instance;
         mF = MapFunctions.instance;
+        pF = Pathfinding.instance;
         soundObject = GameObject.Find("2DSoundManager");
         soundPlayer = soundObject.GetComponent<SoundPlayer>();
     }
@@ -112,61 +114,6 @@ public class Combat : MonoBehaviour
             unit.PlayHurtAnim();
     }
 
-    public void GetKneeTargets()
-    {
-        Vector3 attackerPos = attacker.currentTile.tilePos;
-        Vector3 endPos = GetVector2LZ();
-        Debug.Log(attackerPos);
-        Debug.Log(endPos);
-        Tile hitTile;
-
-        if (attackerPos.x != endPos.x)
-        {
-            for (int i = 0; i < Mathf.Abs(attackerPos.x - endPos.x); i++)
-            {
-                if (endPos.x > attackerPos.x)
-                {
-                    hitTile = grid.TileFromVector2(new Vector2(attackerPos.x + i, attackerPos.y));
-                }
-                else
-                {
-                    hitTile = grid.TileFromVector2(new Vector2(attackerPos.x - i, attackerPos.y));
-                }
-
-                if (hitTile.occupied)
-                {
-                    Unit hitUnit = hitTile.occupyingUnit;
-                    if (hitUnit != attacker && !targetList.Contains(hitUnit))
-                    {
-                        targetList.Add(hitUnit);
-                        //Debug.Log("Adding " + hitUnit.name);
-                    }
-                }
-            }
-        }
-        else if (attackerPos.y != endPos.y)
-        {
-            for (int i = 0; i < Mathf.Abs(attackerPos.y - endPos.y); i++)
-            {
-                if (endPos.y > attackerPos.y)
-                    hitTile = grid.TileFromVector2(new Vector2(attackerPos.x, attackerPos.y + i));
-                else
-                    hitTile = grid.TileFromVector2(new Vector2(attackerPos.x, attackerPos.y - i));
-
-                if (hitTile.occupied)
-                {
-                    Unit hitUnit = hitTile.occupyingUnit;
-                    if (hitUnit != attacker && !targetList.Contains(hitUnit))
-                    {
-                        targetList.Add(hitUnit);
-                        Debug.Log("Adding " + hitUnit.name);
-                    }
-                }
-            }
-        }
-
-    }
-
     public void FaceTarget(Unit attacker, Unit defender)
     {
         ShouldFlip sF = attacker.GetComponent<ShouldFlip>();
@@ -181,7 +128,7 @@ public class Combat : MonoBehaviour
 
     public void ResetParams()
     {
-        basicTarget = null;
+        unitTarget = null;
         attacker = null;
         castedAbility = null;
         targetList.Clear();
@@ -195,43 +142,40 @@ public class Combat : MonoBehaviour
         int damageDealt = attacker.attackDamage;
         if (obstructed)
             damageDealt = damageDealt / 2;
-        if (basicTarget.defending)
+        if (unitTarget.defending)
             damageDealt = damageDealt / 2;
 
-        if(basicTarget.frozenTurns > 0)
+        if(unitTarget.frozenTurns > 0)
         {
             damageDealt *= 2;
-            basicTarget.Shatter();
+            unitTarget.Shatter();
             soundPlayer.PlayClip(1);
         }
         else
-            ElementalEffects(basicTarget, damageDealt);
+            ElementalEffects(unitTarget, damageDealt);
 
-        basicTarget.health.x -= damageDealt;
+        unitTarget.health.x -= damageDealt;
         ResetParams();
     }
 
     public void ExecuteAbility()
     {
-        if (basicTarget != null || targetList.Count > 0)
+        if (unitTarget != null || targetList.Count > 0)
         {
-            if (basicTarget != null)
-                FaceTarget(attacker, basicTarget);
+            if (unitTarget != null && unitTarget.frozenTurns <=0) 
+                FaceTarget(attacker, unitTarget);
             else
                 FaceTarget(attacker, targetList[0]);
         }
+        Debug.Log(castedAbility.name);
         castedAbility.UseAbility();
         cT.CloseMovement();
         attacker.ActionsDone();
     }
-    public void StartMoveUnit()
-    {
-        StartCoroutine(MoveUnit(attacker.gameObject));
-    }
 
     public void BasicRangedAttack()
     {
-        FaceTarget(attacker, basicTarget);
+        FaceTarget(attacker, unitTarget);
         GameObject attackerProjectile = Instantiate(attacker.projectileObject, attacker.transform.position + attacker.transform.forward * 0.05f - (Vector3.up /2), Quaternion.identity);
         if(castedAbility!= null)
         {
@@ -239,25 +183,21 @@ public class Combat : MonoBehaviour
         }
         
         ProjectileFlipping pF = attackerProjectile.GetComponent<ProjectileFlipping>();
-        pF.target = basicTarget.transform.Find("UI Orient");
+        pF.target = unitTarget.transform.Find("UI Orient");
 
-        bool obstructed = false; ;
-        // Bit shift the index of the layer (8) to get a bit mask
+        bool obstructed = false;
         int layerMask = 1 << 8;
 
-        // This would cast rays only against colliders in layer 8.
-        // But instead we want to collide against everything except layer 8. The ~ operator does this, it inverts a bitmask.
         layerMask = ~layerMask;
 
         RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
         Vector3 origin = attacker.transform.position + new Vector3(0, 0.6f, 0);
-        Vector3 endPoint = basicTarget.transform.position + new Vector3(0, 0.6f, 0);
+        Vector3 endPoint = unitTarget.transform.position + new Vector3(0, 0.6f, 0);
         Vector3 dir = (endPoint - origin).normalized;
-        float dis = Vector3.Distance(attacker.transform.position, basicTarget.transform.position) - 0.6f;
+        float dis = Vector3.Distance(attacker.transform.position, unitTarget.transform.position) - 0.6f;
         if (Physics.Raycast(origin, dir, out hit, dis, layerMask))
         {
-            if (hit.collider.gameObject != basicTarget.gameObject)
+            if (hit.collider.gameObject != unitTarget.gameObject)
             {
                 Debug.DrawRay(origin, dir * hit.distance, Color.red, 5f);
                 GameObject obsObj = Instantiate(obstructedObject, hit.collider.transform.position, Quaternion.identity);
@@ -274,54 +214,58 @@ public class Combat : MonoBehaviour
         {
             Debug.DrawRay(origin, dir * dis, Color.green, 5f);
         }
-
-
         StartCoroutine(MoveProjectile(attackerProjectile, obstructed));
     }
 
-    public Vector2 GetVector2LZ()
+    public void BasicGapCloser()
     {
-        Vector3 landingPos = tileTarget.tilePos;
-        if (tileTarget.occupied)
+        pF.StartFindGCPath(attacker.transform.position, tileTarget.transform.position);
+    }
+
+    public void GetVector3LZ(Vector3[] kneePath)
+    {
+        Vector3 lZ = attacker.transform.position;
+        for (int i = kneePath.Length-1; i > -1; i--)
         {
-            if (attacker.currentTile.tilePos.x > tileTarget.tilePos.x)
+            Tile tile = grid.TileFromWorldPoint(kneePath[i]);
+            if (tile.occupied)
             {
-                Tile testTile = mI.tileGrid[(int)tileTarget.tilePos.x + 1, (int)tileTarget.tilePos.y, (int)tileTarget.tilePos.z];
-                if (testTile.occupied)
-                {
-                    testTile = mI.tileGrid[(int)tileTarget.tilePos.x - 1, (int)tileTarget.tilePos.y, (int)tileTarget.tilePos.z];
-                }
-                landingPos = testTile.tilePos;
+                continue;
             }
-            else if (attacker.currentTile.tilePos.x < tileTarget.tilePos.x)
+            else
             {
-                Tile testTile = mI.tileGrid[(int)tileTarget.tilePos.x - 1, (int)tileTarget.tilePos.y, (int)tileTarget.tilePos.z];
-                if (testTile.occupied)
-                {
-                    testTile = mI.tileGrid[(int)tileTarget.tilePos.x + 1, (int)tileTarget.tilePos.y, (int)tileTarget.tilePos.z];
-                }
-                landingPos = testTile.tilePos;
-            }
-            else if (attacker.currentTile.tilePos.y > tileTarget.tilePos.y)
-            {
-                Tile testTile = mI.tileGrid[(int)tileTarget.tilePos.x, (int)tileTarget.tilePos.y - 1, (int)tileTarget.tilePos.z];
-                if (testTile.occupied)
-                {
-                    testTile = mI.tileGrid[(int)tileTarget.tilePos.x, (int)tileTarget.tilePos.y + 1, (int)tileTarget.tilePos.z];
-                }
-                landingPos = testTile.tilePos;
-            }
-            else if (attacker.currentTile.tilePos.y < tileTarget.tilePos.y)
-            {
-                Tile testTile = mI.tileGrid[(int)tileTarget.tilePos.x, (int)tileTarget.tilePos.y - 1, (int)tileTarget.tilePos.z];
-                if (testTile.occupied)
-                {
-                    testTile = mI.tileGrid[(int)tileTarget.tilePos.x, (int)tileTarget.tilePos.y + 1, (int)tileTarget.tilePos.z];
-                }
-                landingPos = testTile.tilePos;
+                lZ = kneePath[i];
+                break;
             }
         }
-        return landingPos;
+        StartCoroutine(MoveUnit(attacker.gameObject, lZ));
+    }
+
+    public List<Unit> GetKneeTargets(Vector3[] positions)
+    {
+        List<Tile> tiles = new List<Tile>();
+        for (int i = 0; i < positions.Length; i++)
+        {
+            Tile tile = grid.TileFromWorldPoint(positions[i]);
+            tiles.Add(tile);
+        }
+
+        Vector3 attackerPos = attacker.currentTile.tilePos;
+        List<Unit> kneeTargets = new List<Unit>();
+        for (int i = 0; i < tiles.Count; i++)
+        {
+            Tile hitTile = tiles[i];
+            if (hitTile.occupied)
+            {
+                if (hitTile.occupyingUnit.team != attacker.team)
+                { 
+                    kneeTargets.Add(hitTile.occupyingUnit);
+                    break;
+                }
+            }
+        }
+
+        return kneeTargets;
     }
 
 
@@ -329,7 +273,7 @@ public class Combat : MonoBehaviour
     {
         Vector3 startPos = projectile.transform.position + (Vector3.up) + (Vector3.forward * 0.7f);
         int frameCount = 35;
-        Transform actualtarget = basicTarget.transform.Find("UI Orient");
+        Transform actualtarget = unitTarget.transform.Find("UI Orient");
 
         for (int i = 0; i < frameCount; i++)
         {
@@ -341,22 +285,25 @@ public class Combat : MonoBehaviour
         Destroy(projectile);
     }
 
-    public IEnumerator MoveUnit(GameObject unit)
+    public IEnumerator MoveUnit(GameObject unitObj, Vector3 lz)
     {
-        Vector3 startPos = unit.transform.position;
-        Vector2 endTilePos = GetVector2LZ();
-       // Vector3 endPos = mI.tileGrid[(int)endTilePos.x, (int)endTilePos.y].transform.position;
+        Debug.Log("yep");
+        Vector3 startPos = unitObj.transform.position;
+        Tile endTile = grid.TileFromWorldPoint(lz);
+        Vector3 endPos = endTile.transform.position;
 
         int frameCount = 20;
 
+        MultiImpact();
         for (int i = 0; i < frameCount; i++)
         {
-           // unit.transform.position = Vector3.Lerp(startPos, endPos, (float)i / (float)frameCount);
+            unitObj.transform.position = Vector3.Lerp(startPos, endPos, (float)i / (float)frameCount);
             yield return null;
         }
 
-        Unit unitUnit = unit.GetComponent<Unit>();
-       // unit.transform.position = endPos;
-        unitUnit.UpdateLocation(unit.transform.position);
+        Unit unitUnit = unitObj.GetComponent<Unit>();
+        unitObj.transform.position = endPos;
+        unitUnit.UpdateLocation(unitObj.transform.position);
+
     }
 }

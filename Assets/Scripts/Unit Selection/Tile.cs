@@ -12,13 +12,15 @@ public class Tile : MonoBehaviour
     public float distanceToSource;
     public bool inAttackRange;
     public Unit occupyingUnit;
-    public bool inRange, occupied, attackable, blocked;
+    public bool inMoveRange, occupied, attackable, blocked;
     [HideInInspector] public bool inBlastZone;
     public bool validAbilityTarget;
     public Vector3 nodeWorldPoint;
     [HideInInspector] public Renderer rend;
     public GameObject displayObj;
+    public float graphicsYOffset;
     CommandsTooltip cT;
+    CursorRay cR;
     Combat combat;
     Pathfinding pF;
 
@@ -29,69 +31,17 @@ public class Tile : MonoBehaviour
         unitSelect = UnitSelection.instance;
         //gml = GridMapLink.instance;
         //unitMask = LayerMask.NameToLayer("Unit");
-        inRange = false;
+        inMoveRange = false;
         cT = CommandsTooltip.instance;
         pF = Pathfinding.instance;
         combat = Combat.instance;
-    }
-
-    private void Update()
-    {
-    }
-    
-    private void OnMouseDown()
-    {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (unitSelect.targetting == true)
-            {
-                if (inAttackRange && attackable)
-                {
-                    Debug.Log("Clicked attack tile");
-                    unitSelect.confirmedMoveTarget = this;
-                    unitSelect.confirmedTarget = this;
-                    return;
-                }
-                if (inRange)
-                {
-                    unitSelect.confirmedMoveTarget = this;
-                    unitSelect.confirmedTarget = this;
-                    return;
-                }
-                if (validAbilityTarget)
-                {
-                    Debug.Log("A");
-                    combat.basicTarget = this.occupyingUnit;
-                    combat.tileTarget = this;
-                    combat.ExecuteAbility();
-                    return;
-                }
-                else
-                {
-                    cT.CloseMovement();
-                    return;
-                }
-            }
-        }
-    }
-
-    private void OnMouseEnter()
-    {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (inRange || inAttackRange && attackable)
-                unitSelect.hoverTargetTile = transform;
-            if (unitSelect.AoEtargetting && validAbilityTarget)
-            {
-                pF.DisplayBlastRadius(combat.castedAbility, this);
-            }
-        }
+        cR = CursorRay.instance;
     }
 
     private void OnMouseExit()
     {
         if (!EventSystem.current.IsPointerOverGameObject())
-            unitSelect.hoverTargetTile = null;
+            cR.hoverTransform = null;
     }
     
 }

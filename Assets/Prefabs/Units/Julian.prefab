@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 920918554631019097}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UI Orient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4091066031484774768}
   - component: {fileID: 4233905061788235592}
   - component: {fileID: 9108533782732679125}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics/Sounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7770209340365811291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.87, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 7770209340588647746}
@@ -76,10 +76,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -163,6 +165,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fd1a824668014ae4db84e1c506d7f6ae, type: 3}
   - {fileID: 8300000, guid: 4dd7d4d5991536c4d907b0c33fd21c48, type: 3}
   - {fileID: 8300000, guid: 5fa896d70859d1e4cb8321e9f237fb98, type: 3}
+  - {fileID: 8300000, guid: 699c1a1548e663246ab9645cf0b86747, type: 3}
   randomSounds:
   - {fileID: 8300000, guid: eb615cd2fc5f29447bd7f8135d385f73, type: 3}
   - {fileID: 8300000, guid: 0b8555963fd470843a569db15b9b1576, type: 3}
@@ -292,9 +295,9 @@ GameObject:
   - component: {fileID: 7770209340588647745}
   - component: {fileID: 7418153272989859853}
   - component: {fileID: 920918553808580148}
-  - component: {fileID: 920918553808580149}
+  - component: {fileID: -7714449566282132114}
   - component: {fileID: 7218830468805774781}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Julian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,6 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingRight: 1
+  canFlip: 1
   currentTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &920918553808580148
 MonoBehaviour:
@@ -351,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c2866efed630b498e755bf5f606aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &920918553808580149
+--- !u!114 &-7714449566282132114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,15 +364,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 7770209340588647758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4db4e787464da643beaa804fc9ed854, type: 3}
+  m_Script: {fileID: 11500000, guid: 38544b1ec5d59ea40b8b179f367ea1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  movePoints: 5
-  attackDamage: 5
+  unitName: Julian
+  unitDescription: This dark master uses the raw power of the universe to dominate
+    his foes.
+  health: {x: 50, y: 50}
+  mana: {x: 50, y: 50}
+  moveRange: 6
   attackRange: 1
+  jumpRange: 1
+  attackDamage: 10
+  profile: {fileID: 8015497539439164981, guid: ee447395c3946d24cad03585f1e74b2e, type: 3}
+  projectileObject: {fileID: 4018606210118993494, guid: 04114a1abd713244fa058c106630f51c,
+    type: 3}
+  goldCost: 0
+  unitID: 8
   team: 0
-  location: {x: 5, y: 9}
+  location: {x: 0, y: 0, z: 0}
   currentTile: {fileID: 0}
   enemyUnit: {fileID: 0}
   moving: 0
@@ -376,17 +391,10 @@ MonoBehaviour:
   moved: 0
   alive: 1
   canAct: 1
+  frozenTurns: 0
   defending: 0
   midMove: 0
   anim: {fileID: 0}
-  unitName: Deathlord
-  unitDescription: 
-  health: {x: 20, y: 50}
-  mana: {x: 10, y: 10}
-  profile: {fileID: 8015497539439164981, guid: ee447395c3946d24cad03585f1e74b2e, type: 3}
-  projectileObject: {fileID: 0}
-  goldCost: 500
-  unitID: 8
 --- !u!136 &7218830468805774781
 CapsuleCollider:
   m_ObjectHideFlags: 0

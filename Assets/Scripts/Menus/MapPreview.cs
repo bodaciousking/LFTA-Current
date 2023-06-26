@@ -63,8 +63,8 @@ public class MapPreview : MonoBehaviour
         GridLayoutGroup myLayout = holderObj.GetComponent<GridLayoutGroup>();
         float width = holderObj.GetComponent<RectTransform>().rect.width;
         float height = holderObj.GetComponent<RectTransform>().rect.height;
-        Vector2 newSize = new Vector2(width / mapSize.y, height / mapSize.x);
-        if (mapSize.x > mapSize.y)
+        Vector2 newSize = new Vector2(width / mapSize.z, height / mapSize.x);
+        if (mapSize.x > mapSize.z)
         {
             myLayout.constraint = GridLayoutGroup.Constraint.FixedRowCount;
             myLayout.constraintCount = (int)mapSize.x;
@@ -72,30 +72,36 @@ public class MapPreview : MonoBehaviour
         else
         {
             myLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-            myLayout.constraintCount = (int)mapSize.y;
+            myLayout.constraintCount = (int)mapSize.z;
         }
         myLayout.cellSize = newSize;
 
+        GameObject[,] previewsArray = new GameObject[(int)mapSize.x, (int)mapSize.z];
 
         for (int x = 0; x < mapSize.x; x++)
         {
-            for (int y = 0; y < mapSize.y; y++)
+            for (int z = 0; z < mapSize.z; z++)
             {
-                for (int z = 0; z < mapSize.z; z++)
+                GameObject newObj = Instantiate(repObj, transform.position, Quaternion.identity, holderObj.transform);
+                Image objImage = newObj.GetComponent<Image>();
+                for (int i = 0; i < currentMapInfo.spawnLocationLists.Count; i++)
                 {
-                    if (sectMap[x, y, z] != null) // WORK TO BE DONE HERE: change color to black when spawn point exists above
+                    if (currentMapInfo.spawnLocationLists[i][x, 0, z])
                     {
-                        GameObject newObj = Instantiate(repObj, transform.position, Quaternion.identity, holderObj.transform);
-                        Image objImage = newObj.GetComponent<Image>();
-                        {
-                            for (int i = 0; i < currentMapInfo.spawnLocationLists.Count; i++)
-                            {
-                                if (currentMapInfo.spawnLocationLists[i][x, y, z])
-                                {
-                                    objImage.color = Color.black;
-                                }
-                            }
-                        }
+                        objImage.color = Color.black;
+                    }
+                }
+                if(sectMap[x,0,z] == null)
+                {
+                    objImage.color = Color.clear;
+                }
+                previewsArray[x, z] = newObj;
+            
+                for (int y = 1; y < mapSize.y; y++)
+                {
+                    if ((sectMap[x, y, z] != null))
+                    {
+                        previewsArray[x, z].GetComponent<Image>().color = Color.grey;
                     }
                 }
             }

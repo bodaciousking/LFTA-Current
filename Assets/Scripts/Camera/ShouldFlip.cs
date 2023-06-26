@@ -83,7 +83,10 @@ public class ShouldFlip : MonoBehaviour
 
     private void Flip(bool faceLeft)
     {
-        myRend.flipX = faceLeft;
-        facingRight = !faceLeft;
+        if (myUnit.frozenTurns == 0)
+        {
+            myRend.flipX = faceLeft;
+            facingRight = !faceLeft;
+        }
     }
 }

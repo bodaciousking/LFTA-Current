@@ -16,7 +16,7 @@ public class Rudolf : Unit
         shuriken.damage = 8;
         abilityList.Add(shuriken);
 
-        FlyingKnee doubleSlice = new FlyingKnee();
+        GapClose doubleSlice = new GapClose();
         doubleSlice.name = "Double Slice";
         doubleSlice.description = "Nothin personnel, kid";
         doubleSlice.element = null;
@@ -33,11 +33,10 @@ public class Rudolf : Unit
 
     public override void CastAbility2()
     {
+        Debug.Log("b");
         base.CastAbility2();
         Combat combat = Combat.instance;
         combat.attacker = this;
-        combat.GetKneeTargets();
-        combat.StartMoveUnit();
-        combat.MultiImpact();
+        combat.BasicGapCloser();
     }
 }

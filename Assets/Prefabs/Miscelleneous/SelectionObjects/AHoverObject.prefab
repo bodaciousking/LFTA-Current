@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33762962856494382}
   - component: {fileID: 65505698144418714}
   - component: {fileID: 23605955987861654}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: AHoverObject
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -65,10 +65,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -93,3 +95,4 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}

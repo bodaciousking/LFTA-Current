@@ -9,6 +9,7 @@ public class Ability
     public int cooldown;
     public int manaCost;
     public int range;
+    public int vRange;
     public Sprite icon;
     public int radius;
     public int damage;
@@ -19,7 +20,8 @@ public class Ability
         MultiTarget,
         SingleLineTarget,
         MultiLineTarget,
-        SingleAoETarget
+        SingleAoETarget,
+        SingleTarget
     }
 
     public TargetMode targetMethod;
@@ -31,6 +33,7 @@ public class Ability
         cooldown = 0;
         manaCost = 0;
         range = 0;
+        vRange = 0;
         icon = null;
         targetMethod = TargetMode.MultiTarget;
     }
@@ -56,6 +59,20 @@ public class AoEAbility : Ability
     }
 }
 
+public class Throw : Ability
+{
+    public Throw()
+    {
+        name = "Throw";
+        description = "This is a throwing ability.";
+        cooldown = 0;
+        manaCost = 0;
+        damage = 0;
+        range = 0;
+        targetMethod = TargetMode.SingleTarget;
+    }
+}
+
 public class ProjectileAbility : Ability
 {
     public ProjectileAbility()
@@ -71,12 +88,12 @@ public class ProjectileAbility : Ability
 }
 
 
-public class FlyingKnee : Ability
+public class GapClose : Ability
 {
-    public FlyingKnee()
+    public GapClose()
     {
         name = "Flying Knee";
-        targetMethod = TargetMode.MultiLineTarget;
+        targetMethod = TargetMode.SingleLineTarget;
         description = "Captain Who?";
         cooldown = 4;
         manaCost = 4;
@@ -91,5 +108,75 @@ public class FlyingKnee : Ability
         Combat combat = Combat.instance;
         Unit castingUnit = combat.attacker.gameObject.GetComponent<Unit>();
         castingUnit.PlayGapCloseAnim();
+    }
+}
+
+
+public class Explosion : AoEAbility
+{
+    public Explosion()
+    {
+        name = "Explosion";
+        description = "Like self-destruct, but without the self destruction";
+        cooldown = 8;
+        manaCost = 8;
+        range = 2;
+        radius = 2;
+        damage = 15;
+        element = "fire";
+        icon = null;
+    }
+
+    public override void UseAbility()
+    {
+        base.UseAbility();
+        Combat combat = Combat.instance;
+        Firen castingUnit = combat.attacker.GetComponent<Firen>();
+        castingUnit.PlayExplosionAnim();
+    }
+}
+
+public class Fireball : ProjectileAbility
+{
+    public Fireball()
+    {
+        name = "Fireball";
+        description = "Create powerful flame in hand";
+        cooldown = 3;
+        manaCost = 4;
+        range = 5;
+        damage = 5;
+        element = "fire";
+        icon = null;
+    }
+
+    public override void UseAbility()
+    {
+        base.UseAbility();
+        Combat combat = Combat.instance;
+        Unit castingUnit = combat.attacker;
+        castingUnit.PlayFireballAnim();
+    }
+}
+
+public class Slam : Throw
+{
+    public Slam()
+    {
+        name = "Slam";
+        description = "Welcome to the jam";
+        cooldown = 0;
+        manaCost = 0;
+        range = 1;
+        damage = 10;
+        icon = null;
+    }
+
+    public override void UseAbility()
+    {
+        base.UseAbility();
+        Combat combat = Combat.instance;
+        Unit castingUnit = combat.attacker;
+        castingUnit.PlayFireballAnim();
     }
 }

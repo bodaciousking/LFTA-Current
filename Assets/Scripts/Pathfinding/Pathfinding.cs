@@ -11,6 +11,11 @@ public class Pathfinding : MonoBehaviour
     public GameObject moveObject, attackObject;
     Combat combat;
 
+    RaycastHit hit;
+    int layerMask = 1 << 11;
+    private Vector3 targetNormal;
+    Quaternion toRotation = new Quaternion(0, 0, 1, 0);
+
     private void Awake()
     {
         if (instance != null)
@@ -70,20 +75,21 @@ public class Pathfinding : MonoBehaviour
 
     }
 
-    public void StartFindRange(Vector3 startPos, int range, int attackrange, int team)
+    public void StartFindMoveRange(Vector3 startPos, Unit requestingUnit)
     {
-        StartCoroutine(FindMoveRange(startPos, range, attackrange, team));
+        StartCoroutine(FindMoveRange(startPos, requestingUnit));
     }
 
-    public void StartFindAttackRange(Vector3 startPos, int attackRange, int team)
+    public void StartFindAttackRange(Vector3 startPos, Unit requestingUnit)
     {
-        StartCoroutine(FindMoveRange(startPos, 0, attackRange, team));
+        StartCoroutine(FindMoveRange(startPos, requestingUnit));
     }
 
-    public void StartFindProjectileRange(Ability projectile, Unit castingUnit)
+    public void StartFindLineRange(Ability projectile, Unit castingUnit)
     {
-        //StartCoroutine(FindProjectileRange(projectile, castingUnit));
+        StartCoroutine(FindLineRange(projectile, castingUnit));
     }
+
     public void StartFindAoERange(Ability ability, Unit castingUnit)
     {
         StartCoroutine(FindAoERange(ability, castingUnit));
@@ -91,11 +97,22 @@ public class Pathfinding : MonoBehaviour
 
     public void StartFindMultiTargetLineRange(Ability ability, Unit castingUnit)
     {
-        //StartCoroutine(FindMultiLineRange(ability, castingUnit));
+        StartCoroutine(FindMultiTargetLineRange(ability, castingUnit));
     }
 
-    public IEnumerator FindMoveRange(Vector3 startPos, int range, int attackRange, int unitTeam)
+    public void StartFindGCPath(Vector3 start, Vector3 end)
     {
+        StartCoroutine(FindGCPath(start, end));
+    }
+
+    public IEnumerator FindMoveRange(Vector3 startPos, Unit movingUnit)
+    {
+        int range = movingUnit.moveRange;
+        if (movingUnit.pendingMove)
+            range = 0;
+        int attackRange = movingUnit.attackRange;
+        int unitTeam = movingUnit.team;
+        int jumpRange = movingUnit.jumpRange;
         List<Node> nodesInRange = new List<Node>();
         List<Node> nodesInAttackRange = new List<Node>();
 
@@ -122,7 +139,7 @@ public class Pathfinding : MonoBehaviour
                     node = moveSet.Dequeue();
                     if (node.gCost <= gCostRange)
                     {
-                        if (!grid.TileFromNode(node).occupied && node != startNode)
+                        if (!grid.TileFromNode(node).occupied && node != startNode && node.walkable)
                         {
                             nodesInRange.Add(node);
                         }
@@ -133,7 +150,7 @@ public class Pathfinding : MonoBehaviour
                 {
                     node = atkSet.Dequeue();
                     atkNode = true;
-                    if (node.aCost <= aCostRange && !nodesInRange.Contains(node) && node != startNode)
+                    if (node.aCost <= aCostRange && !nodesInRange.Contains(node) && node != startNode && node.walkable)
                     {
                         nodesInAttackRange.Add(node);
                     }
@@ -148,14 +165,14 @@ public class Pathfinding : MonoBehaviour
                     if (occupyingUnit.team != unitTeam)
                     {
                         tileScript.attackable = true;
-                        tileScript.inRange = false;
+                        tileScript.inMoveRange = false;
 
                         if (nodesInRange.Contains(node))
                             continue;
                     }
                 }
 
-                foreach (Node neighbour in grid.GetNeighbours(node, 1))
+                foreach (Node neighbour in grid.GetNeighbours(node, 1, jumpRange))
                 {
                     if (closedSet.Contains(neighbour))
                     {
@@ -190,7 +207,7 @@ public class Pathfinding : MonoBehaviour
                                     neighbour.aCost = newAtkCostToNeighbour;
                                     neighbourTile.aCost = newAtkCostToNeighbour;
                                 }
-                                if (!atkSet.Contains(neighbour) && newAtkCostToNeighbour <= aCostRange && !neighbourTile.inRange)
+                                if (!atkSet.Contains(neighbour) && newAtkCostToNeighbour <= aCostRange && !neighbourTile.inMoveRange && node.walkable)
                                 {
                                     // We can attack there
                                     atkSet.Enqueue(neighbour);
@@ -213,7 +230,7 @@ public class Pathfinding : MonoBehaviour
         yield return null;
         if (filledAll == true)
         {
-            RangeHandler(nodesInRange);
+            MoveRangeHandler(nodesInRange);
             if (nodesInAttackRange.Count > 0)
             {
                 AttackRangeHandler(nodesInAttackRange);
@@ -221,138 +238,111 @@ public class Pathfinding : MonoBehaviour
         }
     }
 
-    //public IEnumerator FindProjectileRange(Ability projectileAbility, Unit castingUnit)
-    //{
-    //    int abilityRange = projectileAbility.range - 1;
-    //    Node unitNode = grid.NodeFromWorldPoint(castingUnit.transform.position);
-    //    List<Node> nodesInRange = new List<Node>();
-    //    List<Node> nodesInAbilityRange = new List<Node>();
-    //    bool done = false;
-    //    int directionsChecked = 0;
+    public IEnumerator OldFindLineRange(Ability ability, Unit castingUnit)
+    {
+        Node unitNode = grid.NodeFromWorldPoint(castingUnit.transform.position);
+        List<Node> nodesInRange = grid.GetNeighbours(unitNode, ability.range, ability.vRange); // This needs to be changed to a pathfinder
+        List<Node> nodesInAbilityRange = nodesInRange;
+        yield return null;
 
-    //    for (int i = 0; i <= 3; i++) // For each of the cardinal directions,
-    //    {
-    //        for (int j = 0; j <= abilityRange; j++) // get a path abilityRange length in that direction.
-    //        {
-    //            if (i == 0) //North
-    //            {
-    //                int checkY = unitNode.gridY + j + 1;
+        if (nodesInAbilityRange.Count > 0)
+        {
+            AbilityRangeHandler(nodesInAbilityRange);
+        }
+    }
 
-    //                if (checkY >= 0 && checkY < grid.gridSizeY)
-    //                {
-    //                    Vector2 checkNodePos = new Vector2(unitNode.gridX, checkY);
-    //                    if (!grid.grid[unitNode.gridX, checkY].walkable)
-    //                    {
-    //                        directionsChecked++;
-    //                        break;
-    //                    }
-    //                    else
-    //                        nodesInRange.Add(grid.grid[unitNode.gridX, checkY]);
-    //                    if (grid.TileFromVector2(checkNodePos).occupied)
-    //                    {
-    //                        directionsChecked++;
-    //                        if (grid.TileFromVector2(checkNodePos).occupyingUnit.team != castingUnit.team)
-    //                        {
-    //                            nodesInAbilityRange.Add(grid.grid[unitNode.gridX, checkY]);
-    //                        }
-    //                        break;
-    //                    }
-    //                }
-    //            }
-    //            if (i == 1) //East
-    //            {
-    //                int checkX = unitNode.gridX + j + 1;
-    //                if (checkX >= 0 && checkX < grid.gridSizeX)
-    //                {
-    //                    Vector2 checkNodePos = new Vector2(checkX, unitNode.gridY);
-    //                    if (!grid.grid[checkX, unitNode.gridY].walkable)
-    //                    {
-    //                        directionsChecked++;
-    //                        break;
-    //                    }
-    //                    else
-    //                        nodesInRange.Add(grid.grid[checkX, unitNode.gridY]);
-    //                    if (grid.TileFromVector2(checkNodePos).occupied)
-    //                    {
-    //                        directionsChecked++;
-    //                        if (grid.TileFromVector2(checkNodePos).occupyingUnit.team != castingUnit.team)
-    //                        {
-    //                            nodesInAbilityRange.Add(grid.grid[checkX, unitNode.gridY]);
-    //                        }
-    //                        break;
-    //                    }
-    //                }
-    //            }
-    //            if (i == 2) //South
-    //            {
-    //                int checkY = unitNode.gridY - j - 1;
-    //                if (checkY >= 0 && checkY < grid.gridSizeY)
-    //                {
-    //                    Vector2 checkNodePos = new Vector2(unitNode.gridX, checkY);
-    //                    if (!grid.grid[unitNode.gridX, checkY].walkable)
-    //                    {
-    //                        directionsChecked++;
-    //                        break;
-    //                    }
-    //                    else
-    //                        nodesInRange.Add(grid.grid[unitNode.gridX, checkY]);
-    //                    if (grid.TileFromVector2(checkNodePos).occupied)
-    //                    {
-    //                        directionsChecked++;
-    //                        if (grid.TileFromVector2(checkNodePos).occupyingUnit.team != castingUnit.team)
-    //                        {
-    //                            nodesInAbilityRange.Add(grid.grid[unitNode.gridX, checkY]);
-    //                        }
-    //                        break;
-    //                    }
-    //                }
-    //            }
-    //            if (i == 3) //West
-    //            {
-    //                int checkX = unitNode.gridX - j - 1;
-    //                if (checkX >= 0 && checkX < grid.gridSizeX)
-    //                {
-    //                    Vector2 checkNodePos = new Vector2(checkX, unitNode.gridY);
-    //                    if (!grid.grid[checkX, unitNode.gridY].walkable)
-    //                    {
-    //                        directionsChecked++;
-    //                        break;
-    //                    }
-    //                    else
-    //                        nodesInRange.Add(grid.grid[checkX, unitNode.gridY]);
-    //                    if (grid.TileFromVector2(checkNodePos).occupied)
-    //                    {
-    //                        directionsChecked++;
-    //                        if (grid.TileFromVector2(checkNodePos).occupyingUnit.team != castingUnit.team)
-    //                        {
-    //                            nodesInAbilityRange.Add(grid.grid[checkX, unitNode.gridY]);
-    //                        }
-    //                        break;
-    //                    }
-    //                }
-    //            }
+    public IEnumerator FindLineRange(Ability ability, Unit castingUnit)
+    {
+        int range = ability.range;
+        int unitTeam = castingUnit.team;
+        int vRange = ability.vRange;
+        List<Node> nodesInAbilityRange = new List<Node>();
 
-    //            if (j == abilityRange)
-    //                directionsChecked++;
-    //        }
+        int gCostRange = range * 10;
 
-    //        if (directionsChecked == 4)
-    //            done = true;
-    //    }
-    //    yield return null;
-    //    if (done == true)
-    //    {
-    //        if (nodesInAbilityRange.Count > 0)
-    //        {
-    //            AbilityRangeHandler(nodesInAbilityRange);
-    //            foreach (Node node in nodesInAbilityRange)
-    //            {
-    //                nodesInRange.Remove(node);
-    //            }
-    //        }
-    //        RangeHandler(nodesInRange);
-    //    }
-    //}
+        bool filledAll = false;
+
+        Node startNode = grid.NodeFromWorldPoint(castingUnit.transform.position);
+
+        if (startNode.walkable)
+        {
+            Queue<Node> openSet = new Queue<Node>(grid.MaxSize); // the set of movement nodes to be evaluated
+            HashSet<Node> closedSet = new HashSet<Node>(); // the set of nodes already evaluated
+            openSet.Enqueue(startNode);
+
+            while (openSet.Count > 0)
+            {
+                Node node;
+                node = openSet.Dequeue();
+                if (node.gCost <= gCostRange)
+                {
+                    if (!grid.TileFromNode(node).occupied 
+                        && node != startNode
+                        && node.walkable)
+                    {
+                        nodesInAbilityRange.Add(node);
+                    }
+                }
+
+                closedSet.Add(node);
+
+
+                foreach (Node neighbour in grid.GetNeighbours(node, 1, ability.vRange))
+                {
+                    if (closedSet.Contains(neighbour))
+                    {
+                        continue;
+                    }
+                    if (grid.TileFromNode(neighbour))
+                    {
+                        Tile neighbourTile = grid.TileFromNode(neighbour);
+
+                        int newCostToNeighbour = node.gCost + GetDistance(node, neighbour);
+
+                        if (newCostToNeighbour <= neighbour.gCost || !openSet.Contains(neighbour))
+                        {
+                            neighbour.gCost = newCostToNeighbour;
+                            grid.TileFromNode(neighbour).gCost = neighbour.gCost;
+
+                            neighbour.parent = node;
+
+                            if (!openSet.Contains(neighbour) && newCostToNeighbour <= gCostRange && !neighbourTile.occupied
+                                && neighbour.walkable && (neighbour.gridX == startNode.gridX || neighbour.gridZ == startNode.gridZ))
+                            {
+                                // it's an empty tile in range
+                                openSet.Enqueue(neighbour);
+                            }
+                            else // 
+                            {
+                                if (!openSet.Contains(neighbour) && neighbourTile.occupied && (neighbour.gridX == startNode.gridX || neighbour.gridZ == startNode.gridZ))
+                                {
+                                    if(neighbourTile.occupyingUnit.team != castingUnit.team)
+                                    {
+                                        nodesInAbilityRange.Add(neighbour);
+                                        continue;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+
+                }
+
+                if (openSet.Count == 0 )
+                {
+                    filledAll = true;
+                    break;
+                }
+            }
+        }
+
+        yield return null;
+        if (filledAll == true)
+        {
+            AbilityRangeHandler(nodesInAbilityRange);
+        }
+    }
 
     public IEnumerator FindAoERange(Ability ability, Unit castingUnit)
     {
@@ -360,7 +350,7 @@ public class Pathfinding : MonoBehaviour
         int abilityRange = ability.range;
         Node unitNode = grid.NodeFromWorldPoint(castingUnit.transform.position);
         List<Node> nodesInAbilityRange = new List<Node>();
-        // Simply take all the nodes in range of the AoE and light em up red. The targetable nodes will be InAbilityRange.
+        //Simply take all the nodes in range of the AoE and light em up red.The targetable nodes will be InAbilityRange.
         if (ability.name == "Explosion") //this ability can only target the casting unit's position.
         {
             nodesInAbilityRange.Add(unitNode);
@@ -370,211 +360,84 @@ public class Pathfinding : MonoBehaviour
         AbilityRangeHandler(nodesInAbilityRange);
     }
 
-    //public IEnumerator FindMultiLineRange(Ability ability, Unit castingUnit)
-    //{
-    //    int abilityRange = ability.range - 1;
-    //    Node unitNode = grid.NodeFromWorldPoint(castingUnit.transform.position);
-    //    List<Node> nodesInRange = new List<Node>();
-    //    List<Node> nodesInAbilityRange = new List<Node>();
-    //    bool done = false;
-    //    int directionsChecked = 0;
+    public IEnumerator FindMultiTargetLineRange(Ability ability, Unit castingUnit)
+    {
+        int abilityRange = ability.range - 1;
+        Node unitNode = grid.NodeFromWorldPoint(castingUnit.transform.position);
+        List<Node> nodesInRange = new List<Node>();
+        List<Node> nodesInAbilityRange = new List<Node>();
+        nodesInRange = grid.GetNeighbours(unitNode, abilityRange, ability.vRange);
 
-    //    for (int i = 0; i <= 3; i++) // For each of the cardinal directions,
-    //    {
-    //        for (int j = 0; j <= abilityRange; j++) // get a path n = abilityRange length in that direction.
-    //        {
-    //            if (i == 0) //North
-    //            {
-    //                int checkY = unitNode.gridY + j + 1;
+        yield return null;
+        if (nodesInAbilityRange.Count > 0)
+        {
+            AbilityRangeHandler(nodesInAbilityRange);
+            foreach (Node node in nodesInAbilityRange)
+            {
+                nodesInRange.Remove(node);
+            }
+        }
+        MoveRangeHandler(nodesInRange);
+    } 
 
-    //                if (checkY >= 0 && checkY < grid.gridSizeY)
-    //                {
-    //                    Vector2 checkNodePos = new Vector2(unitNode.gridX, checkY);
-    //                    if (!grid.grid[unitNode.gridX, checkY].walkable)
-    //                    {   // Obstacle found
-    //                        directionsChecked++;
-    //                        break;
-    //                    }
-    //                    else
-    //                        nodesInRange.Add(grid.grid[unitNode.gridX, checkY]);
-    //                    if (grid.TileFromVector2(checkNodePos).occupied)
-    //                    {
-    //                        //directionsChecked++;
-    //                        if (grid.TileFromVector2(checkNodePos).occupyingUnit.team != castingUnit.team)
-    //                        {
-    //                            //We need to check if there's a free space adjacent to this unit.
-    //                            if (checkY - 1 > 0)
-    //                                if (grid.grid[unitNode.gridX, checkY - 1].walkable && !grid.TileFromVector2(new Vector2(unitNode.gridX, checkY - 1)).occupied)
-    //                                {
-    //                                    if (!nodesInAbilityRange.Contains(grid.grid[unitNode.gridX, checkY - 1]))
-    //                                    {
-    //                                        nodesInAbilityRange.Add(grid.grid[unitNode.gridX, checkY - 1]);
-    //                                        nodesInAbilityRange.Add(grid.grid[unitNode.gridX, checkY]);
-    //                                    }
+    public IEnumerator FindGCPath(Vector3 startPos, Vector3 endPos)
+    {
+        Vector3[] waypoints = new Vector3[0];
+        bool pathSuccess = false;
 
-    //                                }
-    //                            if (grid.gridSizeY > checkY + 1)
-    //                                if (grid.grid[unitNode.gridX, checkY + 1].walkable && !grid.TileFromVector2(new Vector2(unitNode.gridX, checkY + 1)).occupied)
-    //                                {
-    //                                    if (!nodesInAbilityRange.Contains(grid.grid[unitNode.gridX, checkY + 1]))
-    //                                    {
-    //                                        nodesInAbilityRange.Add(grid.grid[unitNode.gridX, checkY + 1]);
-    //                                    }
-    //                                    if (!nodesInAbilityRange.Contains(grid.grid[unitNode.gridX, checkY + 1]))
-    //                                        nodesInAbilityRange.Add(grid.grid[unitNode.gridX, checkY]);
-    //                                }
-    //                        }
-    //                        //break;
-    //                    }
-    //                }
-    //            }
-    //            if (i == 1) //East
-    //            {
-    //                int checkX = unitNode.gridX + j + 1;
-    //                if (checkX >= 0 && checkX < grid.gridSizeX)
-    //                {
-    //                    Vector2 checkNodePos = new Vector2(checkX, unitNode.gridY);
-    //                    if (!grid.grid[checkX, unitNode.gridY].walkable)
-    //                    {
-    //                        directionsChecked++;
-    //                        break;
-    //                    }
-    //                    else
-    //                        nodesInRange.Add(grid.grid[checkX, unitNode.gridY]);
-    //                    if (grid.TileFromVector2(checkNodePos).occupied)
-    //                    {
-    //                        if (grid.TileFromVector2(checkNodePos).occupyingUnit.team != castingUnit.team)
-    //                        {   //Enemy unit found
-    //                            //We need to check if there's a free space adjacent to this unit.
-    //                            if (checkX - 1 > 0)
-    //                                if (grid.grid[checkX - 1, unitNode.gridY].walkable && !grid.TileFromVector2(new Vector2(checkX - 1, unitNode.gridY)).occupied)
-    //                                {
-    //                                    if (!nodesInAbilityRange.Contains(grid.grid[checkX - 1, unitNode.gridY]))
-    //                                    {
-    //                                        nodesInAbilityRange.Add(grid.grid[checkX - 1, unitNode.gridY]);
-    //                                        nodesInAbilityRange.Add(grid.grid[checkX, unitNode.gridY]);
-    //                                    }
+        Node startNode = grid.NodeFromWorldPoint(startPos);
+        Node targetNode = grid.NodeFromWorldPoint(endPos);
 
-    //                                }
-    //                            if (grid.gridSizeX > checkX + 1)
-    //                                if (grid.grid[checkX + 1, unitNode.gridY].walkable && !grid.TileFromVector2(new Vector2(checkX + 1, unitNode.gridY)).occupied)
-    //                                {
-    //                                    if (!nodesInAbilityRange.Contains(grid.grid[checkX + 1, unitNode.gridY]))
-    //                                    {
-    //                                        nodesInAbilityRange.Add(grid.grid[checkX + 1, unitNode.gridY]);
-    //                                    }
-    //                                    if (!nodesInAbilityRange.Contains(grid.grid[checkX, unitNode.gridY]))
-    //                                        nodesInAbilityRange.Add(grid.grid[checkX, unitNode.gridY]);
-    //                                }
-    //                        }
-    //                    }
-    //                }
-    //            }
-    //            if (i == 2) //South
-    //            {
-    //                int checkY = unitNode.gridY - j - 1;
-    //                if (checkY >= 0 && checkY < grid.gridSizeY)
-    //                {
-    //                    Vector2 checkNodePos = new Vector2(unitNode.gridX, checkY);
-    //                    if (!grid.grid[unitNode.gridX, checkY].walkable)
-    //                    {
-    //                        directionsChecked++;
-    //                        break;
-    //                    }
-    //                    else
-    //                        nodesInRange.Add(grid.grid[unitNode.gridX, checkY]);
-    //                    if (grid.TileFromVector2(checkNodePos).occupied)
-    //                    {
-    //                        if (grid.TileFromVector2(checkNodePos).occupyingUnit.team != castingUnit.team)
-    //                        {
-    //                            //We need to check if there's a free space adjacent to this unit.
-    //                            if (checkY - 1 > 0)
-    //                                if (grid.grid[unitNode.gridX, checkY - 1].walkable && !grid.TileFromVector2(new Vector2(unitNode.gridX, checkY - 1)).occupied)
-    //                                {
-    //                                    if (!nodesInAbilityRange.Contains(grid.grid[unitNode.gridX, checkY - 1]))
-    //                                    {
-    //                                        nodesInAbilityRange.Add(grid.grid[unitNode.gridX, checkY - 1]);
-    //                                        nodesInAbilityRange.Add(grid.grid[unitNode.gridX, checkY]);
-    //                                    }
-    //                                }
-    //                            if (checkY + 1 < grid.gridSizeY)
-    //                                if (grid.grid[unitNode.gridX, checkY + 1].walkable && !grid.TileFromVector2(new Vector2(unitNode.gridX, checkY + 1)).occupied)
-    //                                {
-    //                                    if (!nodesInAbilityRange.Contains(grid.grid[unitNode.gridX, checkY + 1]))
-    //                                    {
-    //                                        nodesInAbilityRange.Add(grid.grid[unitNode.gridX, checkY + 1]);
-    //                                    }
-    //                                    if (!nodesInAbilityRange.Contains(grid.grid[unitNode.gridX, checkY]))
-    //                                        nodesInAbilityRange.Add(grid.grid[unitNode.gridX, checkY]);
-    //                                }
-    //                        }
-    //                    }
-    //                }
-    //            }
-    //            if (i == 3) //West
-    //            {
-    //                int checkX = unitNode.gridX - j - 1;
-    //                if (checkX >= 0 && checkX < grid.gridSizeX)
-    //                {
-    //                    Vector2 checkNodePos = new Vector2(checkX, unitNode.gridY);
-    //                    if (!grid.grid[checkX, unitNode.gridY].walkable)
-    //                    {
-    //                        directionsChecked++;
-    //                        break;
-    //                    }
-    //                    else
-    //                        nodesInRange.Add(grid.grid[checkX, unitNode.gridY]);
-    //                    if (grid.TileFromVector2(checkNodePos).occupied)
-    //                    {
-    //                        if (grid.TileFromVector2(checkNodePos).occupyingUnit.team != castingUnit.team)
-    //                        {
-    //                            //We need to check if there's a free space adjacent to this unit.
-    //                            if (checkX - 1 > 0)
-    //                                if (grid.grid[checkX - 1, unitNode.gridY].walkable && !grid.TileFromVector2(new Vector2(checkX - 1, unitNode.gridY)).occupied)
-    //                                {
-    //                                    if (!nodesInAbilityRange.Contains(grid.grid[checkX - 1, unitNode.gridY]))
-    //                                    {
-    //                                        nodesInAbilityRange.Add(grid.grid[checkX - 1, unitNode.gridY]);
-    //                                        nodesInAbilityRange.Add(grid.grid[checkX, unitNode.gridY]);
-    //                                    }
+        if (startNode.walkable && targetNode.walkable)
+        {
+            Heap<Node> openSet = new Heap<Node>(grid.MaxSize);
+            HashSet<Node> closedSet = new HashSet<Node>();
+            openSet.Add(startNode);
 
-    //                                }
-    //                            if (grid.gridSizeX > checkX + 1)
-    //                                if (grid.grid[checkX + 1, unitNode.gridY].walkable && !grid.TileFromVector2(new Vector2(checkX + 1, unitNode.gridY)).occupied)
-    //                                {
-    //                                    if (!nodesInAbilityRange.Contains(grid.grid[checkX + 1, unitNode.gridY]))
-    //                                    {
-    //                                        nodesInAbilityRange.Add(grid.grid[checkX + 1, unitNode.gridY]);
-    //                                    }
-    //                                    if (!nodesInAbilityRange.Contains(grid.grid[checkX, unitNode.gridY]))
-    //                                        nodesInAbilityRange.Add(grid.grid[checkX, unitNode.gridY]);
-    //                                }
-    //                        }
-    //                    }
-    //                }
-    //            }
+            while (openSet.Count > 0)
+            {
+                Node currentNode = openSet.RemoveFirst();
+                closedSet.Add(currentNode);
 
-    //            if (j == abilityRange)
-    //                directionsChecked++;
-    //        }
+                if (currentNode == targetNode)
+                {
+                    pathSuccess = true;
+                    break;
+                }
 
-    //        if (directionsChecked == 4)
-    //            done = true;
-    //    }
-    //    yield return null;
-    //    if (done == true)
-    //    {
-    //        if (nodesInAbilityRange.Count > 0)
-    //        {
-    //            AbilityRangeHandler(nodesInAbilityRange);
-    //            foreach (Node node in nodesInAbilityRange)
-    //            {
-    //                nodesInRange.Remove(node);
-    //            }
-    //        }
-    //        RangeHandler(nodesInRange);
-    //    }
-    //}
+                foreach (Node neighbour in grid.GetNeighbours(currentNode, 1, 1))
+                {
+                    if (grid.TileFromNode(neighbour))
+                    {
+                        Tile neighbourTile = grid.TileFromNode(neighbour);
+                        if (!neighbour.walkable || closedSet.Contains(neighbour))
+                            continue;
+
+                        int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
+                        if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
+                        {
+                            neighbour.gCost = newMovementCostToNeighbour;
+                            neighbour.hCost = GetDistance(neighbour, targetNode);
+                            neighbour.parent = currentNode;
+
+                            if (!openSet.Contains(neighbour))
+                            {
+                                openSet.Add((neighbour));
+                            }
+                            else openSet.UpdateItem(neighbour);
+                        }
+                    }
+                }
+            }
+        }
+        yield return null;
+        if (pathSuccess)
+        {
+            waypoints = ReversePath(startNode, targetNode);
+        }
+        combat.GetKneeTargets(waypoints);
+        combat.GetVector3LZ(waypoints);
+    }
 
     public void DisplayBlastRadius(Ability ability, Tile targetTile)
     {
@@ -593,21 +456,27 @@ public class Pathfinding : MonoBehaviour
         combat.tileTargetList.Clear();
         foreach (Node blastNode in blastZoneNodes)
         {
-            Tile blastTile = grid.TileFromNode(blastNode);
-
-            Transform displaySq = Instantiate(attackObject, blastNode.worldPosition, transform.rotation).transform;
-            displaySq.parent = displayHolder;
-            displaySq.localScale = new Vector3(displaySq.localScale.x * 0.9f, displaySq.localScale.y, displaySq.localScale.z * 0.9f);
-            blastTile.inBlastZone = true;
-            if (blastTile.occupied)
+            Tile blastTile;
+            if (grid.TileFromNode(blastNode))
             {
-                combat.targetList.Add(blastTile.occupyingUnit);
+                blastTile = grid.TileFromNode(blastNode);
+
+                Transform displaySq = Instantiate(attackObject, new Vector3(blastTile.transform.position.x, blastTile.transform.position.y + blastTile.graphicsYOffset, blastTile.transform.position.z), transform.rotation).transform;
+                displaySq.parent = displayHolder;
+                displaySq.localScale = new Vector3(displaySq.localScale.x * 0.9f, displaySq.localScale.y, displaySq.localScale.z * 0.9f);
+                blastTile.inBlastZone = true;
+                blastTile.validAbilityTarget = true;
+                if (blastTile.occupied)
+                {
+                    combat.targetList.Add(blastTile.occupyingUnit);
+                }
+                combat.tileTargetList.Add(blastTile);
             }
-            combat.tileTargetList.Add(blastTile);
+            else continue;
         }
     }
 
-    public void RangeHandler(List<Node> nodesInRange)
+    public void MoveRangeHandler(List<Node> nodesInRange)
     {
         string displayHolderName = "DisplaySquares";
         if (transform.Find(displayHolderName))
@@ -618,12 +487,25 @@ public class Pathfinding : MonoBehaviour
 
         foreach (Node item in nodesInRange)
         {
+            targetNormal = Vector3.zero;
             Tile nowTile = grid.TileFromNode(item);
+            if (Physics.Raycast(nowTile.transform.position + new Vector3(0, 0.5f, 0), Vector3.down, out hit, 1f, layerMask))
+            {
+                if (hit.normal == transform.up)
+                {
+                    toRotation = new Quaternion(0, 0, 1, 0);
+                }
+                else if (hit.normal != targetNormal)
+                {
+                    targetNormal = hit.normal;
+                    toRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                }
+            }
 
-            Transform displaySq = Instantiate(moveObject, nowTile.transform.position + Vector3.up * 0.02f, transform.rotation).transform;
+            Transform displaySq = Instantiate(moveObject, nowTile.transform.position + Vector3.up * 0.02f + new Vector3(0f, nowTile.graphicsYOffset, 0f), toRotation).transform;
             displaySq.parent = displayHolder;
             displaySq.localScale = new Vector3(displaySq.localScale.x * 0.9f, displaySq.localScale.y, displaySq.localScale.z * 0.9f);
-            nowTile.inRange = true;
+            nowTile.inMoveRange = true;
         }
     }
 
@@ -639,13 +521,27 @@ public class Pathfinding : MonoBehaviour
         foreach (Node item in nodesInRange)
         {
             Tile nowTile = grid.TileFromNode(item);
+            if (nowTile)
+            {
+                if (nowTile.occupied)
+                    if (nowTile.occupyingUnit.team != combat.attacker.team)
+                    {
+                        nowTile.validAbilityTarget = true;
+                        Transform attackSq = Instantiate(attackObject, item.worldPosition + new Vector3(0f, nowTile.graphicsYOffset, 0f), transform.rotation).transform;
+                        attackSq.parent = displayHolder;
+                        attackSq.localScale = new Vector3(attackSq.localScale.x * 0.9f, attackSq.localScale.y, attackSq.localScale.z * 0.9f);
+                    }
 
-            Transform displaySq = Instantiate(attackObject, item.worldPosition, transform.rotation).transform;
-            displaySq.parent = displayHolder;
-            displaySq.localScale = new Vector3(displaySq.localScale.x * 0.9f, displaySq.localScale.y, displaySq.localScale.z * 0.9f);
-            nowTile.validAbilityTarget = true;
+                if (!nowTile.validAbilityTarget)
+                {
+                    Transform displaySq = Instantiate(moveObject, item.worldPosition + new Vector3(0f, nowTile.graphicsYOffset, 0f), transform.rotation).transform;
+                    displaySq.parent = displayHolder;
+                    displaySq.localScale = new Vector3(displaySq.localScale.x * 0.9f, displaySq.localScale.y, displaySq.localScale.z * 0.9f);
+                }
+            }
         }
     }
+
     public void AttackRangeHandler(List<Node> nodesInRange)
     {
         string displayHolderName = "AttackDisplaySquares";
@@ -659,7 +555,7 @@ public class Pathfinding : MonoBehaviour
         {
             Tile nowTile = grid.TileFromNode(item);
 
-            Transform displaySq = Instantiate(attackObject, nowTile.transform.position + Vector3.up * 0.02f, transform.rotation).transform;
+            Transform displaySq = Instantiate(attackObject, nowTile.transform.position + Vector3.up * 0.02f + new Vector3(0f, nowTile.graphicsYOffset, 0f), transform.rotation).transform;
             displaySq.parent = displayHolder;
             displaySq.localScale = new Vector3(displaySq.localScale.x * 0.9f, displaySq.localScale.y, displaySq.localScale.z * 0.9f);
             nowTile.inAttackRange = true;
@@ -691,12 +587,12 @@ public class Pathfinding : MonoBehaviour
                     break;
                 }
 
-                foreach (Node neighbour in grid.GetNeighbours(currentNode, 1))
+                foreach (Node neighbour in grid.GetNeighbours(currentNode, 1, requestingUnit.jumpRange))
                 {
                     if (grid.TileFromNode(neighbour))
                     {
                         Tile neighbourTile = grid.TileFromNode(neighbour);
-                        if (!neighbour.walkable || closedSet.Contains(neighbour))
+                        if (!neighbour.walkable || closedSet.Contains(neighbour) || neighbourTile.blocked)
                             continue;
                         if (neighbourTile.occupied && neighbour != targetNode)
                         {
@@ -724,9 +620,7 @@ public class Pathfinding : MonoBehaviour
         if (pathSuccess)
         {
             waypoints = ReversePath(startNode, targetNode);
-
         }
-
         requestingUnit.OnPathFound(waypoints, true);
     }
 
@@ -757,35 +651,39 @@ public class Pathfinding : MonoBehaviour
                     break;
                 }
 
-                foreach (Node neighbour in grid.GetNeighbours(currentNode, 1))
+                foreach (Node neighbour in grid.GetNeighbours(currentNode, 1, requestingUnit.jumpRange))
                 {
-                    if (!closedSet.Contains(neighbour))
-                    {//
-                        int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
-                        Tile neighbourTile = grid.TileFromNode(neighbour);
-                        if (newMovementCostToNeighbour > unitAtkRange - 10)
-                        {
-                            if (!neighbour.walkable)
-                                continue;
-                            if (neighbourTile.occupied && neighbour != targetNode)
+                    if (grid.TileFromNode(neighbour))
+                    {
+                        if (!closedSet.Contains(neighbour))
+                        {//
+                            int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
+                            Tile neighbourTile = grid.TileFromNode(neighbour);
+                            if (newMovementCostToNeighbour > unitAtkRange - 10)
                             {
-                                continue;
+                                if (!neighbour.walkable)
+                                    continue;
+                                if (neighbourTile.occupied && neighbour != targetNode)
+                                {
+                                    continue;
+                                }
+                            }
+                            else UnityEngine.Debug.Log("D");
+
+                            if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
+                            {
+                                neighbour.gCost = newMovementCostToNeighbour;
+                                neighbour.hCost = GetDistance(neighbour, targetNode);
+                                neighbour.parent = currentNode;
+
+                                if (!openSet.Contains(neighbour))
+                                {
+                                    openSet.Add((neighbour));
+                                }
+                                else openSet.UpdateItem(neighbour);
                             }
                         }
-                        else UnityEngine.Debug.Log("D");
-
-                        if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
-                        {
-                            neighbour.gCost = newMovementCostToNeighbour;
-                            neighbour.hCost = GetDistance(neighbour, targetNode);
-                            neighbour.parent = currentNode;
-
-                            if (!openSet.Contains(neighbour))
-                            {
-                                openSet.Add((neighbour));
-                            }
-                            else openSet.UpdateItem(neighbour);
-                        }
+                        else continue;
                     }
                     else continue;
                 }
@@ -815,6 +713,7 @@ public class Pathfinding : MonoBehaviour
         return waypoints;
 
     }
+
     Vector3[] RetracePath(Node startNode, Node endNode)
     {
         List<Node> path = new List<Node>();

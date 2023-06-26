@@ -44,7 +44,7 @@ public class TurnManagement : MonoBehaviour
         }
         if (unitSelection.selectedUnit)
         {
-            if (unitSelection.selectedUnit.midMove || unitSelection.attacking)
+            if (unitSelection.selectedUnit.midMove)
             {
                 endTurnButton.SetActive(false);
             }
