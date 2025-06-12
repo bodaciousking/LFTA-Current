@@ -162,7 +162,7 @@ TextureImporter:
       213: 7610046239198224776
     second: hunter_1b_52
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -179,9 +179,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -190,12 +193,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -213,10 +216,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -228,6 +236,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -240,6 +249,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1368,9 +1378,62 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      hunter_1b_0: 8055592467083364724
+      hunter_1b_1: 4460315833556582450
+      hunter_1b_10: -4641646736079370097
+      hunter_1b_11: -1806238456127229163
+      hunter_1b_12: -9127096230488942864
+      hunter_1b_13: 7348309899479321011
+      hunter_1b_14: -7327633584607095224
+      hunter_1b_15: -3375864986921561763
+      hunter_1b_16: -4853101827684378155
+      hunter_1b_17: -7798030298492557728
+      hunter_1b_18: 4066917659876809229
+      hunter_1b_19: -7577907927579944696
+      hunter_1b_2: 6953288766114962774
+      hunter_1b_20: -1908676938757698834
+      hunter_1b_21: 1032251903500538815
+      hunter_1b_22: -2725399527562408191
+      hunter_1b_23: 2704347098079662145
+      hunter_1b_24: 633283763567152993
+      hunter_1b_25: -2397768099249963597
+      hunter_1b_26: -2537829164025809677
+      hunter_1b_27: -7486805037501991166
+      hunter_1b_28: -1204823694731941205
+      hunter_1b_29: 3667359193813785346
+      hunter_1b_3: 4726557316492099460
+      hunter_1b_30: -3998296942700346078
+      hunter_1b_31: 6986715084294190538
+      hunter_1b_32: -4637646617559576372
+      hunter_1b_33: 6396258824384971598
+      hunter_1b_34: -972409526029550478
+      hunter_1b_35: 4891768748124659495
+      hunter_1b_36: -3346957694283912762
+      hunter_1b_37: -8419621152349296419
+      hunter_1b_38: -2259688556613565009
+      hunter_1b_39: -3964472160751735739
+      hunter_1b_4: -2758799136382371579
+      hunter_1b_40: -7446402532706080540
+      hunter_1b_41: -5386425699323612397
+      hunter_1b_42: 2814276911690873054
+      hunter_1b_43: -4486015481075159241
+      hunter_1b_44: 50299839383549732
+      hunter_1b_45: -8776724431155400642
+      hunter_1b_46: -7043168739060908008
+      hunter_1b_47: 2442071766206795853
+      hunter_1b_48: 2157307855153100288
+      hunter_1b_49: -3460766264299932608
+      hunter_1b_5: -1383585032109391293
+      hunter_1b_50: 4527826201032131164
+      hunter_1b_51: 1317051598868743344
+      hunter_1b_52: 7610046239198224776
+      hunter_1b_6: -2828807669578904649
+      hunter_1b_7: 5796329022281442660
+      hunter_1b_8: -5440692865055974151
+      hunter_1b_9: -5092328673954126825
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

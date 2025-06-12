@@ -210,7 +210,7 @@ TextureImporter:
       213: 5837702752635722825
     second: freeze_0_68
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -227,9 +227,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -238,12 +241,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -261,10 +264,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -276,6 +284,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -288,6 +297,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1752,9 +1762,78 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      freeze_0_0: -6569325143769105814
+      freeze_0_1: -1834337560539462844
+      freeze_0_10: 8347667387627922043
+      freeze_0_11: 7532551554104674473
+      freeze_0_12: -5033723073485344648
+      freeze_0_13: 1726647445490368377
+      freeze_0_14: 6612512977897248191
+      freeze_0_15: 7117457750585683775
+      freeze_0_16: -6434062399546346138
+      freeze_0_17: 5682135771715481724
+      freeze_0_18: 1103108221551266293
+      freeze_0_19: -5188166255661749751
+      freeze_0_2: -4683768941241145208
+      freeze_0_20: 6653743329591673136
+      freeze_0_21: -8234743723556652521
+      freeze_0_22: 4893666555092896865
+      freeze_0_23: 4291214440220006398
+      freeze_0_24: 3591729858395470269
+      freeze_0_25: -1529059647931670672
+      freeze_0_26: -5976919096780231864
+      freeze_0_27: 7790161070336233879
+      freeze_0_28: -6132551267954009521
+      freeze_0_29: -6594280947254920621
+      freeze_0_3: 1358447075743941133
+      freeze_0_30: 2752047392383109765
+      freeze_0_31: 8532913828512166766
+      freeze_0_32: -9001856578933617830
+      freeze_0_33: -6475574055666087539
+      freeze_0_34: 850482332470442052
+      freeze_0_35: -2975224195685463202
+      freeze_0_36: -8522139335559593943
+      freeze_0_37: -24793629958392781
+      freeze_0_38: 5928102370299980279
+      freeze_0_39: 5516099662508588997
+      freeze_0_4: 4307392722250541925
+      freeze_0_40: -8938306748133729832
+      freeze_0_41: -8885882858309447580
+      freeze_0_42: -7394555071975394329
+      freeze_0_43: -7236604324972855822
+      freeze_0_44: -8096536804302512803
+      freeze_0_45: 4976619443865193743
+      freeze_0_46: 8075987245226893963
+      freeze_0_47: -3292073687883218296
+      freeze_0_48: -4542253556320951156
+      freeze_0_49: 3287214035264976822
+      freeze_0_5: 8658934577977360210
+      freeze_0_50: -6691814690932533923
+      freeze_0_51: -1541491658523868380
+      freeze_0_52: 6169793494471941502
+      freeze_0_53: -466660223064611413
+      freeze_0_54: -7901107562833892096
+      freeze_0_55: 8835094168154713235
+      freeze_0_56: 5464609843219901190
+      freeze_0_57: -8680052656755143368
+      freeze_0_58: 5191274108880697313
+      freeze_0_59: 5261661142749174883
+      freeze_0_6: -4551197180472740095
+      freeze_0_60: -1905299468955879794
+      freeze_0_61: -5640835914336505546
+      freeze_0_62: 2993440516439863685
+      freeze_0_63: 826160806453456685
+      freeze_0_64: -7749278855276557077
+      freeze_0_65: 9059592671032046918
+      freeze_0_66: -5205869879996361076
+      freeze_0_67: -8610784293631156704
+      freeze_0_68: 5837702752635722825
+      freeze_0_7: -4904201673594456669
+      freeze_0_8: 1660990113789360074
+      freeze_0_9: 6266719419903884294
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Attacking
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -18,7 +18,8 @@ AnimationClip:
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves:
-  - curve:
+  - serializedVersion: 2
+    curve:
     - time: 0
       value: {fileID: -7222987912828397506, guid: 0114550c82d12d045b8b4441ce0308d8,
         type: 3}
@@ -38,6 +39,7 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
+    flags: 2
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -52,6 +54,8 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: -7222987912828397506, guid: 0114550c82d12d045b8b4441ce0308d8, type: 3}
     - {fileID: 5082576785044116386, guid: 0114550c82d12d045b8b4441ce0308d8, type: 3}
@@ -90,9 +94,9 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.21666667
-    functionName: BasicAttack
-    data: 
+  - time: 0.2
+    functionName: AnimationEvent
+    data: Basic attack
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

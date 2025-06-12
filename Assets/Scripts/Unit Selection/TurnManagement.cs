@@ -106,6 +106,7 @@ public class TurnManagement : MonoBehaviour
 
     public void BeginTurn()
     {
+        UnitSelection.instance.DeselectUnit();
         cT.HideCommands();
         if (!v.gameOver)
         {

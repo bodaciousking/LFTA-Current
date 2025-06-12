@@ -6,6 +6,7 @@ public class Node : IHeapItem<Node>
 {
     public bool walkable;
     public Vector3 worldPosition;
+    public Vector3Int gridPosition;
 
     public int gCost;  //Distance from starting node
     public int hCost; // distance from end node
@@ -23,6 +24,7 @@ public class Node : IHeapItem<Node>
         gridX = _gridX;
         gridY = _gridY;
         gridZ = _gridZ;
+        gridPosition = new Vector3Int(gridX, gridY, gridZ);
     }
 
     public int fCost // gCost + hCost

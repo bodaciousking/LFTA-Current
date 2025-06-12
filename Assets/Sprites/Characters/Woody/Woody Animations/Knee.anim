@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Knee
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -18,7 +18,8 @@ AnimationClip:
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves:
-  - curve:
+  - serializedVersion: 2
+    curve:
     - time: 0
       value: {fileID: -3039070394583790760, guid: 4c8e5a840ccc0bd4d8d76789b0035181,
         type: 3}
@@ -50,6 +51,7 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
+    flags: 2
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -64,6 +66,8 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: -3039070394583790760, guid: 4c8e5a840ccc0bd4d8d76789b0035181, type: 3}
     - {fileID: 3643848454568850008, guid: 4c8e5a840ccc0bd4d8d76789b0035181, type: 3}
@@ -107,8 +111,8 @@ AnimationClip:
     intParameter: 14
     messageOptions: 0
   - time: 0.25
-    functionName: CastAbility2
-    data: 
+    functionName: AnimationEvent
+    data: Close Gap
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

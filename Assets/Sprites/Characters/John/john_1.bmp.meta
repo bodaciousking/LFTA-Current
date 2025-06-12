@@ -165,7 +165,7 @@ TextureImporter:
       213: 4758484063294563813
     second: john_1_53
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -182,9 +182,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -193,12 +196,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -216,10 +219,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -231,6 +239,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -243,6 +252,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1392,9 +1402,63 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      john_1_0: 179002108819442364
+      john_1_1: -4963867659595145274
+      john_1_10: -4959435861829864940
+      john_1_11: -905126204633898389
+      john_1_12: -5788310820840904056
+      john_1_13: -2739214108039226210
+      john_1_14: -6475057453389243401
+      john_1_15: -9143755467870299173
+      john_1_16: 2742061931039855216
+      john_1_17: -5370249722889522560
+      john_1_18: 303615266685735364
+      john_1_19: -8213599854758289727
+      john_1_2: 4244337771633166025
+      john_1_20: -1358247540102048136
+      john_1_21: -614201323192324695
+      john_1_22: -7818501182431944805
+      john_1_23: -3303710153028789440
+      john_1_24: 366481824756043386
+      john_1_25: -4796768192869171183
+      john_1_26: 601292826147072945
+      john_1_27: -560206172877864357
+      john_1_28: -8442297379165814111
+      john_1_29: 1288134889829127622
+      john_1_3: 482166348153223523
+      john_1_30: -8087131134244814840
+      john_1_31: -2518501036395942764
+      john_1_32: -2296762311553606617
+      john_1_33: -4695174834518298817
+      john_1_34: -5974783643204312820
+      john_1_35: 5009586834800265077
+      john_1_36: -2741768082773126181
+      john_1_37: -8169032886113430205
+      john_1_38: 5724739108344185393
+      john_1_39: 6924332804778880123
+      john_1_4: -8831929874144674507
+      john_1_40: -5751662670278545561
+      john_1_41: 2677438293272123610
+      john_1_42: -8980362089072716753
+      john_1_43: -7375539882516132937
+      john_1_44: 1613931106723982278
+      john_1_45: 8104916504844720559
+      john_1_46: 607038858590881521
+      john_1_47: -8210819479437387629
+      john_1_48: 4553908585618054424
+      john_1_49: 5189130765827767924
+      john_1_5: 2369570901371784955
+      john_1_50: 5309613846959832647
+      john_1_51: 5559923120959042323
+      john_1_52: 5707619258385685403
+      john_1_53: 4758484063294563813
+      john_1_6: 2565900807802836784
+      john_1_7: -4321719994500707721
+      john_1_8: -8738891249114210789
+      john_1_9: -7097872585441585082
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -198,7 +198,7 @@ TextureImporter:
       213: 5848198465584168703
     second: hunter_0b_64
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -215,9 +215,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -226,12 +229,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -249,10 +252,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -264,6 +272,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -276,6 +285,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1656,9 +1666,74 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      hunter_0b_0: 3924211980950735695
+      hunter_0b_1: 2150950940317560007
+      hunter_0b_10: -2219340092179364733
+      hunter_0b_11: 833086531896107425
+      hunter_0b_12: -2172700693218689728
+      hunter_0b_13: 730994815060650511
+      hunter_0b_14: -6425121293392841007
+      hunter_0b_15: -8510163469350462928
+      hunter_0b_16: -8285970550345626278
+      hunter_0b_17: -1654558359672713270
+      hunter_0b_18: -3160388955820901706
+      hunter_0b_19: 4243666107109962623
+      hunter_0b_2: -2422238239514027325
+      hunter_0b_20: -2767002864147803132
+      hunter_0b_21: 3705361112004983753
+      hunter_0b_22: -8115524716176190145
+      hunter_0b_23: 6022170827189083951
+      hunter_0b_24: 101041278903060680
+      hunter_0b_25: 1642023285319177263
+      hunter_0b_26: -8320674159120765552
+      hunter_0b_27: 1414450025691165580
+      hunter_0b_28: -956046923541858322
+      hunter_0b_29: -2245361947707022979
+      hunter_0b_3: -1905550902507545366
+      hunter_0b_30: 8633927626163317386
+      hunter_0b_31: 1767256381079413661
+      hunter_0b_32: 378469594396607273
+      hunter_0b_33: -2404198828175815289
+      hunter_0b_34: 7844397928255529986
+      hunter_0b_35: -1054563449434494120
+      hunter_0b_36: -678431630725504460
+      hunter_0b_37: -3956816180203689375
+      hunter_0b_38: -8801051503831250310
+      hunter_0b_39: -8799542751206898083
+      hunter_0b_4: -7455936506349819148
+      hunter_0b_40: -1027287580587587982
+      hunter_0b_41: 7867627850949612998
+      hunter_0b_42: 7978702799331873065
+      hunter_0b_43: 4715641643439357609
+      hunter_0b_44: 1712675738326121610
+      hunter_0b_45: -5456283311385359789
+      hunter_0b_46: -6134708052799017943
+      hunter_0b_47: 3096172221378493647
+      hunter_0b_48: -8264353698830071962
+      hunter_0b_49: 1608185769944064382
+      hunter_0b_5: -8583179976285752685
+      hunter_0b_50: 279214695233268093
+      hunter_0b_51: 671428517988765516
+      hunter_0b_52: -5132039428534926941
+      hunter_0b_53: -4519806266478735403
+      hunter_0b_54: -6897080224321474841
+      hunter_0b_55: -776108742235647480
+      hunter_0b_56: -6111821656278308131
+      hunter_0b_57: 4047130978051595923
+      hunter_0b_58: 6010967958328455231
+      hunter_0b_59: -8054522551142461691
+      hunter_0b_6: -2971877266167879616
+      hunter_0b_60: -4952158874570239895
+      hunter_0b_61: 7365447463323570021
+      hunter_0b_62: -1111903783332133566
+      hunter_0b_63: 798308182916548545
+      hunter_0b_64: 5848198465584168703
+      hunter_0b_7: -166937195743247009
+      hunter_0b_8: 4623620598390696153
+      hunter_0b_9: 6140567268178164774
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

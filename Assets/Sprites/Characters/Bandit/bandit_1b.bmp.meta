@@ -171,7 +171,7 @@ TextureImporter:
       213: -2436648626894706473
     second: bandit_1b_55
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -188,9 +188,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -199,12 +202,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -222,10 +225,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -237,6 +245,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -249,6 +258,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1440,9 +1450,65 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      bandit_1b_0: 298797145162695322
+      bandit_1b_1: 318209472799771125
+      bandit_1b_10: -1286951228509994631
+      bandit_1b_11: -3143315713420469988
+      bandit_1b_12: -5206798034448670689
+      bandit_1b_13: 4684042908942502400
+      bandit_1b_14: 7871403451819419862
+      bandit_1b_15: 8573689915359793402
+      bandit_1b_16: -2538643133228000653
+      bandit_1b_17: -7601210211114045062
+      bandit_1b_18: 1015120671049099028
+      bandit_1b_19: -9020586773119441142
+      bandit_1b_2: -1072735062296856899
+      bandit_1b_20: 6028154217541610502
+      bandit_1b_21: 5596286907991926666
+      bandit_1b_22: -2401704095464814820
+      bandit_1b_23: -429594397372407202
+      bandit_1b_24: -7836222169991643682
+      bandit_1b_25: 7875209467195977972
+      bandit_1b_26: -4570036985698276057
+      bandit_1b_27: 7231736472701107241
+      bandit_1b_28: -2178311297168438145
+      bandit_1b_29: -1997041740074733022
+      bandit_1b_3: 8168261437951346177
+      bandit_1b_30: -3282412691886491292
+      bandit_1b_31: 304304816855203530
+      bandit_1b_32: 3414851836653732373
+      bandit_1b_33: -481401026287991644
+      bandit_1b_34: 1767504504387312263
+      bandit_1b_35: 2278735489980410149
+      bandit_1b_36: 7027412368476736097
+      bandit_1b_37: 8201965819746636137
+      bandit_1b_38: -8340858835439120054
+      bandit_1b_39: 6499740150636409085
+      bandit_1b_4: -8514966865756915867
+      bandit_1b_40: 8143809468503579609
+      bandit_1b_41: -3794332258744795827
+      bandit_1b_42: -3222601651590736215
+      bandit_1b_43: -7447930584367108376
+      bandit_1b_44: -8440830125246342477
+      bandit_1b_45: 1095580741812434483
+      bandit_1b_46: 3168404629004763984
+      bandit_1b_47: -8861852949412663025
+      bandit_1b_48: -388185611054632985
+      bandit_1b_49: -5758485892087777999
+      bandit_1b_5: -1335154702596202749
+      bandit_1b_50: 5246247679730309926
+      bandit_1b_51: -7551933498786853132
+      bandit_1b_52: -1013938953471190322
+      bandit_1b_53: -3603176091402950574
+      bandit_1b_54: 1417350763173830666
+      bandit_1b_55: -2436648626894706473
+      bandit_1b_6: -2134456972385851724
+      bandit_1b_7: -2150979394899880528
+      bandit_1b_8: -7036714792916239173
+      bandit_1b_9: -6621928374465049617
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

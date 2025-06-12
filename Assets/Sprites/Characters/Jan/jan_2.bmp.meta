@@ -213,7 +213,7 @@ TextureImporter:
       213: -4257037463860165300
     second: jan_2_69
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -230,9 +230,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -241,12 +244,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -264,10 +267,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -279,6 +287,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -291,6 +300,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1776,9 +1786,79 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      jan_2_0: -2177987281156702468
+      jan_2_1: 1534961268302636015
+      jan_2_10: -7415280954431795187
+      jan_2_11: 8220118902275266748
+      jan_2_12: 6473825887241581762
+      jan_2_13: -3430830524870097940
+      jan_2_14: -7458560418777189658
+      jan_2_15: -5433247315357133471
+      jan_2_16: 991851729142156587
+      jan_2_17: -6718075183955376628
+      jan_2_18: 8503736421509288103
+      jan_2_19: 8120710408869576813
+      jan_2_2: 7619646969310368299
+      jan_2_20: 1441240018609157104
+      jan_2_21: 2202570693594776813
+      jan_2_22: 2548234091450288977
+      jan_2_23: -1938719570911232115
+      jan_2_24: -4715992568277627619
+      jan_2_25: 6761766642997310923
+      jan_2_26: -1371208924349064997
+      jan_2_27: -3266363914206576214
+      jan_2_28: -1735932370396564680
+      jan_2_29: -3478432619864785504
+      jan_2_3: -1469732492218216160
+      jan_2_30: -8845175850487818275
+      jan_2_31: -7810120817360503754
+      jan_2_32: -2145000604606668351
+      jan_2_33: 277166988095419524
+      jan_2_34: 7954319902739236414
+      jan_2_35: -2856252063410562105
+      jan_2_36: -6120260273830907740
+      jan_2_37: 2535211697126403762
+      jan_2_38: -77139046474725548
+      jan_2_39: -6826523485091470340
+      jan_2_4: -1831477890520087890
+      jan_2_40: 2339859479494507381
+      jan_2_41: 1755565520913649338
+      jan_2_42: 6019118252333042902
+      jan_2_43: 4080564860999173329
+      jan_2_44: -1274399545498359270
+      jan_2_45: 2287784219217385600
+      jan_2_46: -7031253030043632142
+      jan_2_47: -7355008703949370888
+      jan_2_48: 8806986025642275718
+      jan_2_49: -4750032012137786803
+      jan_2_5: 3621286608281858712
+      jan_2_50: -2022129501398902983
+      jan_2_51: -1461699337427933897
+      jan_2_52: -821296712885299818
+      jan_2_53: 5267727036456448343
+      jan_2_54: 5309806692983593262
+      jan_2_55: 3142143319829338363
+      jan_2_56: -5550079173184109794
+      jan_2_57: -849409621100104611
+      jan_2_58: -8707123126408356405
+      jan_2_59: 738451649497519166
+      jan_2_6: -1280831812882364059
+      jan_2_60: 446611697089827273
+      jan_2_61: 8695804186685898493
+      jan_2_62: 129310102982392813
+      jan_2_63: -7181736063795051434
+      jan_2_64: 8475914945594034961
+      jan_2_65: -6041574913547722954
+      jan_2_66: -4112730383022686709
+      jan_2_67: -1214885301587273751
+      jan_2_68: 6430300861470375255
+      jan_2_69: -4257037463860165300
+      jan_2_7: -8838400744175638867
+      jan_2_8: -4705965564106305846
+      jan_2_9: 1342042435491150887
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

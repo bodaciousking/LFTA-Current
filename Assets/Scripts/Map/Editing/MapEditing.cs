@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 
 public class MapEditing : MonoBehaviour
@@ -14,28 +15,34 @@ public class MapEditing : MonoBehaviour
     MapInfo mI;
     EditingUI eUI;
     HowToSaveLoadAnArrayWithCompression hts;
-    public Transform teamPanel;
+
     TMP_InputField x, y, z;
-    TMP_InputField bx, by, bz;
     bool mapsizeChosen;
     public float mapBottom;
+
     public Transform previewSectsHolder;
     public Coord[,,] allTileCoords;
 
-    public Transform tilePrefab, obstaclePrefab;
-    public int teamToAddTo;
-    public int graphicsReference = 0;
+    E_TeamSpawns e_ts;
+    E_ModelTerrain e_mt;
+    E_Colors e_c;
 
-    public Vector3 chosenMapSize;
-    public Vector3 brushSize = Vector3.zero;
+    public Choice action;
+
+    public Transform tilePrefab;
+
+    EditorTile hitTile;
+    EditorTile previousTile;
+    HitFace faceHit;
+
     TMP_InputField mapNameField;
     public string mapName;
     public GameObject finalizeButton;
     public Material hoverMat;
-    Transform mapHolder;
+    public Transform mapHolder;
 
-    BasicSect[,,] basicSectArray;
-    Sect[,,] sectArray;
+    public BasicSect[,,] basicSectArray;
+    public Sect[,,] sectArray;
 
     private void Start()
     {
@@ -43,11 +50,18 @@ public class MapEditing : MonoBehaviour
         mL = MapLoading.instance;
         eUI = EditingUI.instance;
         mI = MapInfo.instance;
+        e_mt = E_ModelTerrain.instance;
+        e_c = E_Colors.instance;
+        e_ts = E_TeamSpawns.instance;
+
         x = GameObject.Find("XField").GetComponent<TMP_InputField>();
         y = GameObject.Find("YField").GetComponent<TMP_InputField>();
         z = GameObject.Find("ZField").GetComponent<TMP_InputField>();
         mapNameField = GameObject.Find("NameField").GetComponent<TMP_InputField>();
+
         hts = HowToSaveLoadAnArrayWithCompression.instance;
+
+        previewSectsHolder = GameObject.Find("PreviewSectsHolder").transform;
 
         string holderName = "Base Map";
         if (transform.Find(holderName))
@@ -56,17 +70,14 @@ public class MapEditing : MonoBehaviour
         }
         mapHolder = new GameObject(holderName).transform;
         mapHolder.parent = transform;
-
-        bx = GameObject.Find("bXField").GetComponent<TMP_InputField>();
-        by = GameObject.Find("bYField").GetComponent<TMP_InputField>();
-        bz = GameObject.Find("bZField").GetComponent<TMP_InputField>();
+        
     }
 
     private void Update()
     {
         if (x.text != null && y.text != null && z.text != null)
         {
-            chosenMapSize = new Vector3(int.Parse(x.text), int.Parse(y.text), int.Parse(z.text));
+            mI.mapSize = new Vector3(int.Parse(x.text), int.Parse(y.text), int.Parse(z.text));
             if (!mapsizeChosen && mapNameField.text != "")
             {
                 finalizeButton.SetActive(true);
@@ -75,62 +86,126 @@ public class MapEditing : MonoBehaviour
         else
             finalizeButton.SetActive(false);
 
-        if (bx.text != null && by.text != null && bz.text != null)
+        if (action != Choice.Placing && previewSectsHolder.childCount > 0)
+            e_mt.DestroyPreviewSect();
+
+        Ray ray;
+        RaycastHit hit;
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        int layerMask = 1 << 8;
+        if (Physics.Raycast(ray, out hit, 5000, layerMask))
         {
-            brushSize = new Vector3(int.Parse(bx.text), int.Parse(by.text), int.Parse(bz.text));
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                if (hit.collider.gameObject.GetComponent<EditorTile>())
+                    hitTile = hit.collider.gameObject.GetComponent<EditorTile>();
+                else
+                    hitTile = hit.collider.gameObject.GetComponentInChildren<EditorTile>();
+
+                if (action == MapEditing.Choice.Placing)
+                {
+                    previousTile = null;
+
+                    faceHit = GetHitFace(hit);
+                    if (previousTile != null)
+                    {
+                        if (previousTile != hitTile)
+                            e_mt.PreviewNewSect(hitTile.mySect.coord, faceHit);
+                    }
+                    else if (previousTile == null)
+                        e_mt.PreviewNewSect(hitTile.mySect.coord, faceHit);
+
+                    previousTile = hitTile;
+                }
+
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    if (action == MapEditing.Choice.Placing && hitTile.spawnPointTeam == -1)
+                    {
+                        e_mt.AddNewSect(hitTile.mySect.coord, faceHit);
+                    }
+
+                    else if (action == MapEditing.Choice.ChoosingSpawnSpots && (hitTile.spawnPointTeam == -1 || hitTile.spawnPointTeam == e_ts.teamToAddTo))
+                    {
+                        if (e_ts.ToggleSpawnPoint(hitTile.mySect.coord))
+                        {
+                            if (hitTile.spawnPointTeam == -1)
+                                hitTile.spawnPointTeam = e_ts.teamToAddTo;
+                            else if (hitTile.spawnPointTeam == e_ts.teamToAddTo)
+                                hitTile.spawnPointTeam = -1;
+                        }
+                    }
+                    else if (action == MapEditing.Choice.Recolor)
+                    {
+                        e_c.Paint(hitTile.mySect);
+                        hitTile.myMat.color = e_c.modelColor;
+                    }
+
+                    else if (action == MapEditing.Choice.Erase)
+                    {
+                        e_mt.EraseSect(hitTile.mySect.coord);
+                        Destroy(hitTile.gameObject);
+                    }
+                }
+            }
+            else
+                e_mt.DestroyPreviewSect();
+        }
+        else
+            e_mt.DestroyPreviewSect();
+    }
+    public enum HitFace
+    {
+        None,
+        Up,
+        Down,
+        East,
+        West,
+        North,
+        South
+    }
+
+    public HitFace GetHitFace(RaycastHit hit)
+    {
+        Vector3 incomingVec = hit.normal - Vector3.up;
+
+        if (incomingVec == new Vector3(0, -1, -1))
+        {
+            return HitFace.South;
         }
 
-        if (action != Choice.Placing && previewSectsHolder.childCount > 0)
-            DestroyPreviewSect();
+        if (incomingVec == new Vector3(0, -1, 1))
+        {
+            return HitFace.North;
+        }
+
+        if (incomingVec == new Vector3(0, 0, 0))
+        {
+            return HitFace.Up;
+        }
+
+        if (incomingVec == new Vector3(0, -2, 0))
+        {
+            return HitFace.Down;
+        }
+
+        if (incomingVec == new Vector3(-1, -1, 0))
+        {
+            return HitFace.West;
+        }
+
+        if (incomingVec == new Vector3(1, -1, 0))
+        {
+            return HitFace.East;
+        }
+
+        return HitFace.None;
     }
+
 
     private void Awake()
     {
         instance = this;
-    }
-
-    public void AddNewTeamPointList()
-    {
-        bool[,,] newTeamList = new bool[(int)chosenMapSize.x,(int)chosenMapSize.y, (int)chosenMapSize.z];
-        mI.spawnLocationLists.Add(newTeamList);
-
-        Transform objectParent = GameObject.Find("TeamPanel").transform;
-        GameObject newPanel = Instantiate(teamPanel, objectParent).gameObject;
-        EditorSpawnPanel eSP = newPanel.GetComponent<EditorSpawnPanel>();
-        eSP.myTeam = (mI.spawnLocationLists.Count - 1);
-        eSP.myList = newTeamList;
-        teamToAddTo = eSP.myTeam;
-    }
-
-    public void RemoveTeamPointList()
-    {
-        mI.spawnLocationLists.Remove(mI.spawnLocationLists[teamToAddTo]);
-    }
-
-
-    public void SelectTeam(int i)
-    {
-        teamToAddTo = i;
-        action = Choice.ChoosingSpawnSpots;
-    }
-
-    public bool ToggleSpawnPoint(Coord CoordToAdd)
-    {
-        bool success = false;
-        if (CoordToAdd.y + 1 < chosenMapSize.y)
-        {
-            if (basicSectArray[CoordToAdd.x, CoordToAdd.y + 1, CoordToAdd.z] == null)
-            {
-                success = true;
-            }
-        }
-        else 
-        { success = true; }
-
-        if (success)
-            mI.spawnLocationLists[teamToAddTo][(int)CoordToAdd.x, (int)CoordToAdd.y, (int)CoordToAdd.z] = !mI.spawnLocationLists[teamToAddTo][(int)CoordToAdd.x, (int)CoordToAdd.y, (int)CoordToAdd.z];
-
-        return success;
     }
 
     public enum Choice
@@ -141,7 +216,6 @@ public class MapEditing : MonoBehaviour
         Erase,
     }
 
-    public Choice action;
 
 
     public void ChooseSpawns()
@@ -166,10 +240,10 @@ public class MapEditing : MonoBehaviour
         mapsizeChosen = true;
         bool firstCheck = false;
         mapName = mapNameField.text;
-        Vector3 mapSize = chosenMapSize;
+        Vector3 mapSize = mI.mapSize;
         mI.mapSize = mapSize;
 
-        allTileCoords = new Coord[(int)chosenMapSize.x, (int)chosenMapSize.y, (int)chosenMapSize.z];
+        allTileCoords = new Coord[(int)mI.mapSize.x, (int)mI.mapSize.y, (int)mI.mapSize.z];
         for (int x = 0; x < mapSize.x; x++)
         {
             for (int y = 0; y < mapSize.y; y++)
@@ -200,7 +274,7 @@ public class MapEditing : MonoBehaviour
                 for (int y = 0; y <= 0; y++)
                 {
                     Coord thisCoord = new Coord(x, y, z);
-                    Sect newSect = CreateNewSect(thisCoord);
+                    Sect newSect = e_mt.CreateNewSect(thisCoord);
 
                     Coord openTileCoord = thisCoord;
                     openTiles.Add(openTileCoord);
@@ -209,7 +283,7 @@ public class MapEditing : MonoBehaviour
                     if (!firstCheck)
                     {
                         firstCheck = true;
-                        mapBottom = mF.CoordToPosition(openTileCoord.x, openTileCoord.y, openTileCoord.z, chosenMapSize).y;
+                        mapBottom = mF.CoordToPosition(openTileCoord.x, openTileCoord.y, openTileCoord.z, mI.mapSize).y;
                         CameraControll cC = Camera.main.GetComponent<CameraControll>();
                         cC.minYLocation = (int)mapBottom;
                         cC.target.position = new Vector3(centerPos.x, (int)mapBottom, centerPos.z);
@@ -219,268 +293,8 @@ public class MapEditing : MonoBehaviour
         }
         eUI.SetOptionsButtons(true);
     }
-    public Sect CreateNewSect(Coord info)
-    {
-        string colorString = JsonUtility.ToJson(eUI.modelColor);
-        BasicSect newBS = new BasicSect(info.x, info.y, info.z, graphicsReference, colorString);
+    
 
-        Sect newSect = new Sect(mF.CoordToPosition(info.x, info.y, info.z, chosenMapSize), mF.CoordToVector3(info), mF.sectModel, info, newBS);
-        newSect.graphicsReference = graphicsReference;
-        newSect.graphics = mF.CreateSectGraphic(newSect);
-        newSect.graphics.transform.parent = mapHolder;
-        newSect.ChangeColor(eUI.modelColor);
-
-        EditorTile tileScript;
-        if (newSect.graphics.GetComponent<EditorTile>() != null)
-            tileScript = newSect.graphics.GetComponent<EditorTile>(); 
-        else
-            tileScript = newSect.graphics.GetComponentInChildren<EditorTile>();
-
-        tileScript.mySect = newSect;
-        tileScript.mE = this;
-        tileScript.mF = mF;
-
-
-        basicSectArray[(int)newSect.simpleLocation.x, (int)newSect.simpleLocation.y, (int)newSect.simpleLocation.z] = newBS;
-        sectArray[(int)newSect.simpleLocation.x, (int)newSect.simpleLocation.y, (int)newSect.simpleLocation.z] = newSect;
-
-        return (newSect);
-    }
-
-    public void EraseSect(Coord info)
-    {
-        basicSectArray[info.x, info.y, info.z] = null;
-        sectArray[info.x, info.y, info.z] = null;
-
-
-    }
-    public void DestroyPreviewSect()
-    {
-        foreach (Transform item in previewSectsHolder)
-        {
-            Destroy(item.gameObject);
-        }
-    }
-    public void PreviewNewSect(Coord prevCoord, EditingUI.HitFace faceHit)
-    {
-        foreach (Transform item in previewSectsHolder)
-        {
-            Destroy(item.gameObject);
-        }
-        if (faceHit == EditingUI.HitFace.Up)
-        {
-            if (prevCoord.y + 1 <= chosenMapSize.y - 1)
-            {
-                if (basicSectArray[prevCoord.x, prevCoord.y + 1, prevCoord.z] == null)
-                {
-                    Coord coord = allTileCoords[prevCoord.x, prevCoord.y + 1, prevCoord.z];
-                    CreatePreview(coord);
-                }
-            }
-        }
-        else if (faceHit == EditingUI.HitFace.Down)
-        {
-            if (prevCoord.y - 1 >= 0)
-            {
-                if (basicSectArray[prevCoord.x, prevCoord.y - 1, prevCoord.z] == null)
-                {
-                    Coord coord = allTileCoords[prevCoord.x, prevCoord.y - 1, prevCoord.z];
-                    CreatePreview(coord);
-                }
-            }
-        }
-        else if (faceHit == EditingUI.HitFace.North)
-        {
-            if (prevCoord.z + 1 < chosenMapSize.z - 1)
-            {
-                if (basicSectArray[prevCoord.x, prevCoord.y, prevCoord.z + 1] == null)
-                {
-                    Coord coord = allTileCoords[prevCoord.x, prevCoord.y, prevCoord.z + 1];
-                    CreatePreview(coord);
-                }
-            }
-        }
-        else if (faceHit == EditingUI.HitFace.South)
-        {
-            if (prevCoord.z - 1 >= 0)
-            {
-                if (basicSectArray[prevCoord.x, prevCoord.y, prevCoord.z - 1] == null)
-                {
-                    Coord coord = allTileCoords[prevCoord.x, prevCoord.y, prevCoord.z - 1];
-                    CreatePreview(coord);
-                }
-            }
-        }
-        else if (faceHit == EditingUI.HitFace.East)
-        {
-            if (prevCoord.x + 1 < chosenMapSize.x - 1)
-            {
-                if (basicSectArray[prevCoord.x + 1, prevCoord.y, prevCoord.z] == null)
-                {
-                    Coord coord = allTileCoords[prevCoord.x + 1, prevCoord.y, prevCoord.z];
-                    CreatePreview(coord);
-                }
-            }
-        }
-        else if (faceHit == EditingUI.HitFace.West)
-        {
-            if (prevCoord.x - 1 >= 0)
-            {
-                if (basicSectArray[prevCoord.x - 1, prevCoord.y, prevCoord.z] == null)
-                {
-                    Coord coord = allTileCoords[prevCoord.x - 1, prevCoord.y, prevCoord.z];
-                    CreatePreview(coord);
-                }
-            }
-        }
-
-    }
-
-    public void CreatePreview(Coord coord)
-    {
-        GameObject preview = Instantiate(mF.sectModel, mF.CoordToPosition(coord.x, coord.y, coord.z, chosenMapSize), Quaternion.identity, previewSectsHolder);
-        Destroy(preview.GetComponent<EditorTile>());
-        Destroy(preview.GetComponentInChildren<EditorTile>());
-        preview.layer = 2;
-        preview.transform.localScale *= 0.9f;
-
-        foreach (Transform item in preview.transform)
-        {
-            item.gameObject.layer = 2;
-        }
-        foreach (Transform item in preview.transform)
-        {
-            item.GetComponentInChildren<Renderer>().material = hoverMat;
-        }
-    }
-    public void AddNewSect(Coord prevCoord, EditingUI.HitFace faceHit)
-    {
-        if (faceHit == EditingUI.HitFace.Up)
-        {
-            if (prevCoord.y + 1 <= chosenMapSize.y - 1)
-            {
-                if (basicSectArray[prevCoord.x, prevCoord.y + 1, prevCoord.z] == null)
-                {
-                    Coord newCoord = allTileCoords[prevCoord.x, prevCoord.y + 1, prevCoord.z];
-                    CreateNewSect(newCoord);
-                }
-            }
-        }
-        else if (faceHit == EditingUI.HitFace.Down)
-        {
-            Debug.Log("A");
-            if (prevCoord.y - 1 >= 0)
-            {
-                Debug.Log("B");
-                if (basicSectArray[prevCoord.x, prevCoord.y - 1, prevCoord.z] == null)
-                {
-                    Coord newCoord = allTileCoords[prevCoord.x, prevCoord.y - 1, prevCoord.z];
-                    CreateNewSect(newCoord);
-                }
-            }
-        }
-        else if (faceHit == EditingUI.HitFace.North)
-        {
-            if (prevCoord.z + 1 < chosenMapSize.z - 1)
-            {
-                if (basicSectArray[prevCoord.x, prevCoord.y, prevCoord.z + 1] == null)
-                {
-                    Coord newCoord = allTileCoords[prevCoord.x, prevCoord.y, prevCoord.z + 1];
-                    CreateNewSect(newCoord);
-                }
-            }
-        }
-        else if (faceHit == EditingUI.HitFace.South)
-        {
-            if (prevCoord.z - 1 >= 0)
-            {
-                if (basicSectArray[prevCoord.x, prevCoord.y, prevCoord.z - 1] == null)
-                {
-                    Coord coord = allTileCoords[prevCoord.x, prevCoord.y, prevCoord.z - 1];
-                    CreateNewSect(coord);
-                }
-            }
-        }
-        else if (faceHit == EditingUI.HitFace.East)
-        {
-            if (prevCoord.x + 1 < chosenMapSize.x - 1)
-            {
-                if (basicSectArray[prevCoord.x + 1, prevCoord.y, prevCoord.z] == null)
-                {
-                    Coord newCoord = allTileCoords[prevCoord.x + 1, prevCoord.y, prevCoord.z];
-                    CreateNewSect(newCoord);
-                }
-            }
-        }
-        else if (faceHit == EditingUI.HitFace.West)
-        {
-            if (prevCoord.x - 1 >= 0)
-            {
-                if (basicSectArray[prevCoord.x - 1, prevCoord.y, prevCoord.z] == null)
-                {
-                    Coord newCoord = allTileCoords[prevCoord.x - 1, prevCoord.y, prevCoord.z];
-                    CreateNewSect(newCoord);
-                }
-            }
-        }
-
-    }
-    public void ChangeXBrushSize(int change)
-    {
-        brushSize.x = brushSize.x + change;
-        if (brushSize.x < 0)
-            brushSize = new Vector3(0, brushSize.y, brushSize.z);
-    }
-    public void ChangeYBrushSize(int change)
-    {
-        brushSize.y = brushSize.y + change;
-        if (brushSize.y < 0)
-            brushSize = new Vector3(brushSize.x, 0, brushSize.z);
-    }
-    public void ChangeZBrushSize(int change)
-    {
-        brushSize.z = brushSize.z + change;
-        if (brushSize.z < 0)
-            brushSize = new Vector3(brushSize.x, brushSize.y, 0);
-    }
-
-    public void Paint(Sect originSect)
-    {
-        List<Sect> sectsToPaint = GetNeighbours(originSect);
-        for (int i = 0; i < sectsToPaint.Count; i++)
-        {
-            Sect sect = sectsToPaint[i];
-            sect.ChangeColor(eUI.modelColor);
-        }
-    }
-
-    public List<Sect> GetNeighbours(Sect node)
-    {
-        List<Sect> neighbours = new List<Sect>();
-        neighbours.Add(node);
-        for (int x = (int)-brushSize.x; x <= (int)brushSize.x; x++)
-        {
-            for (int y = (int)-brushSize.y; y <= (int)brushSize.y; y++)
-            {
-                for (int z = (int)-brushSize.z; z <= (int)brushSize.z; z++)
-                {
-            //        if (x == 0 && y == 0 && z == 0 || y != 0 && x == 0 && z == 0 || x != 0 && z != 0)
-            //            continue;
-
-                    int checkX = (int)node.simpleLocation.x + x;
-                    int checkY = (int)node.simpleLocation.y + y;
-                    int checkZ = (int)node.simpleLocation.z + z;
-
-                    if (checkX >= 0 && checkX < chosenMapSize.x && checkY >= 0 && checkY < chosenMapSize.y && checkZ >= 0 && checkZ < chosenMapSize.z)
-                    {
-                        if(sectArray[checkX,checkY,checkZ] != null)
-                            neighbours.Add(sectArray[checkX, checkY, checkZ]);
-                    }
-                }
-            }
-        }
-        return neighbours;
-    }
 
     public void ExportMap()
     {

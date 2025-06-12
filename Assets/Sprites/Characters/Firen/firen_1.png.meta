@@ -159,7 +159,7 @@ TextureImporter:
       213: -881205426220322967
     second: firen_1_51
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -176,9 +176,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -187,12 +190,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -210,10 +213,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -225,6 +233,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
@@ -237,6 +246,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
@@ -1344,9 +1354,61 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      firen_1_0: 3207083542250758560
+      firen_1_1: -5767002989230588302
+      firen_1_10: -5158122899134468636
+      firen_1_11: 3563888801285809004
+      firen_1_12: 1086060250359531251
+      firen_1_13: -3551239966442314190
+      firen_1_14: -4813441907988978401
+      firen_1_15: 1167070367910296448
+      firen_1_16: -9156080029050253211
+      firen_1_17: 1447919587613371188
+      firen_1_18: 7761347091819639298
+      firen_1_19: 5732960744729449949
+      firen_1_2: 5315273849604949191
+      firen_1_20: 580968497183644267
+      firen_1_21: 8530199425873785752
+      firen_1_22: -7978662339098400773
+      firen_1_23: -5055616688666258576
+      firen_1_24: 6764513072229139438
+      firen_1_25: 3949038585780265417
+      firen_1_26: 300921827421048082
+      firen_1_27: -222723947023429161
+      firen_1_28: 5227223141245216538
+      firen_1_29: 3005133717472662098
+      firen_1_3: -4092989901475143511
+      firen_1_30: -3321001963454018878
+      firen_1_31: -5333351165956881316
+      firen_1_32: 5101113143251196217
+      firen_1_33: -3449589056487172681
+      firen_1_34: 7099180385959640743
+      firen_1_35: 8262664457431191344
+      firen_1_36: -6595994043157490251
+      firen_1_37: 8580565324167116160
+      firen_1_38: -1732010813374986880
+      firen_1_39: 6191890461396970805
+      firen_1_4: 6902307314184641813
+      firen_1_40: -2852720440661006910
+      firen_1_41: 5071206613012665625
+      firen_1_42: 5168811405388240485
+      firen_1_43: -2021685663674741208
+      firen_1_44: -7546991155516748799
+      firen_1_45: -6472279859573456701
+      firen_1_46: -4926472534871384853
+      firen_1_47: -4741571611701056640
+      firen_1_48: 7526522444821978725
+      firen_1_49: -8889044170964055099
+      firen_1_5: -5554373933356176692
+      firen_1_50: 8997423154384647604
+      firen_1_51: -881205426220322967
+      firen_1_6: -2438235958484778876
+      firen_1_7: -8832495542556585799
+      firen_1_8: -4995328983225760075
+      firen_1_9: 4725650251482559021
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

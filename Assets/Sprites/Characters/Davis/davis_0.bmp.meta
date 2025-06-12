@@ -210,7 +210,7 @@ TextureImporter:
       213: -5524171261909214493
     second: davis_0_68
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -227,9 +227,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -238,12 +241,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -261,10 +264,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -276,6 +284,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -288,6 +297,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1752,9 +1762,78 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      davis_0_0: -3113500145069180039
+      davis_0_1: -4816430905693750414
+      davis_0_10: -6522281004899448667
+      davis_0_11: -375016049827158649
+      davis_0_12: -505663784079893384
+      davis_0_13: -5081298121478321708
+      davis_0_14: -688538021604562154
+      davis_0_15: -8320070708523633310
+      davis_0_16: 3630175950153178899
+      davis_0_17: -7553830560972795198
+      davis_0_18: 477273483493712529
+      davis_0_19: 5165065480663124168
+      davis_0_2: 8302801254905242993
+      davis_0_20: -3149015487292915700
+      davis_0_21: -6170495642871439417
+      davis_0_22: -3319694436824258954
+      davis_0_23: -5581420701292381469
+      davis_0_24: -7349988208411879597
+      davis_0_25: -5127148917413642370
+      davis_0_26: -2516319422675482868
+      davis_0_27: -5976278505348210597
+      davis_0_28: 1998713036754192678
+      davis_0_29: 6809389106256805836
+      davis_0_3: -4796607591788761926
+      davis_0_30: -2895954581105548897
+      davis_0_31: 6564494813718158139
+      davis_0_32: -1231918957512397443
+      davis_0_33: 1241574040974480279
+      davis_0_34: 61965861423041186
+      davis_0_35: 3780114994680804348
+      davis_0_36: 483738123400826574
+      davis_0_37: -1568135699330555599
+      davis_0_38: 6759441175621913387
+      davis_0_39: 4344401790593042355
+      davis_0_4: -5033667563590628706
+      davis_0_40: 9038690807850470954
+      davis_0_41: -188564509805616761
+      davis_0_42: -9165502040609344983
+      davis_0_43: -8977638746149670945
+      davis_0_44: 1524398071608203690
+      davis_0_45: -570043014045206760
+      davis_0_46: 1714269131673892027
+      davis_0_47: 4245716173304129293
+      davis_0_48: 8569642817308329020
+      davis_0_49: -6045164984042537833
+      davis_0_5: 5620543572990943433
+      davis_0_50: 2647207876891734862
+      davis_0_51: 8916887521338484740
+      davis_0_52: -199865661025761927
+      davis_0_53: 5992497550576425025
+      davis_0_54: 5510465808397918175
+      davis_0_55: 5630967947280219224
+      davis_0_56: -6742857312854589970
+      davis_0_57: -6091259157864147242
+      davis_0_58: -5674344091275901239
+      davis_0_59: 6691669991638955372
+      davis_0_6: -8170789799649427312
+      davis_0_60: -8414051982601911484
+      davis_0_61: 9136544590499863926
+      davis_0_62: -3665925285696138615
+      davis_0_63: -2449628586331346177
+      davis_0_64: -4417248776266141134
+      davis_0_65: 5161990305630496299
+      davis_0_66: 7531672173104921645
+      davis_0_67: -2398145051385719133
+      davis_0_68: -5524171261909214493
+      davis_0_7: -1236832483871533402
+      davis_0_8: -6934604062616290364
+      davis_0_9: 38688853946854887
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

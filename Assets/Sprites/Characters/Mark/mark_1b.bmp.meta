@@ -165,7 +165,7 @@ TextureImporter:
       213: 9127913700864339220
     second: mark_1b_53
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -182,9 +182,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -193,12 +196,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -216,10 +219,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -231,6 +239,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -243,6 +252,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1392,9 +1402,63 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      mark_1b_0: -5231213881752251809
+      mark_1b_1: -5551389114049040646
+      mark_1b_10: 7005600055440578368
+      mark_1b_11: 3035986091073555739
+      mark_1b_12: -2601947239834708772
+      mark_1b_13: -7254287134219680350
+      mark_1b_14: -8485572120717019170
+      mark_1b_15: -2922321440197010359
+      mark_1b_16: 3277421431360090685
+      mark_1b_17: -600055317241545912
+      mark_1b_18: 4780341091875781677
+      mark_1b_19: -2744085042238826852
+      mark_1b_2: -5822385396083547471
+      mark_1b_20: -7275480256583338739
+      mark_1b_21: 4755437198175130717
+      mark_1b_22: 1208617665322814098
+      mark_1b_23: 4514603991468799691
+      mark_1b_24: -3385537274470799286
+      mark_1b_25: 6444582672126577750
+      mark_1b_26: -1791018971688926995
+      mark_1b_27: -1345824495799710389
+      mark_1b_28: -1985104561360836726
+      mark_1b_29: -1364101755729311986
+      mark_1b_3: -2290699800789137704
+      mark_1b_30: -7477468016930523083
+      mark_1b_31: 6838232217338992748
+      mark_1b_32: 7179954917223262031
+      mark_1b_33: -3803943276662444229
+      mark_1b_34: 1243624624578289429
+      mark_1b_35: -6991974222880334881
+      mark_1b_36: -8457511404108424127
+      mark_1b_37: -5195515900236182422
+      mark_1b_38: -4021073444887018515
+      mark_1b_39: -1391883567372791257
+      mark_1b_4: 3169397213015346768
+      mark_1b_40: 3210302735078621866
+      mark_1b_41: -4065081101183945492
+      mark_1b_42: -9046427509294270414
+      mark_1b_43: -151535504452974544
+      mark_1b_44: 2116204901801402526
+      mark_1b_45: -146291489548913486
+      mark_1b_46: 2701213050987138480
+      mark_1b_47: -226537236454580057
+      mark_1b_48: -8739755106824090380
+      mark_1b_49: -725721990011198905
+      mark_1b_5: 1172855433448733445
+      mark_1b_50: -4206704030527737461
+      mark_1b_51: 1795502226097456403
+      mark_1b_52: -3399934412939318899
+      mark_1b_53: 9127913700864339220
+      mark_1b_6: 8722845564521147756
+      mark_1b_7: 8129396377235486759
+      mark_1b_8: -277371653413747461
+      mark_1b_9: 3104413726473656973
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

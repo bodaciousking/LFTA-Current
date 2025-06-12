@@ -45,7 +45,7 @@ TextureImporter:
       213: 3600029103587284348
     second: deep_ball_6
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -62,9 +62,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -73,12 +76,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -96,10 +99,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -111,6 +119,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -123,6 +132,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -144,7 +154,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d08e9785d5c8664a0800000000000000
-      internalID: -6600433871320651763
+      internalID: -2691680543703619217
       vertices: []
       indices: 
       edges: []
@@ -165,7 +175,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 30d1031f87da163a0800000000000000
-      internalID: -6673862437832221437
+      internalID: 5920001048236732732
       vertices: []
       indices: 
       edges: []
@@ -186,7 +196,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1e1e7f9896c15c5f0800000000000000
-      internalID: -737151724393340447
+      internalID: 5324650448062780671
       vertices: []
       indices: 
       edges: []
@@ -207,7 +217,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: abb39c0662bdf3090800000000000000
-      internalID: -8052476650836116550
+      internalID: 6837624936611548395
       vertices: []
       indices: 
       edges: []
@@ -228,7 +238,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d144783f25cf5e6b0800000000000000
-      internalID: -5267526755936680931
+      internalID: 7692203658208396096
       vertices: []
       indices: 
       edges: []
@@ -249,7 +259,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 35a657f6ec513f730800000000000000
-      internalID: 4031590067804138067
+      internalID: 863443889271760794
       vertices: []
       indices: 
       edges: []
@@ -270,7 +280,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c75536c556fd5f130800000000000000
-      internalID: 3600029103587284348
+      internalID: 3267939905208859352
       vertices: []
       indices: 
       edges: []
@@ -285,9 +295,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      deep_ball_0: -2691680543703619217
+      deep_ball_1: 5920001048236732732
+      deep_ball_2: 5324650448062780671
+      deep_ball_3: 6837624936611548395
+      deep_ball_4: 7692203658208396096
+      deep_ball_5: 863443889271760794
+      deep_ball_6: 3267939905208859352
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

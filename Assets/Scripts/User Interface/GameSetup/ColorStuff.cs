@@ -7,6 +7,7 @@ public class ColorStuff : MonoBehaviour
 {
     TeamCreation tC;
     EditingUI eUI;
+    E_Colors e_c;
     Image myImage;
 
     public GameObject picker, roster;
@@ -15,6 +16,7 @@ public class ColorStuff : MonoBehaviour
     {
         tC = TeamCreation.instance;
         eUI = EditingUI.instance;
+        e_c = E_Colors.instance;
         myImage = GetComponent<Image>();
     }
 
@@ -27,7 +29,7 @@ public class ColorStuff : MonoBehaviour
         }
         else if (eUI)
         {
-            myImage.color = eUI.modelColor;
+            myImage.color = e_c.modelColor;
         }
     }
 

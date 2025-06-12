@@ -204,7 +204,7 @@ TextureImporter:
       213: -6182037096625976868
     second: rudolf_1_66
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -221,9 +221,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -232,12 +235,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -255,10 +258,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -270,6 +278,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -282,6 +291,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1704,9 +1714,76 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      rudolf_1_0: 8315118753368995139
+      rudolf_1_1: -561562209140411345
+      rudolf_1_10: 8961988108146486263
+      rudolf_1_11: 8873876965884717974
+      rudolf_1_12: 5600974597340510218
+      rudolf_1_13: 4389164464361033962
+      rudolf_1_14: 5233172265091027868
+      rudolf_1_15: -5298209354839540032
+      rudolf_1_16: 8386633551287613207
+      rudolf_1_17: 2002962328304279001
+      rudolf_1_18: 7411470863096102623
+      rudolf_1_19: -6706778441834899243
+      rudolf_1_2: 1654533434017469009
+      rudolf_1_20: 1196991734528203644
+      rudolf_1_21: 8738612846594877240
+      rudolf_1_22: 3782012264513641232
+      rudolf_1_23: -6971233355036087081
+      rudolf_1_24: 9046387765856540447
+      rudolf_1_25: -8782324245283109329
+      rudolf_1_26: -7806670658255104807
+      rudolf_1_27: 7657406138774626422
+      rudolf_1_28: -635235553538767787
+      rudolf_1_29: 1577368370225352386
+      rudolf_1_3: 5200648524626204938
+      rudolf_1_30: -2928700063479557016
+      rudolf_1_31: -6525109659962764820
+      rudolf_1_32: -9019107161629017652
+      rudolf_1_33: 3245339447794146724
+      rudolf_1_34: -7348091016957624252
+      rudolf_1_35: -2263029542535053799
+      rudolf_1_36: -2824178882057168453
+      rudolf_1_37: 1775889226709195970
+      rudolf_1_38: -5851695104624103445
+      rudolf_1_39: -4656626213211195031
+      rudolf_1_4: -1005486533683170999
+      rudolf_1_40: 6545411681902971231
+      rudolf_1_41: -738030065674990605
+      rudolf_1_42: -6938812495953340943
+      rudolf_1_43: -8668210867112491733
+      rudolf_1_44: -4971891753992916665
+      rudolf_1_45: -3180465805545428379
+      rudolf_1_46: 1183539537946366881
+      rudolf_1_47: 4966526742189214968
+      rudolf_1_48: 2350135962211475424
+      rudolf_1_49: 576562163555870992
+      rudolf_1_5: -4301101863661043967
+      rudolf_1_50: -1588881848980852768
+      rudolf_1_51: -3658161609787203549
+      rudolf_1_52: -1875872759850729873
+      rudolf_1_53: 1041535324816553828
+      rudolf_1_54: -2718215752378190979
+      rudolf_1_55: 7282987739563594167
+      rudolf_1_56: 7697680810156831216
+      rudolf_1_57: -4418434946606255015
+      rudolf_1_58: 7704601348457147880
+      rudolf_1_59: -863379483192954275
+      rudolf_1_6: -1503091812438406802
+      rudolf_1_60: -3457154229902593089
+      rudolf_1_61: -5848573688852523526
+      rudolf_1_62: 8697263853514960966
+      rudolf_1_63: 6323833989240950697
+      rudolf_1_64: -6284726121552880683
+      rudolf_1_65: 212385043295597022
+      rudolf_1_66: -6182037096625976868
+      rudolf_1_7: 7136284879250919285
+      rudolf_1_8: -6127893403916463297
+      rudolf_1_9: 46344441091139074
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

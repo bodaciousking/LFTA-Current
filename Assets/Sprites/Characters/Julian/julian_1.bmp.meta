@@ -63,7 +63,7 @@ TextureImporter:
       213: -3694869383640972881
     second: julian_1_12
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -80,9 +80,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -91,12 +94,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -114,10 +117,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -129,6 +137,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -141,6 +150,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -330,7 +340,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2cf3abef14864f220800000000000000
-      internalID: 2518752724262731714
+      internalID: 6294731669889399854
       vertices: []
       indices: 
       edges: []
@@ -351,7 +361,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4b8567ac61a2f1850800000000000000
-      internalID: 6349840276990089396
+      internalID: 2321892137392655400
       vertices: []
       indices: 
       edges: []
@@ -372,7 +382,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ec9ed294ae2ef7cd0800000000000000
-      internalID: -2558076567445182002
+      internalID: -214525968247721083
       vertices: []
       indices: 
       edges: []
@@ -393,7 +403,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4b8e1020560846270800000000000000
-      internalID: 8242854389308582068
+      internalID: 5540384927562683129
       vertices: []
       indices: 
       edges: []
@@ -414,7 +424,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 79434087ff1148c70800000000000000
-      internalID: 8972316146556744855
+      internalID: 79558251971545266
       vertices: []
       indices: 
       edges: []
@@ -435,7 +445,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: fa10d903fdf29bcc0800000000000000
-      internalID: -3694869383640972881
+      internalID: 3122115152423585312
       vertices: []
       indices: 
       edges: []
@@ -450,9 +460,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      julian_1_0: -9209469174413978710
+      julian_1_1: 5546462919140764365
+      julian_1_10: 5540384927562683129
+      julian_1_11: 79558251971545266
+      julian_1_12: 3122115152423585312
+      julian_1_13: -5335608247183617732
+      julian_1_2: 6320728839457010375
+      julian_1_3: -9160665790023331128
+      julian_1_4: 8341095787317873560
+      julian_1_5: 5595945882513075396
+      julian_1_6: -8052739428200908161
+      julian_1_7: 6294731669889399854
+      julian_1_8: 2321892137392655400
+      julian_1_9: -214525968247721083
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

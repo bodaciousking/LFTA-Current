@@ -42,7 +42,9 @@ public class Combat : MonoBehaviour
         soundObject = GameObject.Find("2DSoundManager");
         soundPlayer = soundObject.GetComponent<SoundPlayer>();
     }
-
+    private void Update()
+    {
+    }
     public void MultiImpact()
     {
         ShouldFlip unitSF = attacker.GetComponent<ShouldFlip>();
@@ -77,41 +79,64 @@ public class Combat : MonoBehaviour
                 soundPlayer.PlayClip(1);
             }
             else
-                ElementalEffects(targetUnit, damageDealt);
+                ApplyAbilityEffects(targetUnit, damageDealt);
 
             targetUnit.health.x -= damageDealt;
         }
     }
 
-    public void ElementalEffects(Unit unit, int damageDealt)
+    public void ExecuteAbility()
     {
-        ShouldFlip unitSF = unit.GetComponent<ShouldFlip>();
-        unitSF.StartFlipDelay(2f);
-
-        if (castedAbility != null)
+        if (unitTarget != null || targetList.Count > 0)
         {
-            if (castedAbility.element == "fire")
-                unit.PlayBurningAnim();
-            else if (castedAbility.element == "ice")
-            {
-                unit.PlayFrozenAnim();
-                unit.frozenTurns = 1;
-            }
+            if (unitTarget != null && unitTarget.frozenTurns <= 0)
+                FaceTarget(attacker, unitTarget);
             else
-            {
-                PlayCorrespondingHurtAnim(unit, damageDealt);
-            }
+                FaceTarget(attacker, targetList[0]);
         }
-        else
-            PlayCorrespondingHurtAnim(unit, damageDealt);
+        castedAbility.UseAbility(attacker);
+        cT.CloseMovement();
+        //TargetDisplay.instance.DestroyMoveSquares();
+        attacker.ActionsDone();
     }
-
-    public void PlayCorrespondingHurtAnim(Unit unit, int damageDealt)
+    public bool CheckObstruction()
     {
-        if (damageDealt >= 10)
-            unit.PlayReallyHurtAnim();
-        else
-            unit.PlayHurtAnim();
+        bool obstructed = false;
+        int layerMask = 1 << 8;
+
+        layerMask = ~layerMask;
+
+        RaycastHit hit;
+        Vector3 origin = attacker.transform.position + new Vector3(0, 0.6f, 0);
+        Vector3 endPoint = unitTarget.transform.position + new Vector3(0, 0.6f, 0);
+        Vector3 dir = (endPoint - origin).normalized;
+        float dis = Vector3.Distance(attacker.transform.position, unitTarget.transform.position) - 0.6f;
+        if (Physics.Raycast(origin, dir, out hit, dis, layerMask))
+        {
+            if (hit.collider.gameObject != unitTarget.gameObject)
+            {
+                Debug.DrawRay(origin, dir * hit.distance, Color.red, 5f);
+                GameObject obsObj = Instantiate(obstructedObject, hit.collider.transform.position, Quaternion.identity);
+                obsObj.transform.localScale *= 0.2f;
+                Destroy(obsObj, 2f);
+                obstructed = true;
+            }
+            
+        }
+        return obstructed;
+    }
+    public void BasicRangedAttack()
+    {
+        FaceTarget(attacker, unitTarget);
+        GameObject attackerProjectile = Instantiate(attacker.projectileObject, attacker.transform.position + attacker.transform.forward * 0.05f - (Vector3.up / 2), Quaternion.identity);
+        attackerProjectile.transform.localScale *= 1.5f;
+
+        ProjectileFlipping pF = attackerProjectile.GetComponent<ProjectileFlipping>();
+        pF.target = unitTarget.transform.Find("UI Orient");
+
+        bool obstructed = CheckObstruction();
+
+        StartCoroutine(MoveProjectile(attackerProjectile, obstructed));
     }
 
     public void FaceTarget(Unit attacker, Unit defender)
@@ -133,17 +158,25 @@ public class Combat : MonoBehaviour
         castedAbility = null;
         targetList.Clear();
     }
-
-    public void BasicImpact(bool obstructed)
+    public void DealDamage(int damage)
     {
         ShouldFlip unitSF = attacker.GetComponent<ShouldFlip>();
         unitSF.StartFlipDelay(2f);
-
+        int damageDealt = damage;
+        unitTarget.health.x -= damageDealt;
+        PlayCorrespondingHurtAnim(unitTarget, damageDealt);
+    }
+    public void FullImpact()
+    {
+        ShouldFlip unitSF = attacker.GetComponent<ShouldFlip>();
+        unitSF.StartFlipDelay(2f);
         int damageDealt = attacker.attackDamage;
-        if (obstructed)
-            damageDealt = damageDealt / 2;
-        if (unitTarget.defending)
-            damageDealt = damageDealt / 2;
+        bool castingAbility = castedAbility != null;
+
+        if (castingAbility)
+        {
+            damageDealt = castedAbility.damage;
+        }
 
         if(unitTarget.frozenTurns > 0)
         {
@@ -151,73 +184,55 @@ public class Combat : MonoBehaviour
             unitTarget.Shatter();
             soundPlayer.PlayClip(1);
         }
+        if (castingAbility)
+        {
+            ApplyAbilityEffects(unitTarget, damageDealt);
+        }
         else
-            ElementalEffects(unitTarget, damageDealt);
+            PlayCorrespondingHurtAnim(unitTarget, damageDealt);
 
         unitTarget.health.x -= damageDealt;
+
         ResetParams();
     }
 
-    public void ExecuteAbility()
+    public void ApplyAbilityEffects(Unit unit, int damageDealt)
     {
-        if (unitTarget != null || targetList.Count > 0)
+        ShouldFlip unitSF = unit.GetComponent<ShouldFlip>();
+        unitSF.StartFlipDelay(2f);
+        if (castedAbility != null)
         {
-            if (unitTarget != null && unitTarget.frozenTurns <=0) 
-                FaceTarget(attacker, unitTarget);
-            else
-                FaceTarget(attacker, targetList[0]);
-        }
-        Debug.Log(castedAbility.name);
-        castedAbility.UseAbility();
-        cT.CloseMovement();
-        attacker.ActionsDone();
-    }
-
-    public void BasicRangedAttack()
-    {
-        FaceTarget(attacker, unitTarget);
-        GameObject attackerProjectile = Instantiate(attacker.projectileObject, attacker.transform.position + attacker.transform.forward * 0.05f - (Vector3.up /2), Quaternion.identity);
-        if(castedAbility!= null)
-        {
-            attackerProjectile.transform.localScale *= 1.5f;
-        }
-        
-        ProjectileFlipping pF = attackerProjectile.GetComponent<ProjectileFlipping>();
-        pF.target = unitTarget.transform.Find("UI Orient");
-
-        bool obstructed = false;
-        int layerMask = 1 << 8;
-
-        layerMask = ~layerMask;
-
-        RaycastHit hit;
-        Vector3 origin = attacker.transform.position + new Vector3(0, 0.6f, 0);
-        Vector3 endPoint = unitTarget.transform.position + new Vector3(0, 0.6f, 0);
-        Vector3 dir = (endPoint - origin).normalized;
-        float dis = Vector3.Distance(attacker.transform.position, unitTarget.transform.position) - 0.6f;
-        if (Physics.Raycast(origin, dir, out hit, dis, layerMask))
-        {
-            if (hit.collider.gameObject != unitTarget.gameObject)
+            if (castedAbility.element == "fire")
+                unit.PlayAnimation("Enfuego");
+            else if (castedAbility.element == "ice")
             {
-                Debug.DrawRay(origin, dir * hit.distance, Color.red, 5f);
-                GameObject obsObj = Instantiate(obstructedObject, hit.collider.transform.position, Quaternion.identity);
-                obsObj.transform.localScale *= 0.2f;
-                Destroy(obsObj, 2f);
-                obstructed = true;
+                unit.PlayAnimation("Frozen");
+                Debug.Log("freezing");
+                unit.frozenTurns = 1;
+            }
+            else if (castedAbility.knockback > 0)
+            {
+                unitTarget.ApplyKnockback(castedAbility.knockback); // knockback 2 tiles
+                unit.PlayAnimation("KnockedBack");
             }
             else
             {
-                Debug.DrawRay(origin, dir * dis, Color.green, 5f);
+                PlayCorrespondingHurtAnim(unit, damageDealt);
             }
         }
         else
-        {
-            Debug.DrawRay(origin, dir * dis, Color.green, 5f);
-        }
-        StartCoroutine(MoveProjectile(attackerProjectile, obstructed));
+            PlayCorrespondingHurtAnim(unit, damageDealt);
     }
 
-    public void BasicGapCloser()
+    public void PlayCorrespondingHurtAnim(Unit unit, int damageDealt)
+    {
+        if (damageDealt >= 10)
+            unit.PlayAnimation("ReallyHurt");
+        else
+            unit.PlayAnimation("Base Layer.Hurt");
+    }
+
+    public void DoGapClose()
     {
         pF.StartFindGCPath(attacker.transform.position, tileTarget.transform.position);
     }
@@ -250,7 +265,6 @@ public class Combat : MonoBehaviour
             tiles.Add(tile);
         }
 
-        Vector3 attackerPos = attacker.currentTile.tilePos;
         List<Unit> kneeTargets = new List<Unit>();
         for (int i = 0; i < tiles.Count; i++)
         {
@@ -281,20 +295,20 @@ public class Combat : MonoBehaviour
             yield return null;
         }
 
-        BasicImpact(Obstructed);
-        Destroy(projectile);
+        FullImpact();
+        Animator anim = projectile.GetComponentInChildren<Animator>(); 
+        anim.Play("Death");
+        Destroy(projectile, 0.5f);
     }
 
     public IEnumerator MoveUnit(GameObject unitObj, Vector3 lz)
     {
-        Debug.Log("yep");
         Vector3 startPos = unitObj.transform.position;
         Tile endTile = grid.TileFromWorldPoint(lz);
         Vector3 endPos = endTile.transform.position;
 
         int frameCount = 20;
 
-        MultiImpact();
         for (int i = 0; i < frameCount; i++)
         {
             unitObj.transform.position = Vector3.Lerp(startPos, endPos, (float)i / (float)frameCount);
@@ -304,6 +318,6 @@ public class Combat : MonoBehaviour
         Unit unitUnit = unitObj.GetComponent<Unit>();
         unitObj.transform.position = endPos;
         unitUnit.UpdateLocation(unitObj.transform.position);
-
+        FullImpact();
     }
 }

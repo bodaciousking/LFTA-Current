@@ -25,10 +25,6 @@ public class MapInfo : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    private void Start()
-    {
-       
-    }
     
     public void ResetInfo()
     {

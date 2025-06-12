@@ -198,7 +198,7 @@ TextureImporter:
       213: 412552108650165816
     second: monk_0b_64
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -215,9 +215,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -226,12 +229,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -249,10 +252,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -264,6 +272,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -276,6 +285,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1656,9 +1666,74 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      monk_0b_0: -3383496715507801140
+      monk_0b_1: 8210952993886703038
+      monk_0b_10: -983711196772199080
+      monk_0b_11: -418392114889591416
+      monk_0b_12: 1840398175540548528
+      monk_0b_13: -2937735524360526494
+      monk_0b_14: 4140761381975108641
+      monk_0b_15: 3441232226616425564
+      monk_0b_16: -8128612742192347612
+      monk_0b_17: 1872824382373499186
+      monk_0b_18: 5708271879870885139
+      monk_0b_19: 1510447703637017877
+      monk_0b_2: -5063850563429641878
+      monk_0b_20: -7594616176670254122
+      monk_0b_21: -8780361422690897018
+      monk_0b_22: -1705173739649292395
+      monk_0b_23: 5145291622982325622
+      monk_0b_24: -4399955333638806288
+      monk_0b_25: 4015737232942224577
+      monk_0b_26: -5203445669823186600
+      monk_0b_27: 4412725841726751228
+      monk_0b_28: -3716627861253173200
+      monk_0b_29: -4112054479568451759
+      monk_0b_3: 8596350569137079820
+      monk_0b_30: -8096939488639345763
+      monk_0b_31: 3115429750233434252
+      monk_0b_32: -1258988196522303839
+      monk_0b_33: 4836315243877113563
+      monk_0b_34: 9160772397810702370
+      monk_0b_35: -2033194527769637048
+      monk_0b_36: -1106824441842297088
+      monk_0b_37: 5479625404744867075
+      monk_0b_38: -5435195675352459558
+      monk_0b_39: 5834881827602422694
+      monk_0b_4: -3463732519693773834
+      monk_0b_40: 4603092899540908698
+      monk_0b_41: -1248627469366883383
+      monk_0b_42: 8869662207288286752
+      monk_0b_43: 8012507407927352101
+      monk_0b_44: -990439327625115948
+      monk_0b_45: -7300671537049167338
+      monk_0b_46: 6075274997667596458
+      monk_0b_47: 354350909323079263
+      monk_0b_48: 8183694680720818716
+      monk_0b_49: 69840768791982752
+      monk_0b_5: -1959448753155130364
+      monk_0b_50: -7938074632732019165
+      monk_0b_51: -1003509723107612222
+      monk_0b_52: -1223353465639107029
+      monk_0b_53: -2895776063425042470
+      monk_0b_54: -1300337419962088250
+      monk_0b_55: -7869742241519170955
+      monk_0b_56: 6477584251845244117
+      monk_0b_57: -4606950879891518981
+      monk_0b_58: 2129053135788921305
+      monk_0b_59: 7610579663831657862
+      monk_0b_6: -1991145790095610360
+      monk_0b_60: -968493598764173255
+      monk_0b_61: -7055613204729242695
+      monk_0b_62: 2648999147635030048
+      monk_0b_63: -2514225383303940379
+      monk_0b_64: 412552108650165816
+      monk_0b_7: 5451843481948517678
+      monk_0b_8: -386700400850538817
+      monk_0b_9: 5532815664207534813
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

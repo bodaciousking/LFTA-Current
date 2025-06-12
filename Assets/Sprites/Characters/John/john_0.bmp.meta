@@ -210,7 +210,7 @@ TextureImporter:
       213: -4311175454758097504
     second: john_0_68
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -227,9 +227,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -238,12 +241,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -261,10 +264,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -276,6 +284,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -288,6 +297,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1752,9 +1762,78 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      john_0_0: -6523045245834847589
+      john_0_1: -1807715950329597366
+      john_0_10: 3881188990814099751
+      john_0_11: 2062929968107137204
+      john_0_12: 4656599322334795713
+      john_0_13: 2183575180856831952
+      john_0_14: -801926737174649664
+      john_0_15: -4150456499442552763
+      john_0_16: 364120477991524146
+      john_0_17: -5349618089323663230
+      john_0_18: -5156588430568960138
+      john_0_19: -6637755810304926560
+      john_0_2: 1568198173234848591
+      john_0_20: 3025287452076555212
+      john_0_21: -4868370690107760131
+      john_0_22: -1632129405169193679
+      john_0_23: 4461519385680540050
+      john_0_24: -6266803598378875081
+      john_0_25: -7681865774154084977
+      john_0_26: 2228800578940621828
+      john_0_27: -8595122866696869516
+      john_0_28: 6838147725631469879
+      john_0_29: 7528479865930319223
+      john_0_3: -3732874246349957062
+      john_0_30: -5404216362277735967
+      john_0_31: 6620076338186794589
+      john_0_32: 3018375161918655277
+      john_0_33: -3251509119788061011
+      john_0_34: -3189323426695244696
+      john_0_35: -90297667396030352
+      john_0_36: 7995755921580470606
+      john_0_37: 2522457024393397409
+      john_0_38: -6404557105538566430
+      john_0_39: 124382472518617182
+      john_0_4: -2938333790266738755
+      john_0_40: 2493625263882637125
+      john_0_41: -2684841898240887015
+      john_0_42: -6624801010136143415
+      john_0_43: -6464795165102667075
+      john_0_44: 7301070773773054350
+      john_0_45: 7574004233482973058
+      john_0_46: 5214847074007275929
+      john_0_47: 387663034379686174
+      john_0_48: 1729012403772302604
+      john_0_49: 6163119995808536877
+      john_0_5: 7836824672058316427
+      john_0_50: 4048514170175186809
+      john_0_51: 1885342998647192982
+      john_0_52: 1014684231248672513
+      john_0_53: -7425295362017789365
+      john_0_54: 2456765078651440139
+      john_0_55: -4020448646348452628
+      john_0_56: -1000200230222909786
+      john_0_57: -2671451775753005504
+      john_0_58: 9143185833661953575
+      john_0_59: 30342157812447063
+      john_0_6: -7343531089552572251
+      john_0_60: -2215192585295568759
+      john_0_61: 8823353741995096224
+      john_0_62: 7309108212645482812
+      john_0_63: 1100531704384129267
+      john_0_64: 7419258030164559108
+      john_0_65: 8773792767529541973
+      john_0_66: 6833955980656459925
+      john_0_67: -5147891513869963451
+      john_0_68: -4311175454758097504
+      john_0_7: 6995434245490991408
+      john_0_8: 3703961813321970491
+      john_0_9: 5684595621609397034
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

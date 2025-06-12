@@ -1,30 +1,35 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using NUnit.Framework;
+using System.Collections.Generic;
 
-public class Ability
+public abstract class Ability
 {
+    public Sprite icon;
     public string name;
     public string description;
+    public string element;
     public int cooldown;
     public int manaCost;
     public int range;
     public int vRange;
-    public Sprite icon;
     public int radius;
     public int damage;
-    public string element;
+    public int knockback;
+    public bool pathfindingIgnoresAllies;
+    public bool requiresLandingTile = false;
+    public TargetMode targetMethod;
 
     public enum TargetMode
     {
         MultiTarget,
-        SingleLineTarget,
+        CircleTarget,
         MultiLineTarget,
         SingleAoETarget,
         SingleTarget
     }
 
-    public TargetMode targetMethod;
 
     public Ability()
     {
@@ -37,11 +42,10 @@ public class Ability
         icon = null;
         targetMethod = TargetMode.MultiTarget;
     }
-    public virtual void UseAbility()
+    public virtual void UseAbility(Unit caster)
     {
-        Debug.Log("Casting " + name);
         Combat combat = Combat.instance;
-        combat.attacker.mana.x -= manaCost;
+        caster.mana.x -= manaCost;
     }
 }
 
@@ -83,7 +87,7 @@ public class ProjectileAbility : Ability
         manaCost = 0;
         damage = 0;
         range = 0;
-        targetMethod = TargetMode.SingleLineTarget;
+        targetMethod = TargetMode.CircleTarget;
     }
 }
 
@@ -93,8 +97,9 @@ public class GapClose : Ability
     public GapClose()
     {
         name = "Flying Knee";
-        targetMethod = TargetMode.SingleLineTarget;
+        targetMethod = TargetMode.CircleTarget;
         description = "Captain Who?";
+        requiresLandingTile = true;
         cooldown = 4;
         manaCost = 4;
         range = 6;
@@ -102,15 +107,31 @@ public class GapClose : Ability
 
     }
 
-    public override void UseAbility()
+    public override void UseAbility(Unit caster)
     {
-        base.UseAbility();
-        Combat combat = Combat.instance;
-        Unit castingUnit = combat.attacker.gameObject.GetComponent<Unit>();
-        castingUnit.PlayGapCloseAnim();
+        base.UseAbility(caster);
     }
 }
 
+public class Push : Ability
+{
+    public Push()
+    {
+        name = "Push";
+        targetMethod = TargetMode.CircleTarget;
+        description = "Force";
+        cooldown = 4;
+        manaCost = 4;
+        range = 6;
+        damage = 12;
+    }
+    public override void UseAbility(Unit caster)
+    {
+        base.UseAbility(caster);
+        Combat combat = Combat.instance;
+        caster.PlayAnimation("Push");
+    }
+}
 
 public class Explosion : AoEAbility
 {
@@ -127,9 +148,9 @@ public class Explosion : AoEAbility
         icon = null;
     }
 
-    public override void UseAbility()
+    public override void UseAbility(Unit caster)
     {
-        base.UseAbility();
+        base.UseAbility(caster);
         Combat combat = Combat.instance;
         Firen castingUnit = combat.attacker.GetComponent<Firen>();
         castingUnit.PlayExplosionAnim();
@@ -150,12 +171,10 @@ public class Fireball : ProjectileAbility
         icon = null;
     }
 
-    public override void UseAbility()
+    public override void UseAbility(Unit caster)
     {
-        base.UseAbility();
-        Combat combat = Combat.instance;
-        Unit castingUnit = combat.attacker;
-        castingUnit.PlayFireballAnim();
+        base.UseAbility(caster);
+        caster.PlayAnimation("Fireball");
     }
 }
 
@@ -172,11 +191,10 @@ public class Slam : Throw
         icon = null;
     }
 
-    public override void UseAbility()
+    public override void UseAbility(Unit caster)
     {
-        base.UseAbility();
+        base.UseAbility(caster);
         Combat combat = Combat.instance;
         Unit castingUnit = combat.attacker;
-        castingUnit.PlayFireballAnim();
     }
 }

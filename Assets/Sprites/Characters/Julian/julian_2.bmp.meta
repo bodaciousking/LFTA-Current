@@ -144,7 +144,7 @@ TextureImporter:
       213: 6019067867072120732
     second: julian_2_46
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -161,9 +161,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -172,12 +175,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -195,10 +198,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -210,6 +218,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -222,6 +231,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1224,9 +1234,56 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      julian_2_0: -7650691039635403280
+      julian_2_1: -2158224589577254226
+      julian_2_10: 1464966205302872769
+      julian_2_11: 8266127936247574481
+      julian_2_12: 6693942399920818212
+      julian_2_13: 1467064578267063696
+      julian_2_14: 5083799085070481550
+      julian_2_15: -6366051001228043759
+      julian_2_16: -1054320177473872177
+      julian_2_17: -2468409989163119718
+      julian_2_18: 1699224192478101148
+      julian_2_19: -3971040362089189963
+      julian_2_2: 4243934171922708102
+      julian_2_20: 4172676184323730853
+      julian_2_21: -6213651668686415380
+      julian_2_22: 2515060001813819035
+      julian_2_23: 6785731052927964690
+      julian_2_24: 5417552181994825698
+      julian_2_25: 6472355390712903731
+      julian_2_26: -3793604794699357238
+      julian_2_27: 8805811873774331755
+      julian_2_28: 3477786524551899011
+      julian_2_29: -7805683054482493477
+      julian_2_3: 1925756180398373537
+      julian_2_30: 8776202526844509151
+      julian_2_31: -3063064697627104235
+      julian_2_32: 9110595382746049141
+      julian_2_33: -2640984648137431854
+      julian_2_34: 715315842119761878
+      julian_2_35: 200477301880519755
+      julian_2_36: -4104588770733923111
+      julian_2_37: 5173254843720020960
+      julian_2_38: -6090042121818522127
+      julian_2_39: 7561839529273883362
+      julian_2_4: -7304516609008163794
+      julian_2_40: 3762508045358444659
+      julian_2_41: -8069415621346587591
+      julian_2_42: 3685918937288632648
+      julian_2_43: 1165615998939466045
+      julian_2_44: -5069873570325576861
+      julian_2_45: 8608706456271596029
+      julian_2_46: 6019067867072120732
+      julian_2_5: 8237746703840448455
+      julian_2_6: 7927517092384358657
+      julian_2_7: -7579780351468486004
+      julian_2_8: -7110871306897403021
+      julian_2_9: -463710179681045001
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

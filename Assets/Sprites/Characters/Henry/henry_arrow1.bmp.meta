@@ -84,7 +84,7 @@ TextureImporter:
       213: 4911923132865069108
     second: henry_arrow1_26
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -101,9 +101,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -112,12 +115,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -135,10 +138,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -150,6 +158,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -162,6 +171,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -744,9 +754,36 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      henry_arrow1_0: 197866469440782336
+      henry_arrow1_1: -2952945389591295589
+      henry_arrow1_10: 350214565861380624
+      henry_arrow1_11: 5482285990263563415
+      henry_arrow1_12: 8940203472256839798
+      henry_arrow1_13: 7687300044847847704
+      henry_arrow1_14: 1818775121930358018
+      henry_arrow1_15: 6626645685669767225
+      henry_arrow1_16: -6667746904083435208
+      henry_arrow1_17: 2512732023167280828
+      henry_arrow1_18: -6463909363348192677
+      henry_arrow1_19: -4835349795051825243
+      henry_arrow1_2: -1747174011737782366
+      henry_arrow1_20: 9104821748540480470
+      henry_arrow1_21: -751843667136833961
+      henry_arrow1_22: 6458162528365274511
+      henry_arrow1_23: -4573659411803577398
+      henry_arrow1_24: -5382915476803649832
+      henry_arrow1_25: -2117693445705947792
+      henry_arrow1_26: 4911923132865069108
+      henry_arrow1_3: -4707060141952869931
+      henry_arrow1_4: 6856098374072570003
+      henry_arrow1_5: -5819158162080636121
+      henry_arrow1_6: -4526212937990365155
+      henry_arrow1_7: -7515145167063103109
+      henry_arrow1_8: 7725032175734152472
+      henry_arrow1_9: 3331325250243893677
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

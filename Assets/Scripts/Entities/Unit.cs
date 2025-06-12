@@ -30,7 +30,9 @@ public class Unit : LivingEntity
     public int attackRange = 1;
     public int jumpRange = 1;
     public int attackDamage;
+    public bool alive = true;
     public Sprite profile;
+    Combat combat;
     public GameObject projectileObject;
     public List<Ability> abilityList = new List<Ability>();
 
@@ -47,7 +49,7 @@ public class Unit : LivingEntity
     [HideInInspector]
     public Unit enemyUnit;
     [HideInInspector]
-    public bool moving, facingRight = true, pendingMove = false,  alive = true;
+    public bool moving, facingRight = true, pendingMove = false;
     public bool canAct = true;
     public int frozenTurns;
     [HideInInspector]
@@ -86,11 +88,11 @@ public class Unit : LivingEntity
     {
         alive = false;
         canAct = false;
+        anim.SetBool("alive", false);
         anim.Play("Base Layer.Death");
         //this.transform.position += new Vector3(0f, -0.7f, 0f);
         currentTile.occupied = false;
         currentTile.occupyingUnit = null;
-        currentTile = null;
         tM.OnUnitDied();
         
         rend.color = Color.Lerp(rend.color, Color.gray, 4f);
@@ -98,23 +100,16 @@ public class Unit : LivingEntity
         Destroy(myCollider);
     }
 
-    public virtual void CastAbility1()
+    public virtual void AnimationTrigger(string label)
     {
-
+        Combat combat = Combat.instance;
+        if(label == "Basic attack")
+        {
+            combat.attacker = this;
+            combat.FullImpact();
+            return;
+        }
     }
-    public virtual void CastAbility2()
-    {
-
-    }
-    public virtual void CastAbility3()
-    {
-
-    }
-    public virtual void CastAbility4() 
-    { 
-    }
-
-
     void ComponentSetup()
     {
         anim = GetComponentInChildren<Animator>();
@@ -128,6 +123,7 @@ public class Unit : LivingEntity
         combatScript = Combat.instance;
         rend = GetComponentInChildren<SpriteRenderer>();
         myCollider = GetComponent<CapsuleCollider>();
+        combat = Combat.instance;
     }
     void TestFunction()
     {
@@ -139,8 +135,6 @@ public class Unit : LivingEntity
         moving = false;
         cT.DisplayCommands();
         cT.OpenAttack();
-        grid.ResetTileGrid();
-        grid.ResetGrid();
     }
 
     public void ActionsDone()
@@ -184,14 +178,12 @@ public class Unit : LivingEntity
             }
         }
     }
-
     public void Shatter()
     {
         Debug.Log("shattered");
         frozenTurns = 0;
         anim.Play("ReallyHurt");
     }
-
     public void CancelMove()
     {
         currentTile.occupied = false;
@@ -203,9 +195,12 @@ public class Unit : LivingEntity
         beginningTile = null;
         pendingMove = false;
         midMove = false;
+        if (combat.castedAbility != null)
+        {
+            combat.castedAbility = null;
+        }
         cT.DisplayCommands();
     }
-
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
         if (pathSuccessful)
@@ -215,7 +210,6 @@ public class Unit : LivingEntity
             StartCoroutine("FollowPath");
         }
     }
-
     public void MoveNow()
     {
         target = uS.confirmedMoveTarget.transform;
@@ -224,53 +218,102 @@ public class Unit : LivingEntity
         target = null;
         midMove = true;
     }
-
-    public void PlayHurtAnim()
+    public void PlayAnimation(string animation)
     {
-        anim.Play("Base Layer.Hurt");
+        anim.Play(animation);
     }
-
-    public void PlayFireballAnim()
-    {
-        anim.Play("Fireball");
-    }
-
-    public void PlayBurningAnim()
-    {
-        anim.Play("Enfuego");
-    }
-
-    public void PlayFrozenAnim()
-    {
-        anim.Play("Frozen");
-    }
-
-    public void PlayReallyHurtAnim()
-    {
-        anim.Play("ReallyHurt");
-    }
-
-    public void PlayGapCloseAnim()
-    {
-        anim.Play("GapClose");
-    }
-
     public void StartAttacking()
     {
         combatScript.attacker = this;
         combatScript.unitTarget = enemyUnit;
-        anim.Play("Base Layer.Attack");
+        PlayAnimation("Base Layer.Attack");
         midMove = false;
     }
     public void StartRangedAttack()
     {
         combatScript.attacker = this;
         combatScript.unitTarget = enemyUnit;
-        anim.Play("Base Layer.RangedAttack");
+        PlayAnimation("Base Layer.RangedAttack");
         uS.DeselectUnit();
         midMove = false;
     }
+    Vector3 RoundToCardinal(Vector3 dir)
+    {
+        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.z))
+            return new Vector3(Mathf.Sign(dir.x), 0, 0);
+        else
+            return new Vector3(0, 0, Mathf.Sign(dir.z));
+    }
+    public Vector3 ComputeDirection()
+    {
+        // During an ability or attack
+        Combat combat = Combat.instance;
+        Vector3 knockbackDir = RoundToCardinal(combat.unitTarget.location - combat.attacker.location);
+        return knockbackDir;
+    }
+    public void ApplyKnockback(int distance)
+    {
+        List<Vector3> knockbackPath = new List<Vector3>();
+        Vector3 direction = ComputeDirection();
+        Vector3 currentPos = location;
 
+        for (int i = 0; i < distance; i++)
+        {
+            Vector3 nextPos = currentPos + direction;
+            Tile nextTile = grid.TileFromGrid(nextPos);
+
+            if (nextTile == null || nextTile.blocked || nextTile.occupied)
+            {
+                break; 
+            }
+
+            // Add adjusted position for visual y-offset
+            knockbackPath.Add(nextPos + new Vector3(0, nextTile.graphicsYOffset, 0));
+            currentPos = nextPos;
+
+            if (nextTile.tilePos.y < grid.TileFromGrid(location).tilePos.y)
+            {
+                Debug.Log("Fall");
+                //FallTo(nextTile);
+                return;
+            }
+        }
+
+        if (knockbackPath.Count > 0)
+        {
+            path = knockbackPath.ToArray();
+            StartCoroutine(FollowKBPath());
+        }
+    }
+    IEnumerator FollowKBPath()
+    {
+        for (int i = 0; i < path.Length; i++)
+        {
+            Tile wayPointTile = grid.TileFromGrid(path[i]);
+            path[i] += new Vector3(0f, wayPointTile.graphicsYOffset, 0f);
+        }
+        targetIndex = 0;
+        Vector3 currentWaypoint = grid.TileFromGrid(path[0]).transform.position;
+        while (true)
+        {
+            if (transform.position == currentWaypoint)
+            {
+                UpdateLocation(currentWaypoint);
+                targetIndex++;
+
+                if (targetIndex >= path.Length)
+                {
+                    UpdateLocation(currentWaypoint);
+                    yield break;
+                }
+                currentWaypoint = grid.TileFromGrid(path[targetIndex]).transform.position;
+            }
+
+            sF.currentTarget = currentWaypoint;
+            transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed);
+            yield return null;
+        }
+    }
     IEnumerator FollowPath()
     {
         for (int i = 0; i < path.Length; i++)
@@ -339,7 +382,9 @@ public class Unit : LivingEntity
         currentTile = grid.TileFromWorldPoint(currentVec3);
 
         location = currentTile.tilePos;
-        if (!previousTile.occupied || previousTile.occupyingUnit == this)
+        if (previousTile!=null 
+            && !previousTile.occupied 
+            || previousTile.occupyingUnit == this)
         {
             previousTile.occupied = false;
             previousTile.occupyingUnit = null;

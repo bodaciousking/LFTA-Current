@@ -198,7 +198,7 @@ TextureImporter:
       213: -4094478714283087318
     second: sorcerer_1_64
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -215,9 +215,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -226,12 +229,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -249,10 +252,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -264,6 +272,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -276,6 +285,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1656,9 +1666,74 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      sorcerer_1_0: 8176928829470977924
+      sorcerer_1_1: 4062002600469793291
+      sorcerer_1_10: -4981446546815870254
+      sorcerer_1_11: -721373948952863877
+      sorcerer_1_12: -8229866801927379478
+      sorcerer_1_13: 3111628915282719176
+      sorcerer_1_14: 7907934027656489115
+      sorcerer_1_15: -3314729719451916941
+      sorcerer_1_16: -1850213190467338986
+      sorcerer_1_17: -5248317836949067483
+      sorcerer_1_18: 8721688680749967932
+      sorcerer_1_19: -9202941201837333605
+      sorcerer_1_2: 3429358010543626833
+      sorcerer_1_20: -8335604244501426812
+      sorcerer_1_21: 4969350470931389508
+      sorcerer_1_22: 5805970650643489802
+      sorcerer_1_23: -2759353711918237410
+      sorcerer_1_24: -8924922135640004351
+      sorcerer_1_25: -2516092491366865052
+      sorcerer_1_26: -541865452098520357
+      sorcerer_1_27: 9037648350980899984
+      sorcerer_1_28: -7116911983279356276
+      sorcerer_1_29: -3363776423224196605
+      sorcerer_1_3: 2611369824968465941
+      sorcerer_1_30: 3675253129275506632
+      sorcerer_1_31: -7443894198520756459
+      sorcerer_1_32: 4010664865427812314
+      sorcerer_1_33: 2702133515204057426
+      sorcerer_1_34: -2705727531730333681
+      sorcerer_1_35: 4991588680444660437
+      sorcerer_1_36: 1989550234682098784
+      sorcerer_1_37: -6733291637144603063
+      sorcerer_1_38: 5146390933275514837
+      sorcerer_1_39: 4342662810185387050
+      sorcerer_1_4: 4752342441016167691
+      sorcerer_1_40: 8094810092083285648
+      sorcerer_1_41: 114242254620111609
+      sorcerer_1_42: -605555663204181474
+      sorcerer_1_43: 7086111007181564918
+      sorcerer_1_44: -7986478589664976089
+      sorcerer_1_45: -6064420384800758520
+      sorcerer_1_46: -7483259233287364269
+      sorcerer_1_47: 4603796175323298964
+      sorcerer_1_48: 8507865063999554382
+      sorcerer_1_49: -8349619587771024939
+      sorcerer_1_5: -3107878415591893380
+      sorcerer_1_50: -6431179288289156583
+      sorcerer_1_51: -2377155712726605871
+      sorcerer_1_52: -1394628888617425181
+      sorcerer_1_53: 4043162017434002674
+      sorcerer_1_54: 2545486323849394925
+      sorcerer_1_55: 2332280235567057888
+      sorcerer_1_56: 4633726610223738913
+      sorcerer_1_57: 9215762815657687974
+      sorcerer_1_58: 2851326113336272284
+      sorcerer_1_59: -3082195403326625030
+      sorcerer_1_6: -3944729940624012476
+      sorcerer_1_60: 3868250662045650521
+      sorcerer_1_61: -3871694523674846024
+      sorcerer_1_62: 4161581477789667310
+      sorcerer_1_63: -7774489451902747955
+      sorcerer_1_64: -4094478714283087318
+      sorcerer_1_7: 2515558752025875128
+      sorcerer_1_8: 1720781392558680132
+      sorcerer_1_9: 6506078931289663665
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

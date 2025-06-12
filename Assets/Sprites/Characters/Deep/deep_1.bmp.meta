@@ -207,7 +207,7 @@ TextureImporter:
       213: 2779685645735402866
     second: deep_1_67
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -224,9 +224,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -235,12 +238,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -258,10 +261,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -273,6 +281,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -285,6 +294,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1728,9 +1738,77 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      deep_1_0: 1007261743912906395
+      deep_1_1: -5975696644775799696
+      deep_1_10: -6975785368604704133
+      deep_1_11: -5772768073822384406
+      deep_1_12: -4014021741837715006
+      deep_1_13: -3633667118458148615
+      deep_1_14: 7893357745944290251
+      deep_1_15: 5381013906943680251
+      deep_1_16: 4934534346384158728
+      deep_1_17: 3446726020600112374
+      deep_1_18: 7946691136817051371
+      deep_1_19: 8556551272878372600
+      deep_1_2: -4982585194380604548
+      deep_1_20: -6561572891076513429
+      deep_1_21: -4926413684040067931
+      deep_1_22: 4333303781799993860
+      deep_1_23: 4471622148621722863
+      deep_1_24: -6570438798453081755
+      deep_1_25: 3806479409928425742
+      deep_1_26: 6461726981601081492
+      deep_1_27: -6039692556084921956
+      deep_1_28: -2312713845869448303
+      deep_1_29: 4518144073194541442
+      deep_1_3: 2414251765990471974
+      deep_1_30: 63029135119435250
+      deep_1_31: -8622239259812290402
+      deep_1_32: 4444139915581452021
+      deep_1_33: -484112053859765925
+      deep_1_34: 8495871341950072342
+      deep_1_35: -7624714641065592191
+      deep_1_36: 2639960148528191629
+      deep_1_37: -9168066834413886607
+      deep_1_38: 656202283627203049
+      deep_1_39: 562787400413113603
+      deep_1_4: 8735719273065639767
+      deep_1_40: -4469100546680020919
+      deep_1_41: 8718316429017561034
+      deep_1_42: 4923759989081057750
+      deep_1_43: -6770147210932397404
+      deep_1_44: 348518708764057453
+      deep_1_45: 297173010240344509
+      deep_1_46: -1672726885048016922
+      deep_1_47: 4447544780432506533
+      deep_1_48: 5285879046063508441
+      deep_1_49: 6177922160260587664
+      deep_1_5: 960838301511000112
+      deep_1_50: -2105548219339065681
+      deep_1_51: -5434116355675407239
+      deep_1_52: 3618926474609866947
+      deep_1_53: 3089225580689841076
+      deep_1_54: 204115844605703614
+      deep_1_55: 6579830683060620548
+      deep_1_56: 5218685099481816931
+      deep_1_57: 8775346256733462124
+      deep_1_58: 210516242373473688
+      deep_1_59: 5649919231030487418
+      deep_1_6: -7241854413122268290
+      deep_1_60: 3594102684789138896
+      deep_1_61: 2235004660008870288
+      deep_1_62: 2825916808794368769
+      deep_1_63: 2332593382171349613
+      deep_1_64: 6633049879700130215
+      deep_1_65: -1045916407734164430
+      deep_1_66: -7435101675582300016
+      deep_1_67: 2779685645735402866
+      deep_1_7: -2752471486574096705
+      deep_1_8: -3822892111185023870
+      deep_1_9: -9050358637970659852
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

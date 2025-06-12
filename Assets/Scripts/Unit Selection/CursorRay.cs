@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -23,6 +24,7 @@ public class CursorRay : MonoBehaviour
     Quaternion toRotation = new Quaternion(0, 0, 1, 0);
     private void Start()
     {
+        offsetVector = new Vector3(0f, 0.5f);
         combat = GetComponent<Combat>();
         cT = CommandsTooltip.instance;
         pF = Pathfinding.instance;
@@ -61,20 +63,18 @@ public class CursorRay : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 5000, layerMask))
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
+            if (!EventSystem.current.IsPointerOverGameObject()) //mousing over things
             {
                 hoverTransform = hit.collider.transform;
-                if (hoverTransform.GetComponentInParent<Tile>())
+                if (hoverTransform.GetComponentInParent<Tile>()) //mousing over a tile
                 { 
                     hitTile = hoverTransform.GetComponentInParent<Tile>();
-                    offsetVector = new Vector3(0f, hitTile.graphicsYOffset + 0.5f);
                     hitUnit = null;
                 }
 
-                else if (hoverTransform.GetComponent<Unit>())
+                else if (hoverTransform.GetComponent<Unit>()) //mousing over a unit
                 {
                     hitUnit = hoverTransform.GetComponent<Unit>();
-                    unitSelect.hoverUnit = hitUnit;
                     hitTile = null;
                 }
                 else
@@ -86,9 +86,10 @@ public class CursorRay : MonoBehaviour
 
                 if(hitUnit) //moused over a unit
                 {
+                    unitSelect.hoverUnit = hitUnit;
                     moveHoverObj.transform.position = hitUnit.transform.position;
                 }
-                else if (hitTile) // we've moused over a tile
+                else if (hitTile) //moused over a tile
                 {
                     hitUnit = null;
                     unitSelect.hoverUnit = null;
@@ -125,7 +126,7 @@ public class CursorRay : MonoBehaviour
                 }
                 if (unitSelect.AoEtargetting && hitTile.validAbilityTarget)
                 {
-                    pF.DisplayBlastRadius(combat.castedAbility, hitTile);
+                    Debug.Log("mousing over something while AoE targetting");
                 }
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -138,12 +139,14 @@ public class CursorRay : MonoBehaviour
                             {
                                 unitSelect.confirmedMoveTarget = hitTile;
                                 unitSelect.confirmedTarget = hitTile;
+                                unitSelect.MoveNow();
                                 return;
                             }
                             if (hitTile.inMoveRange)
                             {
                                 unitSelect.confirmedMoveTarget = hitTile;
                                 unitSelect.confirmedTarget = hitTile;
+                                unitSelect.MoveNow();
                                 return;
                             }
                             if (hitTile.validAbilityTarget)
@@ -155,7 +158,10 @@ public class CursorRay : MonoBehaviour
                             }
                             else
                             {
-                                unitSelect.DeselectUnit();
+                                if (combat.castedAbility == null)
+                                {
+                                    unitSelect.DeselectUnit();
+                                }
                             }
                         }
                     }
@@ -167,22 +173,27 @@ public class CursorRay : MonoBehaviour
                             {
                                 if (tuM.teamTurn != hitUnit.team)
                                 {
-                                    if (hitUnit.currentTile.validAbilityTarget)
+                                    if (hitUnit.currentTile.validAbilityTarget) //if the unit is a valid ability target
                                     {
                                         combat.unitTarget = hitUnit;
                                         combat.targetList.Add(hitUnit);
                                         combat.tileTarget = hitUnit.currentTile;
                                         combat.ExecuteAbility();
                                     }
-                                    else if (hitUnit.currentTile.inAttackRange)
+                                    else if (hitUnit.currentTile.inAttackRange) //if the unit is attackable
                                     {
+                                        combat.unitTarget = hitUnit;
                                         unitSelect.confirmedMoveTarget = grid.TileFromWorldPoint(hitUnit.transform.position);
                                         unitSelect.confirmedTarget = hitUnit;
+                                        unitSelect.MoveNow();
                                     }
                                     else
                                     {
-                                        unitSelect.DeselectUnit();
-                                        unitSelect.SelectUnit(hitUnit);
+                                        if (combat.castedAbility == null)
+                                        {
+                                            unitSelect.DeselectUnit();
+                                            unitSelect.SelectUnit(hitUnit);
+                                        }
                                     }
                                 }
                                 else

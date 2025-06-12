@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using System;
 
 public class SoundPlayer : MonoBehaviour
 {
@@ -16,9 +17,8 @@ public class SoundPlayer : MonoBehaviour
 
     public void PlayClip(int index)
     {
-        mySource.clip = sounds[index];
-        mySource.Play();
-       // Debug.Log(gameObject.name + " playing sound: " + mySource.clip.name);
+        //float pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        AudioManager.Instance.PlaySound(sounds[index], transform.position, 1, 1);
     }
 
     public void PlayRandomSound(string indicies)
@@ -26,11 +26,13 @@ public class SoundPlayer : MonoBehaviour
         if (!Regex.IsMatch(indicies, "[0-9]"))
             return;
 
-        int randomNumber = Random.Range(0, indicies.Length);
+        int randomNumber = UnityEngine.Random.Range(0, indicies.Length);
         char clipIndexChar = indicies[randomNumber];
         int clipIndex = int.Parse(clipIndexChar.ToString());
         mySource.clip = randomSounds[clipIndex];
+
+        float pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        AudioManager.Instance.PlaySound(randomSounds[clipIndex], transform.position, 1, pitch);
         mySource.Play();
-        //Debug.Log(gameObject.name + " playing random sound: " + mySource.clip.name);
     }
 }

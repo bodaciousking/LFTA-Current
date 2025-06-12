@@ -13,6 +13,7 @@ public class UnitSelection : MonoBehaviour
     public GameObject panelHolder;
     public Unit confirmedAbilityTarget;
     Camera viewCamera;
+    Combat combat;
     CommandsTooltip cT;
     MapInfo mI;
     Grid grid;
@@ -36,6 +37,7 @@ public class UnitSelection : MonoBehaviour
         viewCamera = Camera.main;
         cT = CommandsTooltip.instance;
         mI = MapInfo.instance;
+        combat = Combat.instance;
         grid = Grid.instance;
         turnManagement = TurnManagement.instance;
         cC = viewCamera.GetComponent<CameraControll>();
@@ -44,8 +46,11 @@ public class UnitSelection : MonoBehaviour
     public void DeselectUnit()
     {
         cT.CloseMovement();
-        if (selectedUnit.pendingMove)
-            selectedUnit.CancelMove();
+        if (selectedUnit)
+            if (selectedUnit.pendingMove)
+            { 
+                selectedUnit.CancelMove();
+            }
         selectedUnit = null;
         cT.HideCommands();
     }
@@ -64,10 +69,7 @@ public class UnitSelection : MonoBehaviour
     void Update()
     {
         Ray ray = viewCamera.ScreenPointToRay(Input.mousePosition);
-        if (selectedUnit && confirmedTarget)
-        {
-            MoveNow();
-        }
+        
         if (selectedUnit || hoverUnit)
         {
             panelHolder.SetActive(true);
@@ -76,10 +78,9 @@ public class UnitSelection : MonoBehaviour
             panelHolder.SetActive(false);
 
         hoverTile = null;
-       
     }
 
-    private void MoveNow()
+    public void MoveNow()
     {
         selectedUnit.MoveNow();
         confirmedTarget = false;
@@ -87,6 +88,7 @@ public class UnitSelection : MonoBehaviour
         moving = false;
         cT.CloseMovement();
         cT.HideCommands();
+        //TargetDisplay.instance.DestroyMoveSquares();
     }
 
 }

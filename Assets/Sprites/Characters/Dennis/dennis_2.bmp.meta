@@ -147,7 +147,7 @@ TextureImporter:
       213: 8543260803543146817
     second: dennis_2_47
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -164,9 +164,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -175,12 +178,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -198,10 +201,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -213,6 +221,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -225,6 +234,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1248,9 +1258,57 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      dennis_2_0: -4841043572494434875
+      dennis_2_1: 1532703734073080903
+      dennis_2_10: 6289573764586736990
+      dennis_2_11: 3865775252778932469
+      dennis_2_12: 7858287450278511066
+      dennis_2_13: 7435703279044171025
+      dennis_2_14: 4802908869503481992
+      dennis_2_15: 8819647368304255912
+      dennis_2_16: -4815639368249182428
+      dennis_2_17: -8314831118195736849
+      dennis_2_18: 7536385328645929190
+      dennis_2_19: 3287256646772929993
+      dennis_2_2: -4508028927303062419
+      dennis_2_20: 2857410600939702719
+      dennis_2_21: 2993728638702082256
+      dennis_2_22: 7404892349547591508
+      dennis_2_23: 4485421174142563766
+      dennis_2_24: 5035412447809336435
+      dennis_2_25: 1352460686921238132
+      dennis_2_26: -1588261051790811174
+      dennis_2_27: -509598646685040435
+      dennis_2_28: 665895039664856473
+      dennis_2_29: -667749339025377549
+      dennis_2_3: -8636157942723778451
+      dennis_2_30: -5016820178922085338
+      dennis_2_31: 845090251147515163
+      dennis_2_32: -6515052636271574694
+      dennis_2_33: 8809380476038766807
+      dennis_2_34: -5293045173366671888
+      dennis_2_35: 2734356290999097073
+      dennis_2_36: -7017911634857248618
+      dennis_2_37: 6286221438570783689
+      dennis_2_38: -5110527611000022085
+      dennis_2_39: -9203450948368145344
+      dennis_2_4: 7296115517683297044
+      dennis_2_40: 3631740840105371269
+      dennis_2_41: 4711514526112832739
+      dennis_2_42: -6633562947011034501
+      dennis_2_43: 5705138088897809034
+      dennis_2_44: 1641341694400196838
+      dennis_2_45: -4196754666280948614
+      dennis_2_46: 4249070040164155385
+      dennis_2_47: 8543260803543146817
+      dennis_2_5: -2893309928121794272
+      dennis_2_6: 4728719968088773830
+      dennis_2_7: 7046387162313614091
+      dennis_2_8: -5576070082777105496
+      dennis_2_9: 2030641352907886
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -8,6 +8,7 @@ public class TeamDisplay : MonoBehaviour
     TeamManager tM;
     public GameObject teamPiano, unitDisplay;
     public static TeamDisplay instance;
+    public GameObject panelHolder;
 
     private void Awake()
     {
@@ -27,7 +28,6 @@ public class TeamDisplay : MonoBehaviour
         tM = TeamManager.instance;
         for (int i = 0; i < tM.teams.Count; i++)
         {
-            GameObject panelHolder = GameObject.Find("TeamLineupDisplay");
             RectTransform panelTransform = panelHolder.GetComponent<RectTransform>();
             float width = panelTransform.rect.width;
             float height = panelTransform.rect.height;

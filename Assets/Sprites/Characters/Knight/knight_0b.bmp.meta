@@ -153,7 +153,7 @@ TextureImporter:
       213: 4766305942912689307
     second: knight_0b_49
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -170,9 +170,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -181,12 +184,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -204,10 +207,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -219,6 +227,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -231,6 +240,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1296,9 +1306,59 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      knight_0b_0: -494044718806309599
+      knight_0b_1: -17405304061063867
+      knight_0b_10: 3947026793175120232
+      knight_0b_11: 4580181818484185323
+      knight_0b_12: 2056033287489611622
+      knight_0b_13: -7353541970747740358
+      knight_0b_14: 2601842230858433982
+      knight_0b_15: 1812220508479379540
+      knight_0b_16: -8476764804718364782
+      knight_0b_17: 5879670743022217993
+      knight_0b_18: 9151433682951230783
+      knight_0b_19: -6977159083973892958
+      knight_0b_2: 8299546160327324579
+      knight_0b_20: 8057259759673755974
+      knight_0b_21: 1076397999585673177
+      knight_0b_22: 9161430961131060873
+      knight_0b_23: -8248293975510124677
+      knight_0b_24: 7655725479496886448
+      knight_0b_25: -7071528548045014823
+      knight_0b_26: 6508933750806254858
+      knight_0b_27: 7145877822104051818
+      knight_0b_28: 6428209201704186929
+      knight_0b_29: 6876094761116130082
+      knight_0b_3: 5120547873097470974
+      knight_0b_30: -2635514745683745730
+      knight_0b_31: -546411729992544887
+      knight_0b_32: 5067546262946287889
+      knight_0b_33: 8922364908606108572
+      knight_0b_34: 2258371845973303749
+      knight_0b_35: -3515711919351589782
+      knight_0b_36: 943847670941457930
+      knight_0b_37: 5211359719315864472
+      knight_0b_38: 2709150123490579878
+      knight_0b_39: 8142838706180501518
+      knight_0b_4: 5294128040517493483
+      knight_0b_40: 7227583083933140588
+      knight_0b_41: 2760121810577275395
+      knight_0b_42: -2309840060869780818
+      knight_0b_43: 2688148610126484883
+      knight_0b_44: -587616222608940071
+      knight_0b_45: 879804515364779688
+      knight_0b_46: 1513037434157129074
+      knight_0b_47: -5711601097612379780
+      knight_0b_48: -4704067596951976801
+      knight_0b_49: 4766305942912689307
+      knight_0b_5: -5359690933274179511
+      knight_0b_6: -3113138932613743522
+      knight_0b_7: -31921966831341363
+      knight_0b_8: 2504155825716554288
+      knight_0b_9: 5345521511742472804
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

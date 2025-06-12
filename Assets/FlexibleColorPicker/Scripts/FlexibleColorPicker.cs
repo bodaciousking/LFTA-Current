@@ -14,13 +14,14 @@ public class FlexibleColorPicker : MonoBehaviour {
     public static FlexibleColorPicker instance;
     TeamCreation tc;
     EditingUI eUI;
+    E_Colors eC;
     MapFunctions mF;
     private void Awake()
     {
 
         if (instance != null)
         {
-            Debug.Log("Too many color pickers!");
+            Debug.Log("Too many color pickers!");   
             return;
         }
         instance = this;
@@ -85,7 +86,7 @@ public class FlexibleColorPicker : MonoBehaviour {
         }
         else if (EditingUI.instance)
         {
-            eUI = EditingUI.instance;
+            eC = E_Colors.instance;
         }
     }
 
@@ -124,9 +125,9 @@ public class FlexibleColorPicker : MonoBehaviour {
 
         if (tc)
             tc.currentTeam.teamColor = color;
-        if (eUI)
+        if (eC)
         { 
-            eUI.modelColor = color;
+            eC.modelColor = color;
         }
 
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Grid : MonoBehaviour
 {
@@ -8,13 +9,29 @@ public class Grid : MonoBehaviour
     public Vector3 gridWorldSize;
     public float nodeRadius;
     public LayerMask unwalkableMask;
-    public Node[,,] grid;
+    public Node[,,] nodeGrid;
 
     float nodeDiameter;
     public int gridSizeX, gridSizeY, gridSizeZ;
 
     MapInfo mapInfo;
 
+    public Tile TileFromGrid(Vector3 pos)
+    {
+        int x = Mathf.FloorToInt(pos.x);
+        int y = Mathf.FloorToInt(pos.y);
+        int z = Mathf.FloorToInt(pos.z);
+
+        if (x < 0 || y < 0 || z < 0 ||
+            x >= nodeGrid.GetLength(0) ||
+            y >= nodeGrid.GetLength(1) ||
+            z >= nodeGrid.GetLength(2))
+        {
+            return null;
+        }
+
+        return TileFromNode(nodeGrid[x, y, z]);
+    }
     private void Awake()
     {
         if (instance != null)
@@ -46,7 +63,7 @@ public class Grid : MonoBehaviour
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
         gridSizeZ = Mathf.RoundToInt(gridWorldSize.z / nodeDiameter);
-        grid = new Node[gridSizeX, gridSizeY, gridSizeZ];
+        nodeGrid = new Node[gridSizeX, gridSizeY, gridSizeZ];
         Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.z / 2 - Vector3.up * gridWorldSize.y / 2;
         unwalkableMask = 1 << 11;
 
@@ -61,11 +78,11 @@ public class Grid : MonoBehaviour
                     {
                         walkable = false;
                     }
-                    grid[x, y, z] = new Node(walkable, worldPoint, x, y, z);
+                    nodeGrid[x, y, z] = new Node(walkable, worldPoint, x, y, z);
 
-                    if (TileFromNode(grid[x, y, z]))
+                    if (TileFromNode(nodeGrid[x, y, z]))
                     {
-                        Tile tileScript = TileFromNode(grid[x, y, z]);
+                        Tile tileScript = TileFromNode(nodeGrid[x, y, z]);
                         tileScript.blocked = !walkable;
                         tileScript.nodeWorldPoint = worldPoint;
                     }
@@ -92,12 +109,23 @@ public class Grid : MonoBehaviour
 
                     if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY && checkZ >= 0 && checkZ < gridSizeZ)
                     {
-                        neighbours.Add(grid[checkX, checkY, checkZ]);
+                        neighbours.Add(nodeGrid[checkX, checkY, checkZ]);
                     }
                 }
             }
         }
         return neighbours;
+    }
+    public List<Tile> NodesToTiles(List<Node> nodes)
+    {
+        List<Tile> tiles = new List<Tile>();
+
+        foreach (Node node in nodes)
+        {
+            tiles.Add(TileFromNode(node));
+        }
+
+        return tiles;
     }
     public List<Node> Get8Neighbours(Node node, int range)
     {
@@ -111,13 +139,17 @@ public class Grid : MonoBehaviour
                     if (x == 0 && y == 0 && z == 0)
                         continue;
 
+                    int distance = Mathf.Abs(x) + Mathf.Abs(y) + Mathf.Abs(z);
+                    if (distance > range)
+                        continue;
+
                     int checkX = node.gridX + x;
                     int checkY = node.gridY + y;
                     int checkZ = node.gridZ + z;
 
                     if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY && checkZ >= 0 && checkZ < gridSizeZ)
                     {
-                        neighbours.Add(grid[checkX, checkY, checkZ]);
+                        neighbours.Add(nodeGrid[checkX, checkY, checkZ]);
                     }
                 }
 
@@ -125,6 +157,14 @@ public class Grid : MonoBehaviour
         }
         return neighbours;
     } 
+    public bool IsWithinBounds(Vector3Int check)
+    {
+        if (check.x >= 0 && check.x < gridSizeX && check.y >= 0 && check.y < gridSizeY && check.z >= 0 && check.z < gridSizeZ)
+        {
+            return true;
+        }
+        else return false;
+    }
 
     public List<Vector3> GetSurroundingEnemyLocations(Vector3 currentLocation, int team)
     {
@@ -164,7 +204,7 @@ public class Grid : MonoBehaviour
     public void ResetGrid()
     {
         //Debug.Log ( "Called resetgrid.");
-        foreach (Node item in grid)
+        foreach (Node item in nodeGrid)
         {
             item.gCost = 0;
             item.parent = null;
@@ -188,6 +228,11 @@ public class Grid : MonoBehaviour
         }
     }
 
+    public Node NodeFromTile(Tile tile)
+    {
+        return nodeGrid[(int)tile.tilePos.x, (int)tile.tilePos.y, (int)tile.tilePos.z];
+    }
+
     public Node NodeFromWorldPoint(Vector3 worldPosition)
     {
         float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;
@@ -200,7 +245,7 @@ public class Grid : MonoBehaviour
         int x = Mathf.RoundToInt((gridSizeX - 1) * percentX); 
         int y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
         int z = Mathf.RoundToInt((gridSizeZ - 1) * percentZ);
-        return grid[x, y, z];
+        return nodeGrid[x, y, z];
     }
 
 

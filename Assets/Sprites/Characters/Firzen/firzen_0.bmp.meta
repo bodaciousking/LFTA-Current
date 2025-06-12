@@ -213,7 +213,7 @@ TextureImporter:
       213: -3888327109024361167
     second: firzen_0_69
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -230,9 +230,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -241,12 +244,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -264,10 +267,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -279,6 +287,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -291,6 +300,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1776,9 +1786,79 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      firzen_0_0: -7015452830996679200
+      firzen_0_1: 5544334147446642026
+      firzen_0_10: -5553707678825789971
+      firzen_0_11: -2381148783242808112
+      firzen_0_12: -2409160545883846633
+      firzen_0_13: 5474718726429670496
+      firzen_0_14: 6910552939190016963
+      firzen_0_15: 8049805565002123376
+      firzen_0_16: 3279098899225564770
+      firzen_0_17: -4165693458968468018
+      firzen_0_18: -4638550276583781936
+      firzen_0_19: 1030987482066003854
+      firzen_0_2: -4717899502054446064
+      firzen_0_20: -2279267568243449775
+      firzen_0_21: -7798409489001484812
+      firzen_0_22: -4543607744852026411
+      firzen_0_23: -665806694247797484
+      firzen_0_24: -6198672447353134897
+      firzen_0_25: 3088302635801164237
+      firzen_0_26: 6819041230704974296
+      firzen_0_27: 7835716071579752028
+      firzen_0_28: 8052439497444145894
+      firzen_0_29: -7301190456365158839
+      firzen_0_3: 6856146341805601216
+      firzen_0_30: 9017532050468145328
+      firzen_0_31: 4948330922732981865
+      firzen_0_32: -185370844700648320
+      firzen_0_33: 6586480566224715693
+      firzen_0_34: -3474585353738983997
+      firzen_0_35: 6180504986055427136
+      firzen_0_36: 441168004382604227
+      firzen_0_37: -1516918950653183628
+      firzen_0_38: 7360486721413698112
+      firzen_0_39: -3617496330169233264
+      firzen_0_4: 869594150773901492
+      firzen_0_40: -7719370702800655290
+      firzen_0_41: -8205253454833670009
+      firzen_0_42: -3648064196878968429
+      firzen_0_43: -1422182838647237855
+      firzen_0_44: -5082036849278794680
+      firzen_0_45: -1597170445324111363
+      firzen_0_46: -3663750201047510408
+      firzen_0_47: 4295830956769330948
+      firzen_0_48: 6512096219978328244
+      firzen_0_49: -2404060645472913098
+      firzen_0_5: 2096102721479925454
+      firzen_0_50: -7383126129518855552
+      firzen_0_51: 8012645296967508427
+      firzen_0_52: 6975208035500421437
+      firzen_0_53: 8604521476665544469
+      firzen_0_54: 619827653172293554
+      firzen_0_55: -7514291235733542931
+      firzen_0_56: -5917853950480929172
+      firzen_0_57: 3092629832387003949
+      firzen_0_58: -7221618403800665712
+      firzen_0_59: 919207968967292779
+      firzen_0_6: 5869935555553937448
+      firzen_0_60: -5013395630689883825
+      firzen_0_61: 1718010790705179061
+      firzen_0_62: 4779039181677957212
+      firzen_0_63: 5443082545886777261
+      firzen_0_64: -2382266608016279436
+      firzen_0_65: -7714768506657675649
+      firzen_0_66: 7225495651090641198
+      firzen_0_67: -3187175450496246279
+      firzen_0_68: 3126639365935917710
+      firzen_0_69: -3888327109024361167
+      firzen_0_7: 7559020877068288692
+      firzen_0_8: 2574229522862573338
+      firzen_0_9: -7130909625254059236
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

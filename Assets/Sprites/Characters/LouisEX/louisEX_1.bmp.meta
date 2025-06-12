@@ -156,7 +156,7 @@ TextureImporter:
       213: -3262161177467812665
     second: louisEX_1_50
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -173,9 +173,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -184,12 +187,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -207,10 +210,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -222,6 +230,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -234,6 +243,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1320,9 +1330,60 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      louisEX_1_0: 4062887054510986428
+      louisEX_1_1: 3440417174532190492
+      louisEX_1_10: 2590315081413706846
+      louisEX_1_11: -4120084158038965159
+      louisEX_1_12: -1156692229360787346
+      louisEX_1_13: 5998604644045323367
+      louisEX_1_14: -8913310417949942214
+      louisEX_1_15: 4487324708313327492
+      louisEX_1_16: -1711123562640526641
+      louisEX_1_17: 3561236335302103933
+      louisEX_1_18: -6710053735762481149
+      louisEX_1_19: -6210333999184783804
+      louisEX_1_2: 6867098321546620715
+      louisEX_1_20: -8359294194622326585
+      louisEX_1_21: -7228338272463489981
+      louisEX_1_22: -83842121175865811
+      louisEX_1_23: 1247688280994710489
+      louisEX_1_24: -1917612599206164433
+      louisEX_1_25: 4852309178139973804
+      louisEX_1_26: 71276732161571103
+      louisEX_1_27: -4806390651073797452
+      louisEX_1_28: 2754980044701604054
+      louisEX_1_29: 5519771376084445888
+      louisEX_1_3: -556810596165200262
+      louisEX_1_30: 8399036603502115235
+      louisEX_1_31: 8751778535424815676
+      louisEX_1_32: 8407874297419210454
+      louisEX_1_33: -1117913520474002431
+      louisEX_1_34: 3361907200880820772
+      louisEX_1_35: 7891947304605079828
+      louisEX_1_36: 8258242411583520943
+      louisEX_1_37: 2999392623820306564
+      louisEX_1_38: -6734580048270190486
+      louisEX_1_39: 8337169214390982648
+      louisEX_1_4: 6262910800174009830
+      louisEX_1_40: 3801082863178778857
+      louisEX_1_41: -2552642484347949313
+      louisEX_1_42: -8777757545967392065
+      louisEX_1_43: 906831829386234849
+      louisEX_1_44: 135015907454355967
+      louisEX_1_45: -6014767752869965360
+      louisEX_1_46: -2537039639553351882
+      louisEX_1_47: -4050349520208288691
+      louisEX_1_48: 644405104253010042
+      louisEX_1_49: -473260960721429321
+      louisEX_1_5: 2893985331100424213
+      louisEX_1_50: -3262161177467812665
+      louisEX_1_6: -4537935312917934434
+      louisEX_1_7: -3831303799999252090
+      louisEX_1_8: -3963733857167252966
+      louisEX_1_9: -7698405577034860899
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

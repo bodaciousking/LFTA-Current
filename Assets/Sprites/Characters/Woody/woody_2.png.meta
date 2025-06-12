@@ -123,7 +123,7 @@ TextureImporter:
       213: -7608612544324999651
     second: woody_2_39
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -140,9 +140,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -151,12 +154,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -174,10 +177,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -189,6 +197,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
@@ -201,6 +210,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
@@ -1056,9 +1066,49 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      woody_2_0: 4170930287401578321
+      woody_2_1: -154259345398080216
+      woody_2_10: -3129396298370081503
+      woody_2_11: -3647503420539633716
+      woody_2_12: -3039070394583790760
+      woody_2_13: 3643848454568850008
+      woody_2_14: 7223211322954664983
+      woody_2_15: 372924731574303525
+      woody_2_16: 4881653629853939935
+      woody_2_17: -7433117897839571860
+      woody_2_18: -2574658140637019207
+      woody_2_19: -3340278904600139456
+      woody_2_2: -1197453630106872678
+      woody_2_20: 439752486798405923
+      woody_2_21: 4882330457820289465
+      woody_2_22: -8174657472944683275
+      woody_2_23: -8301618790673011527
+      woody_2_24: 3686930582901242947
+      woody_2_25: 7321058586257855651
+      woody_2_26: 9161391207644962265
+      woody_2_27: -7461886710412998020
+      woody_2_28: -3930746013342458876
+      woody_2_29: 8416501662189356160
+      woody_2_3: -7295336810860069472
+      woody_2_30: 5465859393407613338
+      woody_2_31: 2908729798310279215
+      woody_2_32: -4584294634640943487
+      woody_2_33: 62651901602057994
+      woody_2_34: 4177175645537538637
+      woody_2_35: -6504591990692633014
+      woody_2_36: -3894993501285565706
+      woody_2_37: -4079784121411350570
+      woody_2_38: 3147088798094340339
+      woody_2_39: -7608612544324999651
+      woody_2_4: -4910326474314738537
+      woody_2_5: 2849839173487882283
+      woody_2_6: -8639598603096506513
+      woody_2_7: 7587411403062735594
+      woody_2_8: -9198474633107261609
+      woody_2_9: -1033139567487003549
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

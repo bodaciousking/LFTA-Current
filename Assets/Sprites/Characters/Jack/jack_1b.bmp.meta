@@ -186,7 +186,7 @@ TextureImporter:
       213: 5393182245363560352
     second: jack_1b_60
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -203,9 +203,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -214,12 +217,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -237,10 +240,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -252,6 +260,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -264,6 +273,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1560,9 +1570,70 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      jack_1b_0: 4367632531998155007
+      jack_1b_1: 8235155382600434230
+      jack_1b_10: 867703882897156597
+      jack_1b_11: -4889547562585611057
+      jack_1b_12: 2716977230303865628
+      jack_1b_13: 2414039596687657592
+      jack_1b_14: -5486646424243570952
+      jack_1b_15: 7019992581754717193
+      jack_1b_16: -6318213224158502513
+      jack_1b_17: 5211981710813783848
+      jack_1b_18: 2072318060824317294
+      jack_1b_19: 9144884675384830123
+      jack_1b_2: -772336207357442035
+      jack_1b_20: -1590092506546121576
+      jack_1b_21: -6973677248456598142
+      jack_1b_22: -5884967639800851470
+      jack_1b_23: 1456419033447973893
+      jack_1b_24: 8438981246558636644
+      jack_1b_25: -1436028272610676326
+      jack_1b_26: 6065573861849150381
+      jack_1b_27: 248723712930318182
+      jack_1b_28: 2763124980341148503
+      jack_1b_29: 2998803948335812325
+      jack_1b_3: -8863869320516094997
+      jack_1b_30: -8859084637840124429
+      jack_1b_31: -5046332815327683662
+      jack_1b_32: 6144311996860096206
+      jack_1b_33: 7053731033823121870
+      jack_1b_34: 7552200108636390552
+      jack_1b_35: -4292019160931775455
+      jack_1b_36: -6521153808183992916
+      jack_1b_37: -2315292317629170541
+      jack_1b_38: 1597438497762264892
+      jack_1b_39: 2947156549153847106
+      jack_1b_4: 1121130815737345120
+      jack_1b_40: -2014466123584797508
+      jack_1b_41: -4890471192630641727
+      jack_1b_42: -2119920797588566255
+      jack_1b_43: 2350241774946174210
+      jack_1b_44: -4705395833615043988
+      jack_1b_45: 1009139013145388531
+      jack_1b_46: 6959541192064115735
+      jack_1b_47: -7828362266655704055
+      jack_1b_48: 5439073338272137836
+      jack_1b_49: -4142143968214196559
+      jack_1b_5: 7587235507864277562
+      jack_1b_50: 3656266177540326137
+      jack_1b_51: -6555182074719012166
+      jack_1b_52: 5948965754995298913
+      jack_1b_53: -8796087611944862340
+      jack_1b_54: -9130857310357584401
+      jack_1b_55: 4254729809494608481
+      jack_1b_56: 4814412718550496939
+      jack_1b_57: -3167046131775974202
+      jack_1b_58: 7993074593045846141
+      jack_1b_59: -6817602827300423500
+      jack_1b_6: 3090910599652637644
+      jack_1b_60: 5393182245363560352
+      jack_1b_7: 8402559581211637693
+      jack_1b_8: -1300547354856865726
+      jack_1b_9: 6356243207869466599
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

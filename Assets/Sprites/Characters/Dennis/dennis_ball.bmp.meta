@@ -75,7 +75,7 @@ TextureImporter:
       213: 8801575332622567406
     second: dennis_ball_15
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -92,9 +92,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -103,12 +106,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -126,10 +129,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -141,6 +149,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -153,6 +162,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -174,7 +184,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3f4d7191d5c7d2080800000000000000
-      internalID: -9210568923608001293
+      internalID: -7868758326024199146
       vertices: []
       indices: 
       edges: []
@@ -195,7 +205,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9c3a3eb21dfb5ee30800000000000000
-      internalID: 4532239505123681225
+      internalID: -6537671466206938132
       vertices: []
       indices: 
       edges: []
@@ -216,7 +226,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 280c0c60f4252bae0800000000000000
-      internalID: -1535074023610728318
+      internalID: 8871183528389717881
       vertices: []
       indices: 
       edges: []
@@ -237,7 +247,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2e34579e5bd4c1680800000000000000
-      internalID: -8783059729578114078
+      internalID: 6074604061529369660
       vertices: []
       indices: 
       edges: []
@@ -258,7 +268,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 946ff359389c2bc50800000000000000
-      internalID: 6679622764325762633
+      internalID: -7494576636162799362
       vertices: []
       indices: 
       edges: []
@@ -279,7 +289,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b468ad18918d092b0800000000000000
-      internalID: -5579722334247680437
+      internalID: 6309002233318871991
       vertices: []
       indices: 
       edges: []
@@ -300,7 +310,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7e18d91a843c70990800000000000000
-      internalID: -7419747144353087001
+      internalID: -880078478436001964
       vertices: []
       indices: 
       edges: []
@@ -321,7 +331,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4cf038cab001f0290800000000000000
-      internalID: -7922095577196458044
+      internalID: 1657092589553789366
       vertices: []
       indices: 
       edges: []
@@ -504,9 +514,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      dennis_ball_0: -7868758326024199146
+      dennis_ball_1: -6537671466206938132
+      dennis_ball_10: -9065967104767009420
+      dennis_ball_11: -5852572984829583773
+      dennis_ball_12: -7564554252704835078
+      dennis_ball_13: -4844026185787039870
+      dennis_ball_14: 8172011172584990154
+      dennis_ball_15: 8801575332622567406
+      dennis_ball_2: 8871183528389717881
+      dennis_ball_3: 6074604061529369660
+      dennis_ball_4: -7494576636162799362
+      dennis_ball_5: 6309002233318871991
+      dennis_ball_6: -880078478436001964
+      dennis_ball_7: 1657092589553789366
+      dennis_ball_8: 615944458035428788
+      dennis_ball_9: -1675280834513769889
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
