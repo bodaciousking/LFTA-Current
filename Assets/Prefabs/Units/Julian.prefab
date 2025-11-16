@@ -377,6 +377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38544b1ec5d59ea40b8b179f367ea1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
   target: {fileID: 0}
   unitName: Julian
   unitDescription: This dark master uses the raw power of the universe to dominate
@@ -387,6 +390,7 @@ MonoBehaviour:
   attackRange: 1
   jumpRange: 1
   attackDamage: 10
+  alive: 1
   profile: {fileID: 8015497539439164981, guid: ee447395c3946d24cad03585f1e74b2e, type: 3}
   projectileObject: {fileID: 4018606210118993494, guid: 04114a1abd713244fa058c106630f51c,
     type: 3}
@@ -399,7 +403,6 @@ MonoBehaviour:
   moving: 0
   facingRight: 1
   pendingMove: 0
-  alive: 1
   canAct: 1
   frozenTurns: 0
   defending: 0

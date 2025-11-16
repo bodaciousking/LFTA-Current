@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class FileInfoHolder : MonoBehaviour
 {
-    public string mapSectString, spawnsString;
+    public string mapString, spawnsString, teamString;
     MapPreview mapPreview = MapPreview.instance;
     TeamPreview teamPreview = TeamPreview.instance;
+    //LobbyManager lM;
     public TeamManager.Team myTeam;
-
+    private void Start()
+    {
+        //lM = LobbyManager.Instance;
+    }
+    public void OnClick()
+    {
+        
+    }
     public void ClickDown()
     {
-        if(mapSectString.Length > 5)
+        if (mapString.Length > 5)
         {
             SelectMap();
         }
@@ -22,11 +30,14 @@ public class FileInfoHolder : MonoBehaviour
     }
     public void SelectMap()
     {
-        mapPreview.PreviewMap(mapSectString, spawnsString);
+        //lM.RequestMapChangeRpc(mapString, spawnsString);
     }
 
     public void AddTeam()
     {
-        teamPreview.AddTeam(myTeam);
+        //lM.AddTeamToLobbyRpc(teamString);
+
+        // SINGLE PLAYER
+        // teamPreview.AddTeam(myTeam);
     }
 }

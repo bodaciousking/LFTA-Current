@@ -306,7 +306,8 @@ GameObject:
   - component: {fileID: 7418153272989859853}
   - component: {fileID: 920918553808580148}
   - component: {fileID: 7218830468805774781}
-  - component: {fileID: 6027065736665006554}
+  - component: {fileID: 5235679867800531004}
+  - component: {fileID: 6908436602067099930}
   m_Layer: 11
   m_Name: Davis
   m_TagString: Untagged
@@ -389,7 +390,7 @@ CapsuleCollider:
   m_Height: 1.3664104
   m_Direction: 1
   m_Center: {x: 0, y: 0.67205185, z: 0}
---- !u!114 &6027065736665006554
+--- !u!114 &5235679867800531004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -401,6 +402,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa0200c706bfd14393b98733f8aff1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 6908436602067099930}
+  _networkObjectCache: {fileID: 6908436602067099930}
   target: {fileID: 0}
   unitName: Davis
   unitDescription: Ever heard of Ryu? Davis is comin for that spot, baby. He's a
@@ -412,6 +416,7 @@ MonoBehaviour:
   attackRange: 1
   jumpRange: 1
   attackDamage: 12
+  alive: 1
   profile: {fileID: 7285345895836674082, guid: 69d6963766b3ffc4b99da4f5cb2cfe78, type: 3}
   projectileObject: {fileID: 4018606210118993494, guid: a944ea7d7b59b9d43b536c6c3cedf094,
     type: 3}
@@ -424,9 +429,61 @@ MonoBehaviour:
   moving: 0
   facingRight: 1
   pendingMove: 0
-  alive: 1
   canAct: 1
   frozenTurns: 0
   defending: 0
   midMove: 0
   anim: {fileID: 0}
+--- !u!114 &6908436602067099930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7770209340588647758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <IsNested>k__BackingField: 0
+  WasActiveDuringEdit: 0
+  WasActiveDuringEdit_Set1: 1
+  <ComponentIndex>k__BackingField: 0
+  <PredictedSpawn>k__BackingField: {fileID: 0}
+  <PredictedOwner>k__BackingField: {fileID: 0}
+  NetworkBehaviours:
+  - {fileID: 5235679867800531004}
+  InitializedParentNetworkBehaviour: {fileID: 0}
+  InitializedNestedNetworkObjects: []
+  RuntimeParentNetworkBehaviour: {fileID: 0}
+  RuntimeChildNetworkBehaviours: []
+  _isNetworked: 1
+  _isSpawnable: 1
+  _isGlobal: 0
+  _initializeOrder: 0
+  _preventDespawnOnDisconnect: 0
+  _defaultDespawnType: 0
+  NetworkObserver: {fileID: 0}
+  _enablePrediction: 0
+  _predictionType: 0
+  _graphicalObject: {fileID: 0}
+  _detachGraphicalObject: 0
+  _enableStateForwarding: 1
+  _networkTransform: {fileID: 0}
+  _ownerInterpolation: 1
+  _ownerSmoothedProperties: 255
+  _adaptiveInterpolation: 3
+  _spectatorSmoothedProperties: 255
+  _spectatorInterpolation: 2
+  _enableTeleport: 0
+  _teleportThreshold: 1
+  <PrefabId>k__BackingField: 33
+  <SpawnableCollectionId>k__BackingField: 0
+  <AssetPathHash>k__BackingField: 5843788813936972567
+  <SceneId>k__BackingField: 0
+  SerializedTransformProperties:
+    Position: {x: 0.5, y: 0, z: 4.5}
+    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Scale: {x: 0.8, y: 0.8, z: 0.8}
+    IsValid: 1

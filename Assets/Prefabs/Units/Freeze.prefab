@@ -401,6 +401,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1416ab5ca14ce0478d5a276b78aab13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
   target: {fileID: 0}
   unitName: Freeze
   unitDescription: A cryomancer of mountain peaks, Freeze uses the cold bite of winter
@@ -412,6 +415,7 @@ MonoBehaviour:
   attackRange: 1
   jumpRange: 1
   attackDamage: 8
+  alive: 1
   profile: {fileID: -4666783558505541442, guid: 933154956d2367d44b287bf7915c71c3,
     type: 3}
   projectileObject: {fileID: 4018606210118993494, guid: 3c107da920718824985c581d6c115274,
@@ -425,7 +429,6 @@ MonoBehaviour:
   moving: 0
   facingRight: 1
   pendingMove: 0
-  alive: 1
   canAct: 1
   frozenTurns: 0
   defending: 0

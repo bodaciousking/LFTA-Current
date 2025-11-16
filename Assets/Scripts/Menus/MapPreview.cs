@@ -38,12 +38,13 @@ public class MapPreview : MonoBehaviour
             MapInfo.MapData fileMapData = JsonUtility.FromJson<MapInfo.MapData>(inputString);
 
             fileInfoScript.spawnsString = fileMapData.spawnLocationLists;
-            fileInfoScript.mapSectString = fileMapData.sectData;
+            fileInfoScript.mapString = fileMapData.sectData;
         } 
     }
 
     public void PreviewMap(string sectMapCode, string spawnCode)
     {
+        mapCode = sectMapCode;
         sectMapCode.Trim();
         spawnCode.Trim();
         BasicSect[,,] sectMap = hts.LoadAnArrayFromString(sectMapCode);

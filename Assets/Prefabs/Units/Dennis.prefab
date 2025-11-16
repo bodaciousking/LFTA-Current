@@ -400,6 +400,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6fc16249db89b4695da79118813887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
   target: {fileID: 0}
   unitName: Dennis
   unitDescription: Solid all-rounder, a little more offensively focused than defensive.
@@ -410,6 +413,7 @@ MonoBehaviour:
   attackRange: 1
   jumpRange: 1
   attackDamage: 10
+  alive: 1
   profile: {fileID: 1838319758618689971, guid: 727b5bb07ebe62e4eb84a1ff50aed9da, type: 3}
   projectileObject: {fileID: 4018606210118993494, guid: a944ea7d7b59b9d43b536c6c3cedf094,
     type: 3}
@@ -422,7 +426,6 @@ MonoBehaviour:
   moving: 0
   facingRight: 1
   pendingMove: 0
-  alive: 1
   canAct: 1
   frozenTurns: 0
   defending: 0

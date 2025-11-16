@@ -400,6 +400,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbac3afde93f55f44abf8242adbe8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
   target: {fileID: 0}
   unitName: Deep
   unitDescription: Master swordsman. Deep is an in-your-face pressure fighter with
@@ -410,6 +413,7 @@ MonoBehaviour:
   attackRange: 1
   jumpRange: 1
   attackDamage: 14
+  alive: 1
   profile: {fileID: -7380482322982404173, guid: 5c0f38582eebc384bb8ff3cb537c7332,
     type: 3}
   projectileObject: {fileID: 4018606210118993494, guid: a3fb06afc55f5104db64b309f3bc7f8d,
@@ -423,7 +427,6 @@ MonoBehaviour:
   moving: 0
   facingRight: 1
   pendingMove: 0
-  alive: 1
   canAct: 1
   frozenTurns: 0
   defending: 0

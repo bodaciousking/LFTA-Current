@@ -105,6 +105,7 @@ public class TeamPreview : MonoBehaviour
             string teamString = File.ReadAllText(file);
 
             TeamManager.Team newTeam = JsonUtility.FromJson<TeamManager.Team>(teamString);
+            fileInfoScript.teamString = teamString;
             fileInfoScript.myTeam = newTeam;
             newObj.GetComponent<Image>().color = newTeam.teamColor;
         }
@@ -133,7 +134,18 @@ public class TeamPreview : MonoBehaviour
         else
             Debug.Log("Error! Trying to remove a team that does not exist!");
     }
+    public void UpdateTeamsFromJsonList(IReadOnlyList<string> jsonList)
+    {
+        mI.teams.Clear();
 
+        foreach (string teamJson in jsonList)
+        {
+            TeamManager.Team team = JsonUtility.FromJson<TeamManager.Team>(teamJson);
+            mI.teams.Add(team);
+        }
+
+        UpdateTeamsSlots(); // Your existing method
+    }
     void Start()
     {
         mapPreview = MapPreview.instance;

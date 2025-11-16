@@ -9,6 +9,7 @@ public class TeamPiano : MonoBehaviour
     public TeamManager.Team myTeam;
     public GameObject unitKey;
     public TextMeshProUGUI tmp;
+    //LobbyManager lobbyManager = LobbyManager.Instance;
     TeamPreview tp;
     TeamCreation tC = TeamCreation.instance;
     AllUnitsLibrary aUL = AllUnitsLibrary.instance;
@@ -51,6 +52,17 @@ public class TeamPiano : MonoBehaviour
         tp = TeamPreview.instance;
         tp.RemoveTeam(myTeam);
         Destroy(this.gameObject);
+    }
+    public void TryRemoveTeam()
+    {
+       /* if (lobbyManager.playingOnline)
+        // Only send the teamName (unique identifier) to the server
+        {
+            string teamName = myTeam.teamName;
+            lobbyManager.RemoveTeamFromLobbyRpc(teamName);
+        }
+        else 
+            RemoveMyTeam();*/
     }
 
     // Update is called once per frame

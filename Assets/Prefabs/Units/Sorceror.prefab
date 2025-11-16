@@ -376,6 +376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4db4e787464da643beaa804fc9ed854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
   target: {fileID: 0}
   unitName: Sorcerer
   unitDescription: 
@@ -385,6 +388,7 @@ MonoBehaviour:
   attackRange: 1
   jumpRange: 1
   attackDamage: 5
+  alive: 1
   profile: {fileID: -5632860832368892674, guid: 2b4e7f936115d5b49821bad5acd22747,
     type: 3}
   projectileObject: {fileID: 0}
@@ -397,7 +401,6 @@ MonoBehaviour:
   moving: 0
   facingRight: 1
   pendingMove: 0
-  alive: 1
   canAct: 1
   frozenTurns: 0
   defending: 0

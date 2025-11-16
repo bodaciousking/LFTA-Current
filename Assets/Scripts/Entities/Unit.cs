@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using FishNet.Object;
 
-public class Unit : LivingEntity 
+public class Unit : NetworkBehaviour 
 {
     [HideInInspector]
     public Transform target;
@@ -56,6 +57,7 @@ public class Unit : LivingEntity
     public bool defending = false, midMove = false;
     [HideInInspector]
     public Animator anim;
+
     public virtual void Start()
     {
         ComponentSetup();

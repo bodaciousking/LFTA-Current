@@ -398,6 +398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12bf85460a5f0347b75245e9ccefd91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
   target: {fileID: 0}
   unitName: John
   unitDescription: John is the #1 magic user in the game. He has a cool suite of
@@ -409,6 +412,7 @@ MonoBehaviour:
   attackRange: 1
   jumpRange: 1
   attackDamage: 6
+  alive: 1
   profile: {fileID: -1548488183807873384, guid: c3d4344651c82f54693702ec3f803740,
     type: 3}
   projectileObject: {fileID: 4018606210118993494, guid: 62b76c0993e1e644eae919a0541b5b3e,
@@ -422,7 +426,6 @@ MonoBehaviour:
   moving: 0
   facingRight: 1
   pendingMove: 0
-  alive: 1
   canAct: 1
   frozenTurns: 0
   defending: 0

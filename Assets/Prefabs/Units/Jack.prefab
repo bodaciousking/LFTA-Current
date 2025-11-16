@@ -398,6 +398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d956f058694d04449a5b7b1f3e200e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
   target: {fileID: 0}
   unitName: Henchman
   unitDescription: This guy is dressed like he just got off work, but he's actually
@@ -409,6 +412,7 @@ MonoBehaviour:
   attackRange: 1
   jumpRange: 1
   attackDamage: 10
+  alive: 1
   profile: {fileID: -9153432112006187860, guid: b19474850c5f76d47ba27bb2642f6335,
     type: 3}
   projectileObject: {fileID: 4018606210118993494, guid: f5a5d162a4dd27644926561eeadcca24,
@@ -422,7 +426,6 @@ MonoBehaviour:
   moving: 0
   facingRight: 1
   pendingMove: 0
-  alive: 1
   canAct: 1
   frozenTurns: 0
   defending: 0
